@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ledgy — Expenses that track themselves</title>
+<meta name="description" content="AI expense tracker for iOS. Voice, photo, Siri, Apple Watch, Telegram, Apple Wallet — one inbox. TestFlight beta open.">
+<link rel="canonical" href="https://ledgy.app/">
+<meta property="og:title" content="Ledgy — Expenses that track themselves">
+<meta property="og:description" content="AI expense tracker for iOS. One inbox for voice, photo, Siri, Apple Watch, Telegram, and Apple Wallet.">
+<meta property="og:image" content="/assets/og-image.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ledgy.app/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/ledgy-icon.svg">
+<link rel="apple-touch-icon" href="assets/ledgy-icon.svg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/home.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Ledgy",
+  "operatingSystem": "iOS 15+",
+  "applicationCategory": "FinanceApplication",
+  "description": "AI expense tracker. Voice, photo, Siri, Apple Watch, Telegram, Apple Wallet — one inbox.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+</head>
+<body data-screen-label="01 Home">
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="starfield" aria-hidden="true"></div>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="index.html" class="brand-lockup" aria-label="Ledgy home">
+      <img src="assets/ledgy-icon.svg" alt="" class="brand-icon">
+      <img src="assets/ledgy-logo.svg" alt="Ledgy" class="brand-word">
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <div class="site-header__cta">
+      <a class="btn btn--ghost" href="https://dashboard.ledgy.app" target="_blank" rel="noopener noreferrer">Open dashboard</a>
+      <a class="btn btn--primary" href="https://testflight.apple.com/join/yR7FH5J9" target="_blank" rel="noopener noreferrer" data-cta="Join the iOS Beta" data-cta-position="header">
+        <i class="fa-brands fa-apple" aria-hidden="true"></i>
+        Join the beta
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <span class="pill" aria-label="Beta. Available on iOS via TestFlight.">
+        <i class="fa-brands fa-apple" aria-hidden="true"></i>
+        TestFlight Beta · iOS
+      </span>
+      <h1 class="gradient-text">Expenses that track themselves.</h1>
+      <p class="hero__sub">Snap a receipt, hold the mic on your watch, or shout at Siri. Ledgy parses, categorizes, and files every spend — across iPhone, Apple Watch, web, and Telegram.</p>
+      <div class="hero__cta-row">
+        <div class="hero__cta">
+          <a class="btn btn--primary btn--lg" href="https://testflight.apple.com/join/yR7FH5J9" target="_blank" rel="noopener noreferrer" data-cta="Join the iOS Beta" data-cta-position="hero">
+            <i class="fa-brands fa-apple" aria-hidden="true"></i>
+            Join the iOS Beta
+          </a>
+          <span class="hero__cta-meta">Free TestFlight invite · iOS 15+</span>
+        </div>
+        <div class="hero__cta">
+          <a class="btn btn--secondary btn--lg" href="pricing.html" data-cta="See pricing" data-cta-position="hero">See pricing</a>
+          <span class="hero__cta-meta">Free forever for solo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__visual" aria-hidden="false">
+      <div class="hero__phone">
+        <div class="hero__phone-frame">
+          <div class="hero__phone-screen">
+            <img src="assets/screens/ledgy-add.webp" alt="The Ledgy add-transaction screen with a $555 expense being voice-logged" loading="eager" width="394" height="852">
+          </div>
+          <div class="hero__phone-notch" aria-hidden="true"></div>
+        </div>
+        <!-- floating capture chips -->
+        <div class="capture-chip capture-chip--mic">
+          <i class="fa-solid fa-microphone" aria-hidden="true"></i>
+          <div>
+            <div class="capture-chip__label">Voice</div>
+            <div class="capture-chip__line">"$4.50 coffee at Blue Bottle"</div>
+          </div>
+        </div>
+        <div class="capture-chip capture-chip--receipt">
+          <i class="fa-solid fa-camera" aria-hidden="true"></i>
+          <div>
+            <div class="capture-chip__label">Receipt</div>
+            <div class="capture-chip__line">Lunch · €18.20</div>
+          </div>
+        </div>
+        <div class="capture-chip capture-chip--telegram">
+          <i class="fa-brands fa-telegram" aria-hidden="true"></i>
+          <div>
+            <div class="capture-chip__label">Telegram</div>
+            <div class="capture-chip__line">Tank of gas · 60 EUR</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Trust strip ===== -->
+<section class="trust container-narrow">
+  <a class="trust__item trust__item--link" href="#faq-languages">
+    <i class="fa-solid fa-globe" aria-hidden="true"></i>
+    <span>Available in 14 languages</span>
+  </a>
+  <div class="trust__divider" aria-hidden="true"></div>
+  <div class="trust__item">
+    <i class="fa-solid fa-lock" aria-hidden="true"></i>
+    <span>Offline-first. Your data on your device.</span>
+  </div>
+</section>
+
+<!-- ===== How it works ===== -->
+<section class="section how">
+  <div class="container">
+    <div class="section__head">
+      <span class="t-eyebrow">How it works</span>
+      <h2>Three steps. Then never again.</h2>
+      <p>Capture is whatever's fastest in the moment. Ledgy figures out the rest.</p>
+    </div>
+
+    <div class="how__grid">
+      <article class="glass how__card">
+        <div class="how__step">01</div>
+        <i class="fa-solid fa-microphone how__icon" aria-hidden="true"></i>
+        <h3>Capture</h3>
+        <p>Voice on your watch, photo of a receipt, or a forwarded SMS in Telegram.</p>
+      </article>
+      <article class="glass how__card">
+        <div class="how__step">02</div>
+        <i class="fa-solid fa-wand-magic-sparkles how__icon" aria-hidden="true"></i>
+        <h3>Parse</h3>
+        <p>AI reads it, picks the right category, account, and group.</p>
+      </article>
+      <article class="glass how__card">
+        <div class="how__step">03</div>
+        <i class="fa-solid fa-arrows-rotate how__icon" aria-hidden="true"></i>
+        <h3>See it everywhere</h3>
+        <p>Local first on iPhone, then synced to Apple Watch, web dashboard, and shared groups.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Capture surfaces ===== -->
+<section class="section surfaces">
+  <div class="container">
+    <div class="section__head">
+      <span class="t-eyebrow">Capture surfaces</span>
+      <h2>Five ways in. <span class="gradient-text">One inbox.</span></h2>
+      <p>Whatever device is closest, that's the one Ledgy uses. Everything ends up in the same ledger.</p>
+    </div>
+
+    <div class="surfaces__grid">
+      <article class="glass-flat surface">
+        <div class="surface__icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></div>
+        <h3>iPhone</h3>
+        <p>Voice, photo, manual numpad, or paste-from-anywhere. One tap, one verb. Done.</p>
+      </article>
+      <article class="glass-flat surface">
+        <div class="surface__icon surface__icon--watch"><i class="fa-brands fa-apple" aria-hidden="true"></i></div>
+        <h3>Apple Watch</h3>
+        <p>Hold the mic. Speak. Done in 5 seconds. Watch complications deep-link straight to record.</p>
+      </article>
+      <article class="glass-flat surface">
+        <div class="surface__icon"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i></div>
+        <h3>Siri</h3>
+        <p>"Hey Siri, log expense to Ledgy." App Intents on iOS 16+.</p>
+      </article>
+      <article class="glass-flat surface">
+        <div class="surface__icon"><i class="fa-solid fa-wallet" aria-hidden="true"></i></div>
+        <h3>Apple Wallet</h3>
+        <p>Apple Pay payments auto-log. Each card gets its own AI rule (e.g. "tag with Trip 2026").</p>
+      </article>
+      <article class="glass-flat surface">
+        <div class="surface__icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></div>
+        <h3>Telegram bot</h3>
+        <p>Text, photo, or voice in your chat. Inline pickers to fix anything in two taps.</p>
+      </article>
+      <article class="glass-flat surface">
+        <div class="surface__icon"><i class="fa-solid fa-share-from-square" aria-hidden="true"></i></div>
+        <h3>iOS Share Sheet</h3>
+        <p>Share any image to Ledgy. Receipt parsed. Transaction created.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Smart by default — alternating rows ===== -->
+<section class="section smart">
+  <div class="container">
+    <div class="section__head">
+      <span class="t-eyebrow">Smart by default</span>
+      <h2>The boring parts of money — handled.</h2>
+    </div>
+
+    <div class="row">
+      <div class="row__copy">
+        <h3>AI that learns your life</h3>
+        <p>Well-known categories, your custom ones, custom rules. Per-card Wallet rules so your "Travel" Visa always tags as Trip 2026.</p>
+        <ul class="checklist">
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> 14 default categories + unlimited custom</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Per-card rules for Apple Pay</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Re-parses past transactions when you correct it</li>
+        </ul>
+      </div>
+      <div class="row__visual">
+        <div class="phone-frame phone-frame--small">
+          <img src="assets/screens/ledgy-home.webp" alt="Ledgy transaction list categorized automatically" loading="lazy" width="394" height="852">
+        </div>
+      </div>
+    </div>
+
+    <div class="row row--reverse">
+      <div class="row__copy">
+        <h3>Budgets that watch your back</h3>
+        <p>Per-category and overall, weekly / monthly / quarterly / yearly. They pulse red the moment you cross. No surprises.</p>
+        <ul class="checklist">
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> 4 budget periods, mix and match</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Soft caps and hard caps</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Local notifications when you're close</li>
+        </ul>
+      </div>
+      <div class="row__visual">
+        <div class="budget-mock glass">
+          <div class="budget-mock__row">
+            <div class="budget-mock__top">
+              <div class="budget-mock__cat">
+                <span class="cat-circle" style="--c: #FF6B6B;"><i class="fa-solid fa-utensils"></i></span>
+                <div>
+                  <div class="budget-mock__name">Food &amp; Drink</div>
+                  <div class="budget-mock__sub">$612 of $600</div>
+                </div>
+              </div>
+              <span class="budget-mock__pct budget-mock__pct--over">102%</span>
+            </div>
+            <div class="bar"><div class="bar__fill bar__fill--over" style="width:100%"></div></div>
+          </div>
+
+          <div class="budget-mock__row">
+            <div class="budget-mock__top">
+              <div class="budget-mock__cat">
+                <span class="cat-circle" style="--c: #F4A621;"><i class="fa-solid fa-cart-shopping"></i></span>
+                <div>
+                  <div class="budget-mock__name">Groceries</div>
+                  <div class="budget-mock__sub">$384 of $500</div>
+                </div>
+              </div>
+              <span class="budget-mock__pct budget-mock__pct--warn">77%</span>
+            </div>
+            <div class="bar"><div class="bar__fill bar__fill--warn" style="width:77%"></div></div>
+          </div>
+
+          <div class="budget-mock__row">
+            <div class="budget-mock__top">
+              <div class="budget-mock__cat">
+                <span class="cat-circle" style="--c: #2BC470;"><i class="fa-solid fa-car"></i></span>
+                <div>
+                  <div class="budget-mock__name">Transport</div>
+                  <div class="budget-mock__sub">$142 of $250</div>
+                </div>
+              </div>
+              <span class="budget-mock__pct budget-mock__pct--ok">57%</span>
+            </div>
+            <div class="bar"><div class="bar__fill bar__fill--ok" style="width:57%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row__copy">
+        <h3>Multi-currency without the math</h3>
+        <p>Live FX. Tap and hold any amount to convert. Set a primary currency and Ledgy translates the totals.</p>
+        <ul class="checklist">
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Daily-refreshed rates from a reliable source</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Per-account currency, primary at the top</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Trip-mode when you're abroad</li>
+        </ul>
+      </div>
+      <div class="row__visual">
+        <div class="fx-mock glass">
+          <div class="fx-mock__row">
+            <span class="fx-flag">€</span>
+            <div class="fx-mock__name">Trip · Europe</div>
+            <div class="fx-mock__amount">€2,418.00</div>
+          </div>
+          <div class="fx-mock__arrow"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+          <div class="fx-mock__row fx-mock__row--primary">
+            <span class="fx-flag fx-flag--primary">$</span>
+            <div class="fx-mock__name">Primary · USD</div>
+            <div class="fx-mock__amount">$2,612.94</div>
+          </div>
+          <div class="fx-mock__rate">€1 = $1.0808 · today</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row row--reverse">
+      <div class="row__copy">
+        <h3>Receipts kept where they belong</h3>
+        <p>Photo attach. Server-cloned to all members of a shared group, isolated to your namespace, deleted when you say so.</p>
+        <ul class="checklist">
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> One tap to attach from camera or library</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Searchable by amount and merchant</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Encrypted at rest, isolated per user</li>
+        </ul>
+      </div>
+      <div class="row__visual">
+        <div class="receipt-mock glass">
+          <div class="receipt-mock__paper">
+            <div class="receipt-mock__store">Blue Bottle Coffee</div>
+            <div class="receipt-mock__line"><span>Cortado</span><span>$4.50</span></div>
+            <div class="receipt-mock__line"><span>Almond croissant</span><span>$5.25</span></div>
+            <div class="receipt-mock__line receipt-mock__line--total"><span>Total</span><span>$9.75</span></div>
+            <div class="receipt-mock__date">May 9, 2026 · 09:17</div>
+          </div>
+          <div class="receipt-mock__tag">
+            <span class="cat-circle" style="--c: #F4A621;"><i class="fa-solid fa-mug-saucer"></i></span>
+            <div>
+              <div class="receipt-mock__cat">Coffee &amp; Tea</div>
+              <div class="receipt-mock__amount">−$9.75</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MCP ===== -->
+<section class="section mcp">
+  <div class="container">
+    <div class="section__head">
+      <span class="t-eyebrow">Talk to your money</span>
+      <h2>Ask <span class="gradient-text">ChatGPT, Claude, or Cursor</span><br>about your spending.</h2>
+      <p>Connect Ledgy to your favorite AI chat. Ask it anything in plain English — “what did I spend on coffee last month?” — and it answers from your own data. No copy-paste, no spreadsheets.</p>
+    </div>
+
+    <div class="mcp__inner glass">
+      <div class="mcp__viz" aria-hidden="true">
+        <div class="mcp__hub">
+          <img src="assets/ledgy-icon.svg" alt="">
+          <span>Ledgy</span>
+        </div>
+        <div class="mcp__client mcp__client--claude">
+          <i class="fa-solid fa-comment-dots"></i>
+          <span>Claude</span>
+        </div>
+        <div class="mcp__client mcp__client--gpt">
+          <i class="fa-solid fa-circle-nodes"></i>
+          <span>ChatGPT</span>
+        </div>
+        <div class="mcp__client mcp__client--cursor">
+          <i class="fa-solid fa-i-cursor"></i>
+          <span>Cursor</span>
+        </div>
+        <div class="mcp__client mcp__client--other">
+          <i class="fa-solid fa-puzzle-piece"></i>
+          <span>And more</span>
+        </div>
+        <svg class="mcp__lines" viewBox="0 0 600 360" preserveAspectRatio="none">
+          <line x1="300" y1="180" x2="80" y2="60"></line>
+          <line x1="300" y1="180" x2="520" y2="60"></line>
+          <line x1="300" y1="180" x2="80" y2="300"></line>
+          <line x1="300" y1="180" x2="520" y2="300"></line>
+        </svg>
+      </div>
+
+      <div class="mcp__copy">
+        <ul class="mcp__prompts">
+          <li><i class="fa-solid fa-quote-left"></i> "What did I spend on coffee last month?"</li>
+          <li><i class="fa-solid fa-quote-left"></i> "Am I on track for my groceries budget?"</li>
+          <li><i class="fa-solid fa-quote-left"></i> "Plot my last 90 days by category."</li>
+          <li><i class="fa-solid fa-quote-left"></i> "Find every transaction over €100 in May."</li>
+        </ul>
+        <p class="mcp__note">Connect once, ask anything. Your AI only sees what you allow — you’re always in control, and you can disconnect any time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Built for sharing ===== -->
+<section class="section sharing">
+  <div class="container">
+    <div class="sharing__inner glass">
+      <div class="sharing__copy">
+        <span class="t-eyebrow">Built for sharing</span>
+        <h2>Personally owned. <br><span class="gradient-text">Group-visible.</span></h2>
+        <p>Join a family budget or trip group, and your transactions stay yours forever. Sharing decides who sees them — never who owns them. Leave the group, keep your history.</p>
+        <a class="btn btn--secondary" href="pricing.html#sharing" data-cta="See sharing in pricing" data-cta-position="sharing">See sharing in pricing →</a>
+      </div>
+      <div class="sharing__diagram" aria-hidden="true">
+        <div class="avatar-cluster">
+          <div class="avatar avatar--a">
+            <i class="fa-solid fa-user"></i>
+            <span class="avatar__chip avatar__chip--coffee">−$9.75</span>
+          </div>
+          <div class="avatar avatar--b">
+            <i class="fa-solid fa-user"></i>
+            <span class="avatar__chip avatar__chip--rent">−$1,450</span>
+          </div>
+          <div class="avatar avatar--c">
+            <i class="fa-solid fa-user"></i>
+            <span class="avatar__chip avatar__chip--gas">−€60</span>
+          </div>
+          <div class="group-node">
+            <div class="group-node__title">Family · 3 members</div>
+            <div class="group-node__sub">Shared visibility</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Made for the way you live ===== -->
+<section class="section devices">
+  <div class="container">
+    <div class="section__head">
+      <span class="t-eyebrow">Wrist · Pocket · Browser</span>
+      <h2>Capture on the wrist. Analyze in the browser.</h2>
+      <p>Same ledger, every device. The watch is for now, the dashboard is for later.</p>
+    </div>
+
+    <div class="devices__grid">
+      <div class="devices__card glass">
+        <div class="watch-frame" aria-hidden="true">
+          <div class="watch-frame__screen">
+            <div class="watch-time">9:41</div>
+            <div class="watch-mic">
+              <i class="fa-solid fa-microphone"></i>
+            </div>
+            <div class="watch-wave">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="watch-prompt">Listening…</div>
+          </div>
+          <div class="watch-crown" aria-hidden="true"></div>
+        </div>
+        <div class="devices__caption">
+          <h3>Apple Watch</h3>
+          <p>Hold the digital crown. Speak. The transaction is on your phone before you put your wrist down.</p>
+        </div>
+      </div>
+
+      <div class="devices__card glass">
+        <div class="laptop-frame" aria-hidden="true">
+          <div class="laptop-frame__screen">
+            <img src="assets/screens/web-dash.webp" alt="The Ledgy web dashboard showing monthly summary, spend by category, and budgets" loading="lazy">
+          </div>
+          <div class="laptop-frame__base"></div>
+        </div>
+        <div class="devices__caption">
+          <h3>Web dashboard</h3>
+          <p>Trends, drill-downs, exports. Where the ledger turns into insight.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Numbers strip ===== -->
+<section class="section--tight numbers">
+  <div class="container">
+    <div class="numbers__grid">
+      <div class="numbers__item">
+        <div class="numbers__big">14</div>
+        <div class="numbers__label">Languages, fully translated</div>
+      </div>
+      <div class="numbers__item">
+        <div class="numbers__big">29</div>
+        <div class="numbers__label">CSV import locales auto-detected</div>
+      </div>
+      <div class="numbers__item">
+        <div class="numbers__big">30+</div>
+        <div class="numbers__label">MCP tools for AI agents</div>
+      </div>
+      <div class="numbers__item">
+        <div class="numbers__big">5</div>
+        <div class="numbers__label">Capture surfaces · 1 inbox</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section faq">
+  <div class="container container-narrow">
+    <div class="section__head">
+      <span class="t-eyebrow">FAQ</span>
+      <h2>The eight questions everyone asks.</h2>
+    </div>
+
+    <div class="faq__list">
+      <details class="faq__item">
+        <summary><span>Is Ledgy free?</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq__body"><p>Yes — every solo-tracking feature is free forever. Cloud unlocks multi-device sync, sharing, AI voice/photo intake, Siri, Apple Watch logging, Telegram bot, Apple Wallet automation, and the web dashboard.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary><span>How much is Cloud?</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq__body"><p>$6.99/month or $59.99/year (~$5/mo). 7-day free trial. Cancel anytime.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary><span>Is there an Android version?</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq__body"><p>Not yet. Ledgy is currently iOS-only via TestFlight beta. Android is on the roadmap — drop us a line if you want to be notified.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary><span>Does Ledgy work offline?</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq__body"><p>Yes. Every screen reads from a local SQLite database on your phone. New transactions appear instantly; sync happens in the background when you're back online.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary><span>What happens to my data if I leave a shared group?</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq__body"><p>Nothing. Your transactions are personally owned — sharing only decides who sees them. Leave the group, keep your history.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary><span>Is my voice sent to a server?</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq__body"><p>No. Voice is transcribed on your device using Apple's on-device speech recognizer. Only the resulting text is sent to our AI for parsing.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary><span>Can I import from Mint / YNAB / another app?</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq__body"><p>Yes. The CSV import wizard auto-detects column headers in 29 languages, currency symbols, and category aliases. Bring your full history.</p></div>
+      </details>
+      <details class="faq__item" id="faq-languages">
+        <summary><span>What languages do you support?</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq__body"><p>14 fully translated locales: English, German, Spanish (Mexico), French, Hindi, Italian, Japanese, Korean, Polish, Portuguese (Brazil), Russian, Turkish, Ukrainian, and Simplified Chinese.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Final CTA band ===== -->
+<section class="cta-band">
+  <div class="cta-band__inner">
+    <h2>Start logging the lazy way.</h2>
+    <p>Ledgy is free for everything you'd want as a solo user. Cloud unlocks every device, every surface, every shared group.</p>
+    <div class="cta-band__buttons">
+      <a class="btn btn--primary btn--lg" href="https://testflight.apple.com/join/yR7FH5J9" target="_blank" rel="noopener noreferrer" data-cta="Join the iOS Beta" data-cta-position="footer-cta">
+        <i class="fa-brands fa-apple" aria-hidden="true"></i>
+        Join the iOS Beta
+      </a>
+      <a class="btn btn--secondary btn--lg" href="pricing.html" data-cta="See pricing" data-cta-position="footer-cta">See pricing</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <a href="index.html" class="brand-lockup" style="margin-bottom: 14px;">
+          <img src="assets/ledgy-icon.svg" alt="" class="brand-icon">
+          <img src="assets/ledgy-logo.svg" alt="Ledgy" class="brand-word">
+        </a>
+        <p class="site-footer__about">Expenses that track themselves. AI expense tracker for iOS, currently in TestFlight beta.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="https://dashboard.ledgy.app" target="_blank" rel="noopener noreferrer">Open dashboard</a></li>
+          <li><a href="https://testflight.apple.com/join/yR7FH5J9" target="_blank" rel="noopener noreferrer">Join the beta</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="support.html">Help center</a></li>
+          <li><a href="mailto:support@ledgy.app">support@ledgy.app</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <span>© 2026 Ledgy</span>
+      <div class="site-footer__legal-links">
+        <span class="pill pill--success" style="font-size:11px;"><span class="dot"></span> All systems operational</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

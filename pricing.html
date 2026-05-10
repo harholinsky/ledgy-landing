@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Ledgy</title>
+<meta name="description" content="Free for solo. Cloud for everything else. $6.99/mo or $59.99/yr — 7-day free trial.">
+<link rel="canonical" href="https://ledgy.app/pricing">
+<link rel="icon" type="image/svg+xml" href="assets/ledgy-icon.svg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/pricing.css">
+</head>
+<body data-screen-label="02 Pricing">
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="starfield" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="index.html" class="brand-lockup" aria-label="Ledgy home">
+      <img src="assets/ledgy-icon.svg" alt="" class="brand-icon">
+      <img src="assets/ledgy-logo.svg" alt="Ledgy" class="brand-word">
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="pricing.html" aria-current="page">Pricing</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <div class="site-header__cta">
+      <a class="btn btn--ghost" href="https://dashboard.ledgy.app" target="_blank" rel="noopener noreferrer">Open dashboard</a>
+      <a class="btn btn--primary" href="https://testflight.apple.com/join/yR7FH5J9" target="_blank" rel="noopener noreferrer" data-cta="Join the iOS Beta" data-cta-position="header">
+        <i class="fa-brands fa-apple"></i> Join the beta
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="pricing-hero">
+  <div class="container">
+    <div class="section__head">
+      <span class="pill"><span class="dot"></span> Pricing · USD</span>
+      <h1><span class="gradient-text">Free for solo.</span><br>Cloud for everything else.</h1>
+      <p>7-day free trial. Cancel any time from the App Store.</p>
+    </div>
+
+    <div class="toggle-wrap">
+      <div class="toggle" role="tablist" aria-label="Billing period">
+        <button id="toggle-monthly" role="tab" aria-selected="false" class="toggle__opt">Monthly</button>
+        <button id="toggle-yearly" role="tab" aria-selected="true" class="toggle__opt is-active">Yearly</button>
+      </div>
+      <span id="save-chip" class="pill pill--save"><i class="fa-solid fa-tag"></i> Save 28%</span>
+    </div>
+
+    <div class="plans">
+      <article class="glass plan plan--free">
+        <div class="plan__head">
+          <h2>Free</h2>
+          <div class="plan__price"><span class="plan__amount">$0</span> <span class="plan__period">forever</span></div>
+          <p class="plan__sub">Single-device. Offline-first.</p>
+        </div>
+        <ul class="plan__features">
+          <li><i class="fa-solid fa-check"></i> All transactions, accounts, categories, tags, groups</li>
+          <li><i class="fa-solid fa-check"></i> Budgets — per-category &amp; overall, all periods</li>
+          <li><i class="fa-solid fa-check"></i> Recurring transactions</li>
+          <li><i class="fa-solid fa-check"></i> Multi-currency with live rates</li>
+          <li><i class="fa-solid fa-check"></i> CSV import &amp; export</li>
+          <li><i class="fa-solid fa-check"></i> Receipts</li>
+          <li><i class="fa-solid fa-check"></i> Local notifications</li>
+          <li><i class="fa-solid fa-check"></i> 14 languages</li>
+        </ul>
+        <a class="btn btn--secondary btn--lg btn--block" href="https://testflight.apple.com/join/yR7FH5J9" target="_blank" rel="noopener noreferrer" data-cta="Join the iOS Beta" data-cta-position="pricing-free">
+          <i class="fa-brands fa-apple"></i> Join the iOS Beta
+        </a>
+        <p class="plan__footnote plan__footnote--ghost">&nbsp;</p>
+      </article>
+
+      <article class="glass plan plan--cloud">
+        <div class="plan__ribbon">Recommended</div>
+        <div class="plan__head">
+          <h2>Cloud</h2>
+          <div class="plan__price">
+            <span class="plan__amount" id="price-amount">$59.99</span>
+            <span class="plan__period" id="price-period">/year</span>
+          </div>
+          <p class="plan__sub" id="price-sub">= $5.00/month, billed yearly</p>
+          <p class="plan__trial">7-day free trial · no charge until trial ends</p>
+        </div>
+        <ul class="plan__features">
+          <li><i class="fa-solid fa-check"></i> Snap a photo, talk, or text. We log it.</li>
+          <li><i class="fa-solid fa-check"></i> “Hey Siri, log expense to Ledgy.”</li>
+          <li><i class="fa-solid fa-check"></i> Works in Telegram &amp; with our open API.</li>
+          <li><i class="fa-solid fa-check"></i> Web dashboard with trends &amp; reports.</li>
+          <li><i class="fa-solid fa-check"></i> Family &amp; group sharing for everyone you trust.</li>
+          <li><i class="fa-solid fa-check"></i> Cross-device sync &amp; cloud backup.</li>
+          <li><i class="fa-solid fa-check"></i> Ask ChatGPT, Claude, or Cursor about your money — via MCP.</li>
+          <li><i class="fa-solid fa-check"></i> Open MCP server &amp; API — connect anything you build.</li>
+        </ul>
+        <a id="subscribe-cta" class="btn btn--primary btn--lg btn--block" href="https://dashboard.ledgy.app/shop?plan=yearly" target="_blank" rel="noopener noreferrer" data-cta="Subscribe — start trial" data-cta-position="pricing-cloud">
+          Subscribe — start trial
+        </a>
+        <p class="plan__footnote">Subscription auto-renews unless cancelled at least 24 hours before the end of the period.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section compare-section">
+  <div class="container container-narrow">
+    <div class="section__head">
+      <span class="t-eyebrow">Compare plans</span>
+      <h2>Everything, side by side.</h2>
+    </div>
+    <div class="compare glass-flat">
+      <div class="compare__row compare__row--head">
+        <div>Feature</div><div>Free</div><div class="compare__cloud">Cloud</div>
+      </div>
+      <div class="compare__row"><div>Transactions, accounts, budgets</div><div class="ok"><i class="fa-solid fa-check"></i></div><div class="ok"><i class="fa-solid fa-check"></i></div></div>
+      <div class="compare__row"><div>Recurring transactions</div><div class="ok"><i class="fa-solid fa-check"></i></div><div class="ok"><i class="fa-solid fa-check"></i></div></div>
+      <div class="compare__row"><div>Multi-currency</div><div class="ok"><i class="fa-solid fa-check"></i></div><div class="ok"><i class="fa-solid fa-check"></i></div></div>
+      <div class="compare__row"><div>CSV import/export</div><div class="ok"><i class="fa-solid fa-check"></i></div><div class="ok"><i class="fa-solid fa-check"></i></div></div>
+      <div class="compare__row"><div>Receipts</div><div class="ok"><i class="fa-solid fa-check"></i></div><div class="ok"><i class="fa-solid fa-check"></i></div></div>
+      <div class="compare__row"><div>AI voice intake</div><div class="no">—</div><div class="ok"><i class="fa-solid fa-check"></i></div></div>
+      <div class="compare__row"><div>AI photo intake</div><div class="no">—</div><div class="ok"><i class="fa-solid fa-check"></i></div></div>
+      <div class="compare__row"><div>Siri ("Log expense to Ledgy")</div><div class="no">—</div><div class="ok"><i class="fa-solid fa-check"></i></div></div>
+      <div class="compare__row"><div>Apple Watch logging</div><div class="no">—</div><div class="ok"><i class="fa-solid fa-check"></i></div></div>
+      <div class="compare__row"><div>Telegram bot</div><div class="no">—</div><div class="ok"><i class="fa-solid fa-check"></i></div></div>
+      <div class="compare__row"><div>Apple Wallet automation</div><div class="no">—</div><div class="ok"><i class="fa-solid fa-check"></i></div></div>
+      <div class="compare__row"><div>iOS Share extension</div><div class="no">—</div><div class="ok"><i class="fa-solid fa-check"></i></div></div>
+      <div class="compare__row"><div>Web dashboard</div><div class="no">—</div><div class="ok"><i class="fa-solid fa-check"></i></div></div>
+      <div class="compare__row"><div>Ask AI about your spending (ChatGPT, Claude…)</div><div class="no">—</div><div class="ok"><i class="fa-solid fa-check"></i></div></div>
+      <div class="compare__row"><div>Sharing — accounts, groups, budgets</div><div class="no">—</div><div class="ok"><i class="fa-solid fa-check"></i></div></div>
+      <div class="compare__row"><div>Multi-device sync</div><div class="no">—</div><div class="ok"><i class="fa-solid fa-check"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="sharing" class="section sharing-anchor">
+  <div class="container container-narrow">
+    <div class="glass sharing-anchor__inner">
+      <span class="t-eyebrow">Sharing</span>
+      <h2>Personally owned. Group-visible.</h2>
+      <p>Cloud unlocks shared accounts, groups, and budgets. Sharing decides who sees a transaction — never who owns it. Three steps:</p>
+      <ol class="sharing-anchor__steps">
+        <li><span class="num">1</span><div><strong>Open the resource</strong> you want to share — an account, group, or budget.</div></li>
+        <li><span class="num">2</span><div><strong>Generate an invite</strong> — 8-character code or QR.</div></li>
+        <li><span class="num">3</span><div><strong>They join with one tap</strong> — your transactions appear, still owned by you.</div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="section faq">
+  <div class="container container-narrow">
+    <div class="section__head">
+      <span class="t-eyebrow">Pricing FAQ</span>
+      <h2>Five things people ask before subscribing.</h2>
+    </div>
+    <div class="faq__list">
+      <details class="faq__item"><summary><span>How does the trial work?</span><i class="fa-solid fa-chevron-down"></i></summary><div class="faq__body"><p>Tap subscribe and you'll get 7 days of full Cloud access. You won't be charged until the trial ends, and you can cancel anytime in Settings → [Your Name] → Subscriptions on iPhone.</p></div></details>
+      <details class="faq__item"><summary><span>Can I cancel any time?</span><i class="fa-solid fa-chevron-down"></i></summary><div class="faq__body"><p>Yes. Subscriptions are managed by Apple. Cancel any time and you'll keep access until the end of the current billing period.</p></div></details>
+      <details class="faq__item"><summary><span>What's your refund policy?</span><i class="fa-solid fa-chevron-down"></i></summary><div class="faq__body"><p>Refunds are handled by Apple. Request one through <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer" style="color: var(--primary-light);">reportaproblem.apple.com</a> within Apple's standard window.</p></div></details>
+      <details class="faq__item"><summary><span>Does Family Sharing work?</span><i class="fa-solid fa-chevron-down"></i></summary><div class="faq__body"><p>Apple Family Sharing for the subscription is on the roadmap. In the meantime, Cloud's group sharing lets multiple Ledgy accounts share visibility.</p></div></details>
+      <details class="faq__item"><summary><span>What happens if my subscription lapses?</span><i class="fa-solid fa-chevron-down"></i></summary><div class="faq__body"><p>Your data stays put on-device. Cloud-only features (sync, AI intake, Siri, Watch, Telegram, dashboard, sharing) pause. Resubscribe and they all turn back on.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="cta-band__inner">
+    <h2>Try Cloud free for 7 days.</h2>
+    <p>Or grab the free plan and ship it forever. No pressure either way.</p>
+    <div class="cta-band__buttons">
+      <a class="btn btn--primary btn--lg" href="https://testflight.apple.com/join/yR7FH5J9" target="_blank" rel="noopener noreferrer" data-cta="Join the iOS Beta" data-cta-position="footer-cta">
+        <i class="fa-brands fa-apple"></i> Join the iOS Beta
+      </a>
+      <a class="btn btn--secondary btn--lg" id="cta-band-subscribe" href="https://dashboard.ledgy.app/shop?plan=yearly" target="_blank" rel="noopener noreferrer" data-cta="Subscribe" data-cta-position="footer-cta">Start trial</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <a href="index.html" class="brand-lockup" style="margin-bottom: 14px;">
+          <img src="assets/ledgy-icon.svg" alt="" class="brand-icon">
+          <img src="assets/ledgy-logo.svg" alt="Ledgy" class="brand-word">
+        </a>
+        <p class="site-footer__about">Expenses that track themselves. AI expense tracker for iOS, currently in TestFlight beta.</p>
+      </div>
+      <div><h4>Product</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="https://dashboard.ledgy.app" target="_blank" rel="noopener noreferrer">Open dashboard</a></li>
+        <li><a href="https://testflight.apple.com/join/yR7FH5J9" target="_blank" rel="noopener noreferrer">Join the beta</a></li>
+      </ul></div>
+      <div><h4>Support</h4><ul>
+        <li><a href="support.html">Help center</a></li>
+        <li><a href="mailto:support@ledgy.app">support@ledgy.app</a></li>
+      </ul></div>
+      <div><h4>Legal</h4><ul>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul></div>
+    </div>
+    <div class="site-footer__legal">
+      <span>© 2026 Ledgy</span>
+      <span class="pill pill--success" style="font-size:11px;"><span class="dot"></span> All systems operational</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+<script>
+// === Pricing — fetch live, fall back to baked constant ===
+const FALLBACK_PRICING = {
+  currency: "USD",
+  entitlement: "cloud",
+  trialDays: 7,
+  packages: [
+    { id: "monthly", period: "month", price: 6.99, priceFormatted: "$6.99", priceSuffix: "/mo", billingDescription: "Billed monthly" },
+    { id: "yearly", period: "year", price: 59.99, priceFormatted: "$59.99", priceSuffix: "/yr",
+      monthlyEquivalentFormatted: "$5.00", savingsPercent: 28, isPopular: true, billingDescription: "Billed annually" },
+  ],
+  ctaUrl: "https://dashboard.ledgy.app/shop",
+  disclaimer: "Subscription auto-renews unless cancelled at least 24 hours before the end of the current period.",
+};
+
+let pricingData = FALLBACK_PRICING;
+let selectedPlan = "yearly";
+
+async function loadPricing() {
+  try {
+    const r = await fetch("https://api.ledgy.app/api/revenuecat/pricing", { headers: { Accept: "application/json" } });
+    if (!r.ok) throw new Error(r.status);
+    const data = await r.json();
+    if (data && Array.isArray(data.packages) && data.packages.length) pricingData = data;
+  } catch { /* keep fallback */ }
+  render();
+}
+
+function render() {
+  const pkg = pricingData.packages.find(p => p.id === selectedPlan) || pricingData.packages[0];
+  const isYearly = pkg.id === "yearly";
+  const periodLabel = isYearly ? "/year" : "/month";
+
+  document.getElementById("price-amount").textContent = pkg.priceFormatted;
+  document.getElementById("price-period").textContent = periodLabel;
+  document.getElementById("price-sub").textContent = isYearly && pkg.monthlyEquivalentFormatted
+    ? `= ${pkg.monthlyEquivalentFormatted}/month, billed yearly`
+    : pkg.billingDescription || "Billed monthly";
+
+  const saveChip = document.getElementById("save-chip");
+  if (isYearly && pkg.savingsPercent) {
+    saveChip.style.display = "";
+    saveChip.innerHTML = `<i class="fa-solid fa-tag"></i> Save ${pkg.savingsPercent}%`;
+  } else {
+    saveChip.style.display = "none";
+  }
+
+  const url = `${pricingData.ctaUrl}?plan=${pkg.id}`;
+  document.getElementById("subscribe-cta").href = url;
+  document.getElementById("cta-band-subscribe").href = url;
+
+  document.getElementById("toggle-yearly").classList.toggle("is-active", isYearly);
+  document.getElementById("toggle-yearly").setAttribute("aria-selected", isYearly);
+  document.getElementById("toggle-monthly").classList.toggle("is-active", !isYearly);
+  document.getElementById("toggle-monthly").setAttribute("aria-selected", !isYearly);
+}
+
+document.getElementById("toggle-monthly").addEventListener("click", () => { selectedPlan = "monthly"; render();
+  if (window.plausible) window.plausible("pricing_toggle", { props: { to: "monthly" } });
+});
+document.getElementById("toggle-yearly").addEventListener("click", () => { selectedPlan = "yearly"; render();
+  if (window.plausible) window.plausible("pricing_toggle", { props: { to: "yearly" } });
+});
+
+render();
+loadPricing();
+</script>
+</body>
+</html>
