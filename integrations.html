@@ -47,6 +47,7 @@
     <h4>Contents</h4>
     <ol>
       <li><a href="#quick-start">Quick start for Claude</a></li>
+      <li><a href="#quick-start-chatgpt">Quick start for ChatGPT</a></li>
       <li><a href="#prompts">What you can ask</a></li>
       <li><a href="#capabilities">What Ledgy can do</a></li>
       <li><a href="#privacy">Privacy &amp; control</a></li>
@@ -68,8 +69,20 @@
       <p class="doc-meta"><span><i class="fa-solid fa-circle-info"></i> Works in Claude.ai and Claude Desktop. Mobile clients that support custom MCP connectors will also work.</span></p>
     </section>
 
+    <section id="quick-start-chatgpt">
+      <h2 data-num="02">Quick start for ChatGPT</h2>
+      <ol>
+        <li>Open ChatGPT → <strong>Settings → Connectors</strong> → <em>Add custom connector</em>.</li>
+        <li>Name: <code>Ledgy</code>.</li>
+        <li>MCP Server URL: <code>https://api.ledgy.app/mcp</code>.</li>
+        <li>Authentication: <strong>OAuth</strong> (auto-discovered) → click <strong>Connect</strong> → sign in with Apple → grant access.</li>
+        <li>In any chat, open the tools menu (paperclip / <i class="fa-solid fa-plus"></i>) → pick <strong>Ledgy</strong> → ask away.</li>
+      </ol>
+      <p class="doc-meta"><span><i class="fa-solid fa-circle-info"></i> Custom connectors require ChatGPT Plus, Pro, Business, or Enterprise. The connector lives on the web app and the desktop app; mobile support follows OpenAI's rollout.</span></p>
+    </section>
+
     <section id="prompts">
-      <h2 data-num="02">What you can ask</h2>
+      <h2 data-num="03">What you can ask</h2>
       <ul>
         <li><em>"What did I spend on coffee last month?"</em> — aggregation by category over a date range.</li>
         <li><em>"Add a €12 lunch at Pret to my Wise account from yesterday."</em> — single transaction create with merchant, amount, currency, and date parsing.</li>
@@ -83,7 +96,7 @@
     </section>
 
     <section id="capabilities">
-      <h2 data-num="03">What Ledgy can do</h2>
+      <h2 data-num="04">What Ledgy can do</h2>
       <ul>
         <li>Read your accounts, transactions, categories, budgets, groups, and tags.</li>
         <li>Add or edit transactions, accounts, categories, budgets, and recurring rules.</li>
@@ -95,22 +108,22 @@
     </section>
 
     <section id="privacy">
-      <h2 data-num="04">Privacy &amp; control</h2>
+      <h2 data-num="05">Privacy &amp; control</h2>
       <ul>
-        <li>The assistant only sees data you ask about. We don't push your full ledger to Anthropic on connection.</li>
+        <li>The assistant only sees data you ask about. We don't push your full ledger to Anthropic or OpenAI on connection.</li>
         <li>You sign in with Apple. We never see your Apple ID password.</li>
-        <li>Disconnect any time from <strong>Claude → Settings → Connectors</strong>. Revoking access takes effect immediately.</li>
+        <li>Disconnect any time from your client's <strong>Settings → Connectors</strong> (Claude, ChatGPT, or any other MCP client). Revoking access takes effect immediately.</li>
       </ul>
       <p>Full details in our <a href="privacy.html">Privacy Policy</a>.</p>
     </section>
 
     <section id="other-clients">
-      <h2 data-num="05">Other clients</h2>
-      <p>Ledgy works with any MCP-compatible client — ChatGPT, Cursor, custom desktop apps, and others. The setup is the same: add the MCP server URL <code>https://api.ledgy.app/mcp</code>, complete the OAuth sign-in, and start asking. Dynamic Client Registration (RFC 7591) means no manual credential exchange is required.</p>
+      <h2 data-num="06">Other clients</h2>
+      <p>Ledgy works with any MCP-compatible client — Cursor, Continue, custom desktop apps, and others. The setup is the same: add the MCP server URL <code>https://api.ledgy.app/mcp</code>, complete the OAuth sign-in, and start asking. Dynamic Client Registration (RFC 7591) means no manual credential exchange is required.</p>
     </section>
 
     <section id="support">
-      <h2 data-num="06">Support</h2>
+      <h2 data-num="07">Support</h2>
       <p>Stuck or want a feature? Open the <a href="support.html">help center</a> or email <a href="mailto:support@ledgy.app">support@ledgy.app</a>.</p>
     </section>
   </article>
