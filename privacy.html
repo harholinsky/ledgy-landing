@@ -120,6 +120,9 @@
         <li>Diagnose crashes and improve the product.</li>
       </ul>
       <p><strong>We do not</strong> sell your data, share it for advertising, or use it to train third-party AI models.</p>
+
+      <h3>AI Assistants &amp; Model Context Protocol (MCP)</h3>
+      <p>If you connect Ledgy to an AI assistant (Claude, ChatGPT, Cursor, or any MCP-compatible client) via our <a href="integrations.html">integrations</a> page, that assistant receives the data necessary to answer your queries — typically transaction excerpts, category names, account balances, or aggregated totals. You control what is queried: the assistant only sees data it explicitly requests on your behalf. You can disconnect at any time from the assistant's settings; revoking access takes effect immediately. We do not push your full ledger to the assistant on connection.</p>
     </section>
 
     <section id="third-parties">
@@ -127,7 +130,7 @@
       <p>To deliver the Service we rely on the following providers. Each is bound by a Data Processing Agreement and processes data only on our instructions.</p>
       <ul>
         <li><strong>Hetzner</strong> — hosting our backend and database in Germany (EU).</li>
-        <li><strong>OpenAI / Anthropic</strong> — AI parsing of transaction text. Your transcribed message is sent for parsing; outputs are not used to train their models per their API terms.</li>
+        <li><strong>OpenAI / Anthropic</strong> — AI parsing of transaction text. Your transcribed message is sent for parsing; outputs are not used to train their models per their API terms. Anthropic also acts as the AI assistant when you connect Ledgy to Claude via the Model Context Protocol; queried data is sent to Anthropic for the duration of the conversation and not used for model training under their API terms.</li>
         <li><strong>RevenueCat</strong> — subscription state on iOS.</li>
         <li><strong>Apple</strong> — payment processing for in-app subscriptions and crash reporting.</li>
         <li><strong>Resend</strong> — transactional email delivery.</li>
@@ -177,7 +180,7 @@
         <a href="index.html" class="brand-lockup" style="margin-bottom: 14px;"><img src="assets/ledgy-icon.svg" alt="" class="brand-icon"><img src="assets/ledgy-logo.svg" alt="Ledgy" class="brand-word"></a>
         <p class="site-footer__about">Expenses that track themselves.</p>
       </div>
-      <div><h4>Product</h4><ul><li><a href="index.html">Home</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="https://dashboard.ledgy.app" target="_blank" rel="noopener noreferrer">Dashboard</a></li></ul></div>
+      <div><h4>Product</h4><ul><li><a href="index.html">Home</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="integrations.html">Integrations</a></li><li><a href="https://dashboard.ledgy.app" target="_blank" rel="noopener noreferrer">Dashboard</a></li></ul></div>
       <div><h4>Support</h4><ul><li><a href="support.html">Help center</a></li><li><a href="mailto:support@ledgy.app">support@ledgy.app</a></li></ul></div>
       <div><h4>Legal</h4><ul><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
     </div>

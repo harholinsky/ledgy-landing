@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integrations — Ledgy</title>
+<meta name="description" content="Connect Ledgy to Claude, ChatGPT, Cursor, and any AI assistant that speaks Model Context Protocol.">
+<link rel="canonical" href="https://ledgy.app/integrations">
+<link rel="icon" type="image/svg+xml" href="assets/ledgy-icon.svg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/doc.css">
+</head>
+<body data-screen-label="06 Integrations">
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="starfield" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="index.html" class="brand-lockup"><img src="assets/ledgy-icon.svg" alt="" class="brand-icon"><img src="assets/ledgy-logo.svg" alt="Ledgy" class="brand-word"></a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <div class="site-header__cta">
+      <a class="btn btn--ghost" href="https://dashboard.ledgy.app" target="_blank" rel="noopener noreferrer">Open dashboard</a>
+      <a class="btn btn--primary" href="https://testflight.apple.com/join/yR7FH5J9" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-apple"></i> Join the beta</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="doc-hero">
+  <div class="container">
+    <span class="t-eyebrow">Product</span>
+    <h1>Integrations</h1>
+    <p class="doc-meta">
+      <span><i class="fa-solid fa-plug"></i> Talk to your money. Connect Ledgy to any AI assistant that speaks Model Context Protocol.</span>
+    </p>
+  </div>
+</section>
+
+<div class="container">
+<div class="doc">
+  <aside class="doc__toc" aria-label="Table of contents">
+    <h4>Contents</h4>
+    <ol>
+      <li><a href="#quick-start">Quick start for Claude</a></li>
+      <li><a href="#prompts">What you can ask</a></li>
+      <li><a href="#capabilities">What Ledgy can do</a></li>
+      <li><a href="#privacy">Privacy &amp; control</a></li>
+      <li><a href="#other-clients">Other clients</a></li>
+      <li><a href="#support">Support</a></li>
+    </ol>
+  </aside>
+
+  <article class="doc__body">
+    <section id="quick-start">
+      <h2 data-num="01">Quick start for Claude</h2>
+      <ol>
+        <li>Open Claude → <strong>Settings → Connectors</strong> → <em>Add custom connector</em>.</li>
+        <li>Name: <code>Ledgy</code>.</li>
+        <li>Server URL: <code>https://api.ledgy.app/mcp</code>.</li>
+        <li>Click <strong>Add</strong> → sign in with Apple → grant access.</li>
+        <li>Open any chat → enable <strong>Ledgy</strong> under the connectors menu → ask away.</li>
+      </ol>
+      <p class="doc-meta"><span><i class="fa-solid fa-circle-info"></i> Works in Claude.ai and Claude Desktop. Mobile clients that support custom MCP connectors will also work.</span></p>
+    </section>
+
+    <section id="prompts">
+      <h2 data-num="02">What you can ask</h2>
+      <ul>
+        <li><em>"What did I spend on coffee last month?"</em> — aggregation by category over a date range.</li>
+        <li><em>"Add a €12 lunch at Pret to my Wise account from yesterday."</em> — single transaction create with merchant, amount, currency, and date parsing.</li>
+        <li><em>"Transfer 200 EUR from Wise Personal to Cash."</em> — cross-account transfer with optional cross-currency FX.</li>
+        <li><em>"How does my April spending compare to March?"</em> — multi-period aggregation in your primary currency.</li>
+        <li><em>"Find every transaction over €100 in May."</em> — filtered transaction search.</li>
+        <li><em>"Show my top 5 categories this quarter."</em> — top-N aggregation.</li>
+        <li><em>"What's my Santander balance right now?"</em> — live balance using the same formula as the mobile app.</li>
+        <li><em>"Reconcile Santander to 616 EUR — my bank app shows that."</em> — one-shot adjustment to align Ledgy with an external figure.</li>
+      </ul>
+    </section>
+
+    <section id="capabilities">
+      <h2 data-num="03">What Ledgy can do</h2>
+      <ul>
+        <li>Read your accounts, transactions, categories, budgets, groups, and tags.</li>
+        <li>Add or edit transactions, accounts, categories, budgets, and recurring rules.</li>
+        <li>Move money between accounts, including cross-currency transfers with FX.</li>
+        <li>Convert currencies at live ECB rates.</li>
+        <li>Attach receipts (server-side fetch from a public URL) and fetch a signed download URL.</li>
+        <li>Compute live account balances and reconcile against an external figure.</li>
+      </ul>
+    </section>
+
+    <section id="privacy">
+      <h2 data-num="04">Privacy &amp; control</h2>
+      <ul>
+        <li>The assistant only sees data you ask about. We don't push your full ledger to Anthropic on connection.</li>
+        <li>You sign in with Apple. We never see your Apple ID password.</li>
+        <li>Disconnect any time from <strong>Claude → Settings → Connectors</strong>. Revoking access takes effect immediately.</li>
+      </ul>
+      <p>Full details in our <a href="privacy.html">Privacy Policy</a>.</p>
+    </section>
+
+    <section id="other-clients">
+      <h2 data-num="05">Other clients</h2>
+      <p>Ledgy works with any MCP-compatible client — ChatGPT, Cursor, custom desktop apps, and others. The setup is the same: add the MCP server URL <code>https://api.ledgy.app/mcp</code>, complete the OAuth sign-in, and start asking. Dynamic Client Registration (RFC 7591) means no manual credential exchange is required.</p>
+    </section>
+
+    <section id="support">
+      <h2 data-num="06">Support</h2>
+      <p>Stuck or want a feature? Open the <a href="support.html">help center</a> or email <a href="mailto:support@ledgy.app">support@ledgy.app</a>.</p>
+    </section>
+  </article>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <a href="index.html" class="brand-lockup" style="margin-bottom: 14px;"><img src="assets/ledgy-icon.svg" alt="" class="brand-icon"><img src="assets/ledgy-logo.svg" alt="Ledgy" class="brand-word"></a>
+        <p class="site-footer__about">Expenses that track themselves.</p>
+      </div>
+      <div><h4>Product</h4><ul><li><a href="index.html">Home</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="integrations.html">Integrations</a></li><li><a href="https://dashboard.ledgy.app" target="_blank" rel="noopener noreferrer">Dashboard</a></li></ul></div>
+      <div><h4>Support</h4><ul><li><a href="support.html">Help center</a></li><li><a href="mailto:support@ledgy.app">support@ledgy.app</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    </div>
+    <div class="site-footer__legal"><span>© 2026 Ledgy</span></div>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+<script src="assets/doc.js" defer></script>
+</body>
+</html>
