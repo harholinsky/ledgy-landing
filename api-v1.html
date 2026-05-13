@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API v1 Reference — Ledgy for Developers</title>
+<meta name="description" content="Ledgy REST API v1 reference. Authenticate with a Personal Access Token and manage accounts, categories, budgets, groups, and transactions over HTTPS.">
+<link rel="canonical" href="https://ledgy.app/api-v1">
+<link rel="icon" type="image/svg+xml" href="assets/ledgy-icon.svg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/doc.css">
+<script src="assets/analytics.js" defer></script>
+</head>
+<body data-screen-label="07 API v1 Reference">
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="starfield" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="index.html" class="brand-lockup"><img src="assets/ledgy-icon.svg" alt="" class="brand-icon"><img src="assets/ledgy-logo.svg" alt="Ledgy" class="brand-word"></a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <div class="site-header__cta">
+      <a class="btn btn--ghost" href="https://dashboard.ledgy.app" target="_blank" rel="noopener noreferrer">Open dashboard</a>
+      <a class="btn btn--primary" href="https://testflight.apple.com/join/yR7FH5J9" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-apple"></i> Join the beta</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="doc-hero">
+  <div class="container">
+    <span class="t-eyebrow">Developers</span>
+    <h1>API v1 reference</h1>
+    <p class="doc-meta">
+      <span><i class="fa-solid fa-code"></i> REST · JSON · OAuth 2.0 Bearer</span>
+      <span><i class="fa-solid fa-server"></i> <code>https://api.ledgy.app</code></span>
+      <span><i class="fa-solid fa-circle-check"></i> Stable — no breaking changes within v1</span>
+    </p>
+  </div>
+</section>
+
+<div class="container">
+<div class="doc">
+  <aside class="doc__toc" aria-label="Table of contents">
+    <h4>Contents</h4>
+    <ol>
+      <li class="toc-group">Getting started</li>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#quickstart">Quickstart</a></li>
+      <li><a href="#authentication">Authentication</a></li>
+      <li><a href="#scopes">Scopes</a></li>
+      <li><a href="#subscription">Subscription gate</a></li>
+
+      <li class="toc-group">Conventions</li>
+      <li><a href="#errors">Errors</a></li>
+      <li><a href="#pagination">Pagination &amp; filters</a></li>
+      <li><a href="#types">Types &amp; formats</a></li>
+
+      <li class="toc-group">Resources</li>
+      <li><a href="#accounts">Accounts</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#budgets">Budgets</a></li>
+      <li><a href="#groups">Groups</a></li>
+      <li><a href="#transactions">Transactions</a></li>
+      <li><a href="#icons">Icons</a></li>
+
+      <li class="toc-group">More</li>
+      <li><a href="#changelog">Versioning</a></li>
+      <li><a href="#support">Support</a></li>
+    </ol>
+  </aside>
+
+  <article class="doc__body">
+
+    <!-- ============================================================
+         OVERVIEW
+         ============================================================ -->
+    <section id="overview">
+      <h2 data-num="01">Overview</h2>
+      <p>The Ledgy API is a JSON REST API for programmatically managing the same ledger you use in the iOS app — accounts, categories, budgets, shared groups, and transactions. Use it to build importers, exporters, sync bridges, dashboards, or to power your own automations.</p>
+      <ul>
+        <li><strong>Base URL:</strong> <code>https://api.ledgy.app</code></li>
+        <li><strong>Version prefix:</strong> all endpoints in this document are mounted under <code>/api/v1/</code>.</li>
+        <li><strong>Transport:</strong> HTTPS only. HTTP requests are not accepted.</li>
+        <li><strong>Encoding:</strong> JSON request and response bodies. UTF-8. <code>camelCase</code> property names.</li>
+        <li><strong>Authentication:</strong> <code>Authorization: Bearer …</code> on every request.</li>
+        <li><strong>Cloud subscription:</strong> required on every v1 endpoint. See <a href="#subscription">Subscription gate</a>.</li>
+      </ul>
+      <div class="callout">
+        <i class="fa-solid fa-flask"></i>
+        <div>
+          <strong>Looking for an AI assistant?</strong> If you want Claude, ChatGPT, or Cursor to talk to Ledgy on your behalf, use the Model Context Protocol endpoint at <code>https://api.ledgy.app/mcp</code> — see <a href="integrations.html">Integrations</a>. The REST API documented here is for code you write yourself.
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         QUICKSTART
+         ============================================================ -->
+    <section id="quickstart">
+      <h2 data-num="02">Quickstart</h2>
+      <p>Three steps to your first authenticated request.</p>
+
+      <h3>1. Mint a Personal Access Token</h3>
+      <ol>
+        <li>Sign in to your <a href="https://dashboard.ledgy.app" target="_blank" rel="noopener noreferrer">Ledgy dashboard</a> and open <strong>Settings → API Access</strong>.</li>
+        <li>Click <strong>+ New token</strong>.</li>
+        <li>Give the token a descriptive name (e.g. <em>"Zapier — weekly export"</em>), pick the scopes you need (see <a href="#scopes">Scopes</a>), and optionally set an expiry.</li>
+        <li>Copy the token. It's shown <em>once</em>. Tokens start with the prefix <code>lgpat_</code> followed by 64 hex characters.</li>
+      </ol>
+      <p>The same page lists your active tokens with their last-used timestamp and permission count, surfaces an "Expiring in 30 days" warning, and lets you revoke any token instantly via the trash icon. Each account can hold up to 25 active tokens at a time.</p>
+
+      <h3>2. Make a request</h3>
+      <div class="code-block">
+        <div class="code-block__header"><span class="code-block__lang">cURL</span><span class="code-block__caption">List accounts</span></div>
+<pre><span class="c-cmt"># Replace lgpat_… with your token</span>
+curl <span class="c-str">"https://api.ledgy.app/api/v1/accounts"</span> \
+  -H <span class="c-str">"Authorization: Bearer lgpat_a1b2c3d4e5…"</span></pre>
+      </div>
+
+      <h3>3. Inspect the response</h3>
+      <div class="code-block">
+        <div class="code-block__header"><span class="code-block__lang">200 OK</span><span class="code-block__caption">application/json</span></div>
+<pre>{
+  <span class="c-key">"items"</span>: [
+    {
+      <span class="c-key">"id"</span>: <span class="c-str">"acc_01HK8V…"</span>,
+      <span class="c-key">"name"</span>: <span class="c-str">"Wise EUR"</span>,
+      <span class="c-key">"currencyCode"</span>: <span class="c-str">"EUR"</span>,
+      <span class="c-key">"initialBalance"</span>: <span class="c-num">1240.50</span>,
+      <span class="c-key">"icon"</span>: <span class="c-str">"wallet"</span>,
+      <span class="c-key">"color"</span>: <span class="c-str">"#4A90E2"</span>,
+      <span class="c-key">"order"</span>: <span class="c-num">0</span>,
+      <span class="c-key">"createdAt"</span>: <span class="c-str">"2026-04-12T08:13:09Z"</span>,
+      <span class="c-key">"updatedAt"</span>: <span class="c-str">"2026-05-01T17:02:31Z"</span>
+    }
+  ],
+  <span class="c-key">"totalCount"</span>: <span class="c-num">1</span>
+}</pre>
+      </div>
+
+      <div class="callout">
+        <i class="fa-solid fa-shield-halved"></i>
+        <div><strong>Treat your token like a password.</strong> Anyone with the token can read or modify your ledger within the scopes you granted. Revoke compromised tokens immediately from <strong>Settings → API Access</strong>.</div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         AUTHENTICATION
+         ============================================================ -->
+    <section id="authentication">
+      <h2 data-num="03">Authentication</h2>
+      <p>Every request to <code>/api/v1/</code> must carry an <code>Authorization</code> header. Two token types are accepted:</p>
+      <ul>
+        <li><strong>Personal Access Token (PAT)</strong> — long-lived bearer token you create from the dashboard's <strong>Settings → API Access</strong> page. Format: <code>lgpat_</code> + 64 hex characters. Scoped, revocable, optionally expiring. <strong>Recommended for all third-party integrations.</strong></li>
+        <li><strong>Session JWT</strong> — short-lived token issued to the first-party apps (iOS, dashboard). Has no scope restrictions. You can use it for one-off testing if you can extract one from a signed-in session, but PATs are the supported path.</li>
+      </ul>
+
+      <h3>Header format</h3>
+      <div class="code-block">
+        <div class="code-block__header"><span class="code-block__lang">HTTP</span></div>
+<pre>Authorization: Bearer lgpat_a1b2c3d4e5f6…</pre>
+      </div>
+
+      <h3>Token limits</h3>
+      <ul>
+        <li>Up to <strong>25 active PATs</strong> per Ledgy account.</li>
+        <li>An optional expiration can be set at creation time. Expired tokens return <code>401 Unauthorized</code>.</li>
+        <li>Revoked tokens stop working immediately — Ledgy stores only a SHA-256 hash of the token, never the value, so a leaked token cannot be recovered, only revoked and replaced.</li>
+      </ul>
+
+      <h3>Common auth failures</h3>
+      <dl class="status-grid">
+        <dt class="s4xx">401</dt><dd>Missing, malformed, expired, or revoked token.</dd>
+        <dt class="s4xx">403</dt><dd>Token is valid but the requested endpoint requires a scope your PAT does not have, or your Cloud subscription is not active.</dd>
+      </dl>
+    </section>
+
+    <!-- ============================================================
+         SCOPES
+         ============================================================ -->
+    <section id="scopes">
+      <h2 data-num="04">Scopes</h2>
+      <p>PATs follow a <strong>deny-by-default</strong> model. A token can only call endpoints whose required scope it holds; everything else returns <code>403 Forbidden</code>. Grant the narrowest set of scopes your integration actually needs.</p>
+
+      <p>Available scopes:</p>
+      <div class="scope-list">
+        <code>accounts:read</code>
+        <code>accounts:write</code>
+        <code>categories:read</code>
+        <code>categories:write</code>
+        <code>budgets:read</code>
+        <code>budgets:write</code>
+        <code>groups:read</code>
+        <code>groups:write</code>
+        <code>transactions:read</code>
+        <code>transactions:write</code>
+        <code>tags:read</code>
+        <code>tags:write</code>
+        <code>recurring:read</code>
+        <code>recurring:write</code>
+        <code>settings:read</code>
+        <code>settings:write</code>
+      </div>
+      <p>Each endpoint listed below shows its required scope as a small purple chip. <em>:write</em> scopes do not imply <em>:read</em> — request both if you need both.</p>
+    </section>
+
+    <!-- ============================================================
+         SUBSCRIPTION GATE
+         ============================================================ -->
+    <section id="subscription">
+      <h2 data-num="05">Subscription gate</h2>
+      <p>All v1 endpoints — including read-only ones — require the calling user to have an <strong>active Ledgy Cloud subscription</strong>. If the subscription has lapsed, expired, or never been started, the API responds with:</p>
+      <div class="code-block">
+        <div class="code-block__header"><span class="code-block__lang">403 Forbidden</span></div>
+<pre>HTTP/1.1 403 Forbidden
+X-Subscription-Required: true
+Content-Type: application/json
+
+{ <span class="c-key">"error"</span>: <span class="c-str">"Active cloud subscription required"</span> }</pre>
+      </div>
+      <p>The <code>X-Subscription-Required</code> header lets clients distinguish a subscription block from a generic permission denial. Restore access by reactivating Cloud in the iOS app or at <a href="pricing.html">ledgy.app/pricing</a>.</p>
+    </section>
+
+    <!-- ============================================================
+         ERRORS
+         ============================================================ -->
+    <section id="errors">
+      <h2 data-num="06">Errors</h2>
+      <p>Errors use standard HTTP status codes. The response body is a single-field JSON object:</p>
+      <div class="code-block">
+        <div class="code-block__header"><span class="code-block__lang">JSON</span></div>
+<pre>{ <span class="c-key">"error"</span>: <span class="c-str">"Human-readable message"</span> }</pre>
+      </div>
+      <p>Status codes you should handle:</p>
+      <dl class="status-grid">
+        <dt class="s2xx">200</dt><dd>OK — resource returned, or list returned.</dd>
+        <dt class="s2xx">201</dt><dd>Created — new resource created. <code>Location</code> header points to the canonical URL.</dd>
+        <dt class="s2xx">204</dt><dd>No Content — successful delete; no body.</dd>
+        <dt class="s4xx">400</dt><dd>Validation failed — required field missing, value out of range, malformed JSON.</dd>
+        <dt class="s4xx">401</dt><dd>Authentication failed — see <a href="#authentication">Authentication</a>.</dd>
+        <dt class="s4xx">403</dt><dd>Permission denied — insufficient scope or inactive subscription.</dd>
+        <dt class="s4xx">404</dt><dd>Resource not found, or hidden behind authorization.</dd>
+        <dt class="s4xx">409</dt><dd>Conflict — e.g. unique constraint violation.</dd>
+        <dt class="s5xx">5xx</dt><dd>Server-side failure. Safe to retry idempotent reads with exponential backoff.</dd>
+      </dl>
+    </section>
+
+    <!-- ============================================================
+         PAGINATION & FILTERS
+         ============================================================ -->
+    <section id="pagination">
+      <h2 data-num="07">Pagination &amp; filters</h2>
+      <p>List endpoints return all matching items by default. Transactions, the only resource that can grow large, supports cursor-based pagination.</p>
+
+      <h3>Transactions cursor</h3>
+      <div class="code-block">
+        <div class="code-block__header"><span class="code-block__lang">cURL</span><span class="code-block__caption">Paginated list</span></div>
+<pre>curl <span class="c-str">"https://api.ledgy.app/api/v1/transactions?limit=50&amp;type=expense&amp;dateFrom=2026-01-01"</span> \
+  -H <span class="c-str">"Authorization: Bearer lgpat_…"</span></pre>
+      </div>
+      <p>The response includes a <code>nextCursor</code>. Pass it back as the <code>cursor</code> query param to fetch the next page; when <code>nextCursor</code> is <code>null</code> you've reached the end.</p>
+      <ul>
+        <li><code>limit</code> — page size, clamped to <code>1..200</code>. Default <code>50</code>.</li>
+        <li><code>cursor</code> — opaque token. Treat it as a black box.</li>
+        <li><code>type</code>, <code>dateFrom</code>, <code>dateTo</code>, <code>categoryId</code>, <code>accountId</code>, <code>groupId</code> — optional filters; see the <a href="#tx-list">List transactions</a> endpoint.</li>
+      </ul>
+    </section>
+
+    <!-- ============================================================
+         TYPES & FORMATS
+         ============================================================ -->
+    <section id="types">
+      <h2 data-num="08">Types &amp; formats</h2>
+      <ul>
+        <li><strong>IDs</strong> — opaque strings. Do not parse them; treat them as case-sensitive UTF-8 identifiers.</li>
+        <li><strong>Timestamps</strong> — ISO-8601 in UTC with a trailing <code>Z</code>, e.g. <code>"2026-05-13T10:30:00Z"</code>.</li>
+        <li><strong>Dates</strong> (e.g. transaction <code>date</code>) — the same ISO-8601 shape, but only the date portion is significant.</li>
+        <li><strong>Money</strong> — JSON numbers in <strong>major units</strong> with up to 4 decimal places (e.g. <code>12.50</code>). Never minor units. Always paired with <code>currencyCode</code>.</li>
+        <li><strong>Currency codes</strong> — ISO-4217, exactly three uppercase letters (e.g. <code>"EUR"</code>, <code>"USD"</code>, <code>"GBP"</code>).</li>
+        <li><strong>Deletes</strong> — all delete operations are <strong>soft deletes</strong>. Deleted items stop appearing in list/get responses; sharing partners and historical receipts are preserved.</li>
+        <li><strong>Side effects</strong> — deleting an account, category, or group leaves dependent transactions intact; their references are detached. The <a href="#acc-delete">Delete account</a> endpoint accepts an explicit strategy.</li>
+      </ul>
+    </section>
+
+    <!-- ============================================================
+         ACCOUNTS
+         ============================================================ -->
+    <section id="accounts">
+      <h2 data-num="09">Accounts</h2>
+      <p class="resource-intro">Accounts are the buckets that hold balances — a bank account, a credit card, a cash wallet, a brokerage. Every transaction is linked to one (or two, for transfers).</p>
+
+      <!-- LIST -->
+      <div class="endpoint" id="acc-list">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--get">GET</span>
+          <code class="endpoint__path">/api/v1/accounts</code>
+          <span class="endpoint__scope">accounts:read</span>
+          <p class="endpoint__desc">Return every account the authenticated user owns or has access to.</p>
+        </div>
+      </div>
+
+      <!-- GET -->
+      <div class="endpoint" id="acc-get">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--get">GET</span>
+          <code class="endpoint__path">/api/v1/accounts/<span class="var">{id}</span></code>
+          <span class="endpoint__scope">accounts:read</span>
+          <p class="endpoint__desc">Fetch one account by id. <code>404</code> if not found.</p>
+        </div>
+      </div>
+
+      <!-- CREATE -->
+      <div class="endpoint" id="acc-create">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--post">POST</span>
+          <code class="endpoint__path">/api/v1/accounts</code>
+          <span class="endpoint__scope">accounts:write</span>
+          <p class="endpoint__desc">Create a new account. Returns <code>201</code> with the created object and a <code>Location</code> header.</p>
+        </div>
+        <div class="params">
+          <span class="params__title">Request body</span>
+          <table class="params-table">
+            <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td class="name">name</td><td class="type">string</td><td class="desc"><span class="tag req">required</span>Display name. Max 100 chars.</td></tr>
+              <tr><td class="name">currencyCode</td><td class="type">string</td><td class="desc"><span class="tag req">required</span>ISO-4217. Exactly 3 letters.</td></tr>
+              <tr><td class="name">initialBalance</td><td class="type">number</td><td class="desc"><span class="tag req">required</span>Opening balance in <code>currencyCode</code>.</td></tr>
+              <tr><td class="name">order</td><td class="type">integer</td><td class="desc"><span class="tag req">required</span>Sort position. Lower comes first.</td></tr>
+              <tr><td class="name">icon</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Icon identifier from <a href="#icons">/api/v1/icons</a>. Max 50.</td></tr>
+              <tr><td class="name">color</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Hex color, e.g. <code>"#4A90E2"</code>. Max 20.</td></tr>
+              <tr><td class="name">iconColor</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Override the icon tint.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="code-pair">
+          <div class="code-block">
+            <div class="code-block__header"><span class="code-block__lang">Request</span></div>
+<pre>POST /api/v1/accounts
+{
+  <span class="c-key">"name"</span>: <span class="c-str">"Cash"</span>,
+  <span class="c-key">"currencyCode"</span>: <span class="c-str">"EUR"</span>,
+  <span class="c-key">"initialBalance"</span>: <span class="c-num">50.00</span>,
+  <span class="c-key">"order"</span>: <span class="c-num">2</span>,
+  <span class="c-key">"icon"</span>: <span class="c-str">"wallet"</span>,
+  <span class="c-key">"color"</span>: <span class="c-str">"#22C55E"</span>
+}</pre>
+          </div>
+          <div class="code-block">
+            <div class="code-block__header"><span class="code-block__lang">201 Created</span></div>
+<pre>{
+  <span class="c-key">"id"</span>: <span class="c-str">"acc_01HK8V…"</span>,
+  <span class="c-key">"name"</span>: <span class="c-str">"Cash"</span>,
+  <span class="c-key">"currencyCode"</span>: <span class="c-str">"EUR"</span>,
+  <span class="c-key">"initialBalance"</span>: <span class="c-num">50.00</span>,
+  <span class="c-key">"order"</span>: <span class="c-num">2</span>,
+  <span class="c-key">"icon"</span>: <span class="c-str">"wallet"</span>,
+  <span class="c-key">"color"</span>: <span class="c-str">"#22C55E"</span>,
+  <span class="c-key">"iconColor"</span>: <span class="c-null">null</span>,
+  <span class="c-key">"shareInviteToken"</span>: <span class="c-null">null</span>,
+  <span class="c-key">"createdAt"</span>: <span class="c-str">"2026-05-13T10:30:00Z"</span>,
+  <span class="c-key">"updatedAt"</span>: <span class="c-str">"2026-05-13T10:30:00Z"</span>
+}</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- UPDATE -->
+      <div class="endpoint" id="acc-update">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--put">PUT</span>
+          <code class="endpoint__path">/api/v1/accounts/<span class="var">{id}</span></code>
+          <span class="endpoint__scope">accounts:write</span>
+          <p class="endpoint__desc">Replace an existing account. Body is identical to <a href="#acc-create">Create</a>; all fields must be provided.</p>
+        </div>
+      </div>
+
+      <!-- DELETE -->
+      <div class="endpoint" id="acc-delete">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--delete">DELETE</span>
+          <code class="endpoint__path">/api/v1/accounts/<span class="var">{id}</span></code>
+          <span class="endpoint__scope">accounts:write</span>
+          <p class="endpoint__desc">Soft-delete an account. Decide what happens to its transactions via the <code>action</code> query parameter.</p>
+        </div>
+        <div class="params">
+          <span class="params__title">Query parameters</span>
+          <table class="params-table">
+            <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td class="name">action</td><td class="type">enum</td><td class="desc"><span class="tag opt">optional</span><code>Detach</code> (default): clear the account ref on each transaction. <code>Move</code>: reassign transactions to <code>moveTargetAccountId</code>. <code>DeleteAll</code>: soft-delete every linked transaction you own.</td></tr>
+              <tr><td class="name">moveTargetAccountId</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Required when <code>action=Move</code>. Destination account id.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CATEGORIES
+         ============================================================ -->
+    <section id="categories">
+      <h2 data-num="10">Categories</h2>
+      <p class="resource-intro">Categories label what a transaction is for (groceries, rent, freelance income). System categories are read-only and shared by all users; user categories are yours to manage. Category groups bundle related categories together.</p>
+
+      <!-- SYSTEM -->
+      <div class="endpoint" id="cat-system">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--get">GET</span>
+          <code class="endpoint__path">/api/v1/categories/system-categories</code>
+          <span class="endpoint__scope">categories:read</span>
+          <p class="endpoint__desc">Return Ledgy's curated set of "well-known" categories — the starter set the iOS app ships with. These are versioned globally and safe to cache by <code>version</code>.</p>
+        </div>
+      </div>
+
+      <h3>User categories</h3>
+
+      <div class="endpoint" id="cat-list">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--get">GET</span>
+          <code class="endpoint__path">/api/v1/categories</code>
+          <span class="endpoint__scope">categories:read</span>
+          <p class="endpoint__desc">List all user-defined categories.</p>
+        </div>
+      </div>
+
+      <div class="endpoint" id="cat-get">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--get">GET</span>
+          <code class="endpoint__path">/api/v1/categories/<span class="var">{id}</span></code>
+          <span class="endpoint__scope">categories:read</span>
+          <p class="endpoint__desc">Fetch one user category by id.</p>
+        </div>
+      </div>
+
+      <div class="endpoint" id="cat-create">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--post">POST</span>
+          <code class="endpoint__path">/api/v1/categories</code>
+          <span class="endpoint__scope">categories:write</span>
+          <p class="endpoint__desc">Create a user category.</p>
+        </div>
+        <div class="params">
+          <span class="params__title">Request body</span>
+          <table class="params-table">
+            <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td class="name">name</td><td class="type">string</td><td class="desc"><span class="tag req">required</span>Display name. Max 100.</td></tr>
+              <tr><td class="name">type</td><td class="type">string</td><td class="desc"><span class="tag req">required</span><code>"income"</code> or <code>"expense"</code>.</td></tr>
+              <tr><td class="name">order</td><td class="type">integer</td><td class="desc"><span class="tag req">required</span>Sort position within its group.</td></tr>
+              <tr><td class="name">isPinned</td><td class="type">boolean</td><td class="desc"><span class="tag req">required</span>Pin to the top of the picker.</td></tr>
+              <tr><td class="name">categoryGroupId</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Parent group id, or <code>null</code> for ungrouped.</td></tr>
+              <tr><td class="name">icon</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Icon identifier.</td></tr>
+              <tr><td class="name">color</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Hex color.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="endpoint" id="cat-update">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--put">PUT</span>
+          <code class="endpoint__path">/api/v1/categories/<span class="var">{id}</span></code>
+          <span class="endpoint__scope">categories:write</span>
+          <p class="endpoint__desc">Replace a user category. Body is identical to <a href="#cat-create">Create</a>.</p>
+        </div>
+      </div>
+
+      <div class="endpoint" id="cat-delete">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--delete">DELETE</span>
+          <code class="endpoint__path">/api/v1/categories/<span class="var">{id}</span></code>
+          <span class="endpoint__scope">categories:write</span>
+          <p class="endpoint__desc">Soft-delete a user category. Transactions are not deleted; their <code>categoryId</code> is cleared.</p>
+        </div>
+      </div>
+
+      <h3>Category groups</h3>
+
+      <div class="endpoint" id="cg-list">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--get">GET</span>
+          <code class="endpoint__path">/api/v1/categories/groups</code>
+          <span class="endpoint__scope">categories:read</span>
+          <p class="endpoint__desc">List your category groups.</p>
+        </div>
+      </div>
+
+      <div class="endpoint" id="cg-get">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--get">GET</span>
+          <code class="endpoint__path">/api/v1/categories/groups/<span class="var">{id}</span></code>
+          <span class="endpoint__scope">categories:read</span>
+          <p class="endpoint__desc">Fetch one category group.</p>
+        </div>
+      </div>
+
+      <div class="endpoint" id="cg-create">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--post">POST</span>
+          <code class="endpoint__path">/api/v1/categories/groups</code>
+          <span class="endpoint__scope">categories:write</span>
+          <p class="endpoint__desc">Create a category group.</p>
+        </div>
+        <div class="params">
+          <span class="params__title">Request body</span>
+          <table class="params-table">
+            <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td class="name">name</td><td class="type">string</td><td class="desc"><span class="tag req">required</span>Display name. Max 100.</td></tr>
+              <tr><td class="name">order</td><td class="type">integer</td><td class="desc"><span class="tag req">required</span>Sort position.</td></tr>
+              <tr><td class="name">icon</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Icon identifier.</td></tr>
+              <tr><td class="name">color</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Hex color.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="endpoint" id="cg-update">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--put">PUT</span>
+          <code class="endpoint__path">/api/v1/categories/groups/<span class="var">{id}</span></code>
+          <span class="endpoint__scope">categories:write</span>
+          <p class="endpoint__desc">Replace a category group.</p>
+        </div>
+      </div>
+
+      <div class="endpoint" id="cg-delete">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--delete">DELETE</span>
+          <code class="endpoint__path">/api/v1/categories/groups/<span class="var">{id}</span></code>
+          <span class="endpoint__scope">categories:write</span>
+          <p class="endpoint__desc">Soft-delete a group. Child categories survive — their <code>categoryGroupId</code> is cleared.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BUDGETS
+         ============================================================ -->
+    <section id="budgets">
+      <h2 data-num="11">Budgets</h2>
+      <p class="resource-intro">A budget caps spending against a category (or, when <code>categoryId</code> is null, against the whole ledger) over a recurring window. Share a budget with a group by setting <code>groupId</code>.</p>
+
+      <div class="endpoint" id="bdg-list">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--get">GET</span>
+          <code class="endpoint__path">/api/v1/budgets</code>
+          <span class="endpoint__scope">budgets:read</span>
+          <p class="endpoint__desc">List all budgets.</p>
+        </div>
+      </div>
+
+      <div class="endpoint" id="bdg-get">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--get">GET</span>
+          <code class="endpoint__path">/api/v1/budgets/<span class="var">{id}</span></code>
+          <span class="endpoint__scope">budgets:read</span>
+          <p class="endpoint__desc">Fetch one budget.</p>
+        </div>
+      </div>
+
+      <div class="endpoint" id="bdg-create">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--post">POST</span>
+          <code class="endpoint__path">/api/v1/budgets</code>
+          <span class="endpoint__scope">budgets:write</span>
+          <p class="endpoint__desc">Create a budget.</p>
+        </div>
+        <div class="params">
+          <span class="params__title">Request body</span>
+          <table class="params-table">
+            <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td class="name">amount</td><td class="type">number</td><td class="desc"><span class="tag req">required</span>Limit per period. Must be greater than 0.</td></tr>
+              <tr><td class="name">currencyCode</td><td class="type">string</td><td class="desc"><span class="tag req">required</span>ISO-4217.</td></tr>
+              <tr><td class="name">period</td><td class="type">integer</td><td class="desc"><span class="tag req">required</span><code>0</code> Weekly · <code>1</code> Monthly · <code>2</code> Quarterly · <code>3</code> Yearly.</td></tr>
+              <tr><td class="name">startDate</td><td class="type">string (ISO-8601)</td><td class="desc"><span class="tag req">required</span>First period start.</td></tr>
+              <tr><td class="name">isActive</td><td class="type">boolean</td><td class="desc"><span class="tag req">required</span>Whether this budget is currently enforced.</td></tr>
+              <tr><td class="name">endDate</td><td class="type">string (ISO-8601)</td><td class="desc"><span class="tag opt">optional</span>Stop tracking after this date.</td></tr>
+              <tr><td class="name">name</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Label. Max 200.</td></tr>
+              <tr><td class="name">categoryId</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Category to track. Omit to budget all spending.</td></tr>
+              <tr><td class="name">groupId</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Group to share with. Omit for personal.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="endpoint" id="bdg-update">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--put">PUT</span>
+          <code class="endpoint__path">/api/v1/budgets/<span class="var">{id}</span></code>
+          <span class="endpoint__scope">budgets:write</span>
+          <p class="endpoint__desc">Replace a budget.</p>
+        </div>
+      </div>
+
+      <div class="endpoint" id="bdg-delete">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--delete">DELETE</span>
+          <code class="endpoint__path">/api/v1/budgets/<span class="var">{id}</span></code>
+          <span class="endpoint__scope">budgets:write</span>
+          <p class="endpoint__desc">Soft-delete a budget.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         GROUPS
+         ============================================================ -->
+    <section id="groups">
+      <h2 data-num="12">Groups</h2>
+      <p class="resource-intro">Groups are shared ledgers — a household, a project, a roommate split. A transaction or budget can belong to a group, in which case every member can see it. Membership and invites are managed in the iOS app; the API surface here is the resource itself.</p>
+
+      <div class="endpoint" id="grp-list">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--get">GET</span>
+          <code class="endpoint__path">/api/v1/groups</code>
+          <span class="endpoint__scope">groups:read</span>
+          <p class="endpoint__desc">List groups you own or are a member of.</p>
+        </div>
+      </div>
+
+      <div class="endpoint" id="grp-get">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--get">GET</span>
+          <code class="endpoint__path">/api/v1/groups/<span class="var">{id}</span></code>
+          <span class="endpoint__scope">groups:read</span>
+          <p class="endpoint__desc">Fetch one group.</p>
+        </div>
+      </div>
+
+      <div class="endpoint" id="grp-create">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--post">POST</span>
+          <code class="endpoint__path">/api/v1/groups</code>
+          <span class="endpoint__scope">groups:write</span>
+          <p class="endpoint__desc">Create a group. You become its owner; invite members from the iOS app.</p>
+        </div>
+        <div class="params">
+          <span class="params__title">Request body</span>
+          <table class="params-table">
+            <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td class="name">name</td><td class="type">string</td><td class="desc"><span class="tag req">required</span>Display name. Max 100.</td></tr>
+              <tr><td class="name">description</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Free text. Max 500.</td></tr>
+              <tr><td class="name">icon</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Icon identifier.</td></tr>
+              <tr><td class="name">color</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Hex color.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="endpoint" id="grp-update">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--put">PUT</span>
+          <code class="endpoint__path">/api/v1/groups/<span class="var">{id}</span></code>
+          <span class="endpoint__scope">groups:write</span>
+          <p class="endpoint__desc">Replace a group's metadata.</p>
+        </div>
+      </div>
+
+      <div class="endpoint" id="grp-delete">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--delete">DELETE</span>
+          <code class="endpoint__path">/api/v1/groups/<span class="var">{id}</span></code>
+          <span class="endpoint__scope">groups:write</span>
+          <p class="endpoint__desc">Soft-delete a group. Members lose visibility; underlying transactions revert to personal.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TRANSACTIONS
+         ============================================================ -->
+    <section id="transactions">
+      <h2 data-num="13">Transactions</h2>
+      <p class="resource-intro">Transactions are the verbs of the ledger. They come in four shapes: <code>income</code>, <code>expense</code>, <code>transfer</code> (account-to-account), and <code>adjustment</code> (one-off rebalancing). The base endpoint creates income/expense; transfers have their own endpoint; bulk variants exist for high-volume importers.</p>
+
+      <!-- LIST -->
+      <div class="endpoint" id="tx-list">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--get">GET</span>
+          <code class="endpoint__path">/api/v1/transactions</code>
+          <span class="endpoint__scope">transactions:read</span>
+          <p class="endpoint__desc">List transactions with cursor pagination and filters.</p>
+        </div>
+        <div class="params">
+          <span class="params__title">Query parameters</span>
+          <table class="params-table">
+            <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td class="name">limit</td><td class="type">integer</td><td class="desc"><span class="tag opt">optional</span>Page size. <code>1..200</code>. Default <code>50</code>.</td></tr>
+              <tr><td class="name">cursor</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Opaque continuation token from the previous response.</td></tr>
+              <tr><td class="name">type</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span><code>"income"</code>, <code>"expense"</code>, <code>"transfer"</code>, or <code>"adjustment"</code>.</td></tr>
+              <tr><td class="name">dateFrom</td><td class="type">string (ISO-8601)</td><td class="desc"><span class="tag opt">optional</span>Inclusive lower bound.</td></tr>
+              <tr><td class="name">dateTo</td><td class="type">string (ISO-8601)</td><td class="desc"><span class="tag opt">optional</span>Inclusive upper bound.</td></tr>
+              <tr><td class="name">categoryId</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Filter to one category.</td></tr>
+              <tr><td class="name">accountId</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Filter to one account.</td></tr>
+              <tr><td class="name">groupId</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Filter to a shared group.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">200 OK</span></div>
+<pre>{
+  <span class="c-key">"items"</span>: [ <span class="c-cmt">/* TransactionDto[] */</span> ],
+  <span class="c-key">"totalCount"</span>: <span class="c-num">317</span>,
+  <span class="c-key">"nextCursor"</span>: <span class="c-str">"eyJrIjoiMjAyNi0wNS0xM1QxMDoz…"</span>
+}</pre>
+        </div>
+      </div>
+
+      <!-- GET -->
+      <div class="endpoint" id="tx-get">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--get">GET</span>
+          <code class="endpoint__path">/api/v1/transactions/<span class="var">{id}</span></code>
+          <span class="endpoint__scope">transactions:read</span>
+          <p class="endpoint__desc">Fetch one transaction.</p>
+        </div>
+      </div>
+
+      <!-- CREATE -->
+      <div class="endpoint" id="tx-create">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--post">POST</span>
+          <code class="endpoint__path">/api/v1/transactions</code>
+          <span class="endpoint__scope">transactions:write</span>
+          <p class="endpoint__desc">Create a single income or expense transaction. For transfers, use <a href="#tx-transfer">/transfer</a>.</p>
+        </div>
+        <div class="params">
+          <span class="params__title">Request body</span>
+          <table class="params-table">
+            <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td class="name">type</td><td class="type">string</td><td class="desc"><span class="tag req">required</span><code>"income"</code> or <code>"expense"</code>.</td></tr>
+              <tr><td class="name">amount</td><td class="type">number</td><td class="desc"><span class="tag req">required</span>Positive amount in <code>currencyCode</code>.</td></tr>
+              <tr><td class="name">currencyCode</td><td class="type">string</td><td class="desc"><span class="tag req">required</span>ISO-4217.</td></tr>
+              <tr><td class="name">date</td><td class="type">string (ISO-8601)</td><td class="desc"><span class="tag req">required</span>When the transaction occurred (UTC).</td></tr>
+              <tr><td class="name">accountId</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Source/destination account.</td></tr>
+              <tr><td class="name">categoryId</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Category label.</td></tr>
+              <tr><td class="name">payee</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Merchant or counterparty. Max 200.</td></tr>
+              <tr><td class="name">note</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Free-form note. Max 2000.</td></tr>
+              <tr><td class="name">groupId</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Share with a group.</td></tr>
+              <tr><td class="name">exchangeRate</td><td class="type">number</td><td class="desc"><span class="tag opt">optional</span>FX rate when <code>currencyCode</code> ≠ user primary currency.</td></tr>
+              <tr><td class="name">convertedAmount</td><td class="type">number</td><td class="desc"><span class="tag opt">optional</span>Amount in user's primary currency.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">Request</span><span class="code-block__caption">€8.50 coffee yesterday on Wise</span></div>
+<pre>POST /api/v1/transactions
+{
+  <span class="c-key">"type"</span>: <span class="c-str">"expense"</span>,
+  <span class="c-key">"amount"</span>: <span class="c-num">8.50</span>,
+  <span class="c-key">"currencyCode"</span>: <span class="c-str">"EUR"</span>,
+  <span class="c-key">"date"</span>: <span class="c-str">"2026-05-12T09:14:00Z"</span>,
+  <span class="c-key">"accountId"</span>: <span class="c-str">"acc_01HK8V…"</span>,
+  <span class="c-key">"categoryId"</span>: <span class="c-str">"cat_food_drinks"</span>,
+  <span class="c-key">"payee"</span>: <span class="c-str">"Pret"</span>,
+  <span class="c-key">"note"</span>: <span class="c-str">"Flat white"</span>
+}</pre>
+        </div>
+      </div>
+
+      <!-- UPDATE -->
+      <div class="endpoint" id="tx-update">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--put">PUT</span>
+          <code class="endpoint__path">/api/v1/transactions/<span class="var">{id}</span></code>
+          <span class="endpoint__scope">transactions:write</span>
+          <p class="endpoint__desc">Replace a transaction. Body is identical to <a href="#tx-create">Create</a>.</p>
+        </div>
+      </div>
+
+      <!-- DELETE -->
+      <div class="endpoint" id="tx-delete">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--delete">DELETE</span>
+          <code class="endpoint__path">/api/v1/transactions/<span class="var">{id}</span></code>
+          <span class="endpoint__scope">transactions:write</span>
+          <p class="endpoint__desc">Soft-delete one transaction.</p>
+        </div>
+      </div>
+
+      <!-- TRANSFER -->
+      <div class="endpoint" id="tx-transfer">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--post">POST</span>
+          <code class="endpoint__path">/api/v1/transactions/transfer</code>
+          <span class="endpoint__scope">transactions:write</span>
+          <p class="endpoint__desc">Create a transfer between two accounts. No category. For cross-currency transfers, provide <code>exchangeRate</code> and <code>convertedAmount</code> in the destination currency.</p>
+        </div>
+        <div class="params">
+          <span class="params__title">Request body</span>
+          <table class="params-table">
+            <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td class="name">fromAccountId</td><td class="type">string</td><td class="desc"><span class="tag req">required</span>Source account.</td></tr>
+              <tr><td class="name">toAccountId</td><td class="type">string</td><td class="desc"><span class="tag req">required</span>Destination account. Must differ from source.</td></tr>
+              <tr><td class="name">amount</td><td class="type">number</td><td class="desc"><span class="tag req">required</span>Amount sent, in <code>currencyCode</code>.</td></tr>
+              <tr><td class="name">currencyCode</td><td class="type">string</td><td class="desc"><span class="tag req">required</span>Source currency, ISO-4217.</td></tr>
+              <tr><td class="name">date</td><td class="type">string (ISO-8601)</td><td class="desc"><span class="tag req">required</span>Transfer date.</td></tr>
+              <tr><td class="name">exchangeRate</td><td class="type">number</td><td class="desc"><span class="tag opt">optional</span>Required when source and destination currencies differ.</td></tr>
+              <tr><td class="name">convertedAmount</td><td class="type">number</td><td class="desc"><span class="tag opt">optional</span>Amount credited to the destination, in its currency.</td></tr>
+              <tr><td class="name">note</td><td class="type">string</td><td class="desc"><span class="tag opt">optional</span>Max 2000.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h3>Bulk operations</h3>
+      <p>Designed for importers. Each batch is capped at <strong>100 items</strong> and runs <strong>best-effort</strong>: a single bad row does not roll back the others. Successful items and per-row errors are reported separately so you can retry the failures.</p>
+
+      <div class="endpoint" id="tx-bulk-create">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--post">POST</span>
+          <code class="endpoint__path">/api/v1/transactions/bulk</code>
+          <span class="endpoint__scope">transactions:write</span>
+          <p class="endpoint__desc">Create up to 100 transactions in one call.</p>
+        </div>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">200 OK</span></div>
+<pre>{
+  <span class="c-key">"items"</span>: [ <span class="c-cmt">/* successful TransactionDto[] */</span> ],
+  <span class="c-key">"errors"</span>: [
+    { <span class="c-key">"index"</span>: <span class="c-num">3</span>, <span class="c-key">"error"</span>: <span class="c-str">"Invalid currency code"</span> }
+  ]
+}</pre>
+        </div>
+      </div>
+
+      <div class="endpoint" id="tx-bulk-update">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--put">PUT</span>
+          <code class="endpoint__path">/api/v1/transactions/bulk</code>
+          <span class="endpoint__scope">transactions:write</span>
+          <p class="endpoint__desc">Update up to 100 transactions in one call. Each item must include its <code>id</code> alongside the full transaction body.</p>
+        </div>
+      </div>
+
+      <div class="endpoint" id="tx-bulk-delete">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--post">POST</span>
+          <code class="endpoint__path">/api/v1/transactions/bulk-delete</code>
+          <span class="endpoint__scope">transactions:write</span>
+          <p class="endpoint__desc">Soft-delete up to 100 transactions in one call. Uses <code>POST</code> rather than <code>DELETE</code> so the request body is accepted by all HTTP clients.</p>
+        </div>
+        <div class="params">
+          <span class="params__title">Request body</span>
+          <table class="params-table">
+            <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td class="name">ids</td><td class="type">string[]</td><td class="desc"><span class="tag req">required</span>1 to 100 transaction ids.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">200 OK</span></div>
+<pre>{
+  <span class="c-key">"deleted"</span>: <span class="c-num">97</span>,
+  <span class="c-key">"notFound"</span>: [ <span class="c-str">"tx_old1"</span>, <span class="c-str">"tx_old2"</span>, <span class="c-str">"tx_old3"</span> ]
+}</pre>
+        </div>
+      </div>
+
+      <h3>The transaction object</h3>
+      <table class="params-table">
+        <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="name">id</td><td class="type">string</td><td class="desc">Opaque identifier.</td></tr>
+          <tr><td class="name">type</td><td class="type">string</td><td class="desc"><code>income</code> · <code>expense</code> · <code>transfer</code> · <code>adjustment</code>.</td></tr>
+          <tr><td class="name">amount</td><td class="type">number</td><td class="desc">In <code>currencyCode</code>.</td></tr>
+          <tr><td class="name">currencyCode</td><td class="type">string</td><td class="desc">ISO-4217.</td></tr>
+          <tr><td class="name">exchangeRate</td><td class="type">number | null</td><td class="desc">Set on cross-currency entries.</td></tr>
+          <tr><td class="name">convertedAmount</td><td class="type">number | null</td><td class="desc">Same value in the user's primary currency.</td></tr>
+          <tr><td class="name">date</td><td class="type">string</td><td class="desc">ISO-8601 UTC.</td></tr>
+          <tr><td class="name">accountId</td><td class="type">string | null</td><td class="desc">For transfers this is the source account.</td></tr>
+          <tr><td class="name">toAccountId</td><td class="type">string | null</td><td class="desc">Destination account on transfers only.</td></tr>
+          <tr><td class="name">categoryId</td><td class="type">string | null</td><td class="desc">Null on transfers.</td></tr>
+          <tr><td class="name">groupId</td><td class="type">string | null</td><td class="desc">Set if shared with a group.</td></tr>
+          <tr><td class="name">payee</td><td class="type">string | null</td><td class="desc">Merchant or counterparty.</td></tr>
+          <tr><td class="name">note</td><td class="type">string | null</td><td class="desc">Free text.</td></tr>
+          <tr><td class="name">receiptImagePath</td><td class="type">string | null</td><td class="desc">Path to attached receipt. Fetch via the receipts endpoint (separate from v1).</td></tr>
+          <tr><td class="name">recurringTransactionId</td><td class="type">string | null</td><td class="desc">Set if this row was generated from a recurring rule.</td></tr>
+          <tr><td class="name">source</td><td class="type">string</td><td class="desc">Origin tag — <code>api</code>, <code>mobile</code>, <code>web</code>, <code>import</code>, etc.</td></tr>
+          <tr><td class="name">createdAt</td><td class="type">string</td><td class="desc">ISO-8601 UTC.</td></tr>
+          <tr><td class="name">updatedAt</td><td class="type">string</td><td class="desc">ISO-8601 UTC.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ============================================================
+         ICONS
+         ============================================================ -->
+    <section id="icons">
+      <h2 data-num="14">Icons</h2>
+      <p class="resource-intro">Ledgy ships with a curated icon set and color palette used everywhere — accounts, categories, groups. Fetch the catalog once, cache it, and reuse the identifiers when creating resources.</p>
+
+      <div class="endpoint" id="ico-list">
+        <div class="endpoint__head">
+          <span class="method-badge method-badge--get">GET</span>
+          <code class="endpoint__path">/api/v1/icons</code>
+          <p class="endpoint__desc">Return the full icon library, grouped into categories, alongside the supported color palette. Versioned — safe to cache by the <code>version</code> field.</p>
+        </div>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">200 OK</span></div>
+<pre>{
+  <span class="c-key">"version"</span>: <span class="c-str">"2026.05.10"</span>,
+  <span class="c-key">"library"</span>: <span class="c-str">"font-awesome-6"</span>,
+  <span class="c-key">"categories"</span>: [
+    {
+      <span class="c-key">"id"</span>: <span class="c-str">"finance"</span>,
+      <span class="c-key">"name"</span>: <span class="c-str">"Finance"</span>,
+      <span class="c-key">"icons"</span>: [ <span class="c-str">"wallet"</span>, <span class="c-str">"credit-card"</span>, <span class="c-str">"piggy-bank"</span> ]
+    }
+  ],
+  <span class="c-key">"colors"</span>: [
+    { <span class="c-key">"name"</span>: <span class="c-str">"Blue"</span>, <span class="c-key">"hex"</span>: <span class="c-str">"#4A90E2"</span> },
+    { <span class="c-key">"name"</span>: <span class="c-str">"Green"</span>, <span class="c-key">"hex"</span>: <span class="c-str">"#22C55E"</span> }
+  ]
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CHANGELOG / VERSIONING
+         ============================================================ -->
+    <section id="changelog">
+      <h2 data-num="15">Versioning</h2>
+      <ul>
+        <li><strong>No breaking changes within v1.</strong> We will only add new endpoints, new optional fields, and new enum values. A field's type, nullability, or required-ness will not change.</li>
+        <li><strong>New enum values are not breaking.</strong> Treat unknown <code>type</code>, <code>source</code>, or <code>action</code> values as <em>"don't render"</em> rather than crashing — we will add them when the product grows.</li>
+        <li><strong>Date-shaped breaking changes</strong> (if ever needed) will ship under <code>/api/v2/</code> with at least 6 months of parallel availability and a deprecation header on v1 responses.</li>
+      </ul>
+    </section>
+
+    <!-- ============================================================
+         SUPPORT
+         ============================================================ -->
+    <section id="support">
+      <h2 data-num="16">Support</h2>
+      <p>Found a bug, want an endpoint, or hit something undocumented? Open the <a href="support.html">help center</a> or email <a href="mailto:support@ledgy.app">support@ledgy.app</a> — please include the request id (echoed in the <code>X-Request-Id</code> response header) when reporting an issue.</p>
+      <p>For security-sensitive disclosures (a token leak, a permission bypass, an unauthorized read) write to <a href="mailto:security@ledgy.app">security@ledgy.app</a>.</p>
+    </section>
+
+  </article>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <a href="index.html" class="brand-lockup" style="margin-bottom: 14px;"><img src="assets/ledgy-icon.svg" alt="" class="brand-icon"><img src="assets/ledgy-logo.svg" alt="Ledgy" class="brand-word"></a>
+        <p class="site-footer__about">Expenses that track themselves.</p>
+      </div>
+      <div><h4>Product</h4><ul><li><a href="index.html">Home</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="integrations.html">Integrations</a></li><li><a href="https://dashboard.ledgy.app" target="_blank" rel="noopener noreferrer">Dashboard</a></li></ul></div>
+      <div><h4>Developers</h4><ul><li><a href="api-v1.html">API v1 reference</a></li><li><a href="integrations.html">MCP integration</a></li></ul></div>
+      <div><h4>Support</h4><ul><li><a href="support.html">Help center</a></li><li><a href="mailto:support@ledgy.app">support@ledgy.app</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    </div>
+    <div class="site-footer__legal"><span>© 2026 Ledgy</span></div>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+<script src="assets/doc.js" defer></script>
+</body>
+</html>

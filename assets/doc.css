@@ -180,3 +180,268 @@
   .support-grid { grid-template-columns: 1fr; }
   .contact-card { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   API reference page — endpoints, code blocks, parameter tables
+   ============================================================ */
+
+/* TOC groupings for the long API page */
+.doc__toc .toc-group {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  font-weight: 600;
+  padding: 14px 12px 4px;
+  margin-top: 6px;
+  border-top: 1px solid var(--border-soft);
+}
+.doc__toc .toc-group:first-of-type { border-top: 0; margin-top: 0; padding-top: 4px; }
+
+/* Endpoint card: method + path + description, optional params/examples block */
+.endpoint {
+  display: grid;
+  gap: 14px;
+  padding: 18px 20px;
+  margin: 18px 0 20px;
+  background: rgba(8,8,18,0.55);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+}
+.endpoint__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.endpoint__path {
+  font-family: "SF Mono", "Fira Code", Consolas, ui-monospace, monospace;
+  font-size: 14px;
+  color: var(--foreground);
+  word-break: break-all;
+}
+.endpoint__path .var {
+  color: var(--primary-light);
+  font-style: normal;
+}
+.endpoint__desc {
+  font-size: 14px;
+  color: var(--foreground-dim);
+  line-height: 1.5;
+  margin: 0;
+  flex-basis: 100%;
+}
+.endpoint__scope {
+  font-family: "SF Mono", monospace;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(96,65,255,0.10);
+  color: var(--primary-light);
+  border: 1px solid rgba(96,65,255,0.20);
+  white-space: nowrap;
+}
+
+/* HTTP method badge */
+.method-badge {
+  font-family: "SF Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  min-width: 58px;
+  text-align: center;
+}
+.method-badge--get    { background: rgba(34,197,94,0.14);   color: #5cf08c; border: 1px solid rgba(34,197,94,0.30); }
+.method-badge--post   { background: rgba(59,130,246,0.14);  color: #7ab1ff; border: 1px solid rgba(59,130,246,0.30); }
+.method-badge--put    { background: rgba(245,158,11,0.14);  color: #ffc257; border: 1px solid rgba(245,158,11,0.30); }
+.method-badge--patch  { background: rgba(168,85,247,0.14);  color: #c489ff; border: 1px solid rgba(168,85,247,0.30); }
+.method-badge--delete { background: rgba(239,68,68,0.14);   color: #ff8585; border: 1px solid rgba(239,68,68,0.30); }
+
+/* Parameter tables (query / body / response fields) */
+.params {
+  display: grid;
+  gap: 8px;
+}
+.params__title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.params-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.params-table th,
+.params-table td {
+  text-align: left;
+  padding: 9px 12px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border-soft);
+}
+.params-table tr:last-child th,
+.params-table tr:last-child td { border-bottom: 0; }
+.params-table th {
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  background: rgba(8,8,18,0.4);
+}
+.params-table td.name {
+  font-family: "SF Mono", monospace;
+  font-size: 12px;
+  color: var(--foreground);
+  white-space: nowrap;
+}
+.params-table td.type {
+  font-family: "SF Mono", monospace;
+  font-size: 12px;
+  color: var(--primary-light);
+  white-space: nowrap;
+}
+.params-table td.desc {
+  color: var(--foreground-dim);
+  line-height: 1.55;
+}
+.params-table td .tag {
+  display: inline-block;
+  font-family: "SF Mono", monospace;
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 6px;
+  vertical-align: 1px;
+}
+.params-table td .tag.req { background: rgba(239,68,68,0.14); color: #ff8585; }
+.params-table td .tag.opt { background: rgba(120,120,140,0.14); color: var(--muted-foreground); }
+
+/* Code blocks for cURL / JSON examples */
+.code-block {
+  background: #06060c;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin: 8px 0 16px;
+}
+.code-block__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid var(--border-soft);
+}
+.code-block__lang {
+  font-family: "SF Mono", monospace;
+  font-size: 11px;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.code-block__caption {
+  font-size: 11px;
+  color: var(--muted-foreground);
+}
+.code-block pre {
+  margin: 0;
+  padding: 14px 16px;
+  font-family: "SF Mono", "Fira Code", Consolas, ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #d9d9e0;
+  overflow-x: auto;
+  white-space: pre;
+  tab-size: 2;
+}
+.code-block pre .c-key  { color: #9c96f6; }
+.code-block pre .c-str  { color: #87e0a2; }
+.code-block pre .c-num  { color: #ffc257; }
+.code-block pre .c-bool { color: #7ab1ff; }
+.code-block pre .c-null { color: #ff8585; }
+.code-block pre .c-cmt  { color: var(--fg3); font-style: italic; }
+
+/* Inline code in doc body */
+.doc__body code:not(pre code) {
+  font-family: "SF Mono", monospace;
+  font-size: 0.88em;
+  padding: 2px 6px;
+  background: rgba(96,65,255,0.10);
+  border: 1px solid rgba(96,65,255,0.18);
+  border-radius: 4px;
+  color: var(--primary-light);
+  white-space: nowrap;
+}
+
+/* Side-by-side request / response when there's room */
+.code-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 980px) { .code-pair { grid-template-columns: 1fr; } }
+
+/* Status-code legend */
+.status-grid {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 6px 14px;
+  font-size: 13px;
+  align-items: baseline;
+}
+.status-grid dt {
+  font-family: "SF Mono", monospace;
+  font-size: 12px;
+  color: var(--foreground);
+  padding: 2px 6px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 4px;
+  text-align: center;
+}
+.status-grid dt.s2xx { color: #5cf08c; background: rgba(34,197,94,0.10); }
+.status-grid dt.s4xx { color: #ffc257; background: rgba(245,158,11,0.10); }
+.status-grid dt.s5xx { color: #ff8585; background: rgba(239,68,68,0.10); }
+.status-grid dd { margin: 0; color: var(--foreground-dim); line-height: 1.5; }
+
+/* Scope chips list */
+.scope-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 16px;
+}
+.scope-list code {
+  font-family: "SF Mono", monospace;
+  font-size: 12px;
+  padding: 3px 8px;
+  background: rgba(96,65,255,0.10);
+  border: 1px solid rgba(96,65,255,0.20);
+  border-radius: 4px;
+  color: var(--primary-light);
+}
+
+/* Resource intro banner (shown at top of each resource section) */
+.resource-intro {
+  font-size: 14px;
+  color: var(--foreground-dim);
+  padding: 0 0 4px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 900px) {
+  .doc__body { max-width: 100%; }
+  .endpoint { padding: 14px; }
+  .params-table { font-size: 12px; }
+  .params-table th, .params-table td { padding: 7px 9px; }
+}
