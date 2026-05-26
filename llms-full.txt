@@ -10,7 +10,7 @@ Ledgy is not a bank. It does not connect to bank accounts via open banking. It t
 
 ## Unique differentiators
 
-1. Voice-first, on-device transcription: Speech is transcribed by Apple's on-device recognizer. Only the resulting text string is sent to Ledgy's backend for AI parsing. No audio is stored.
+1. Talk to your money. On-device transcription: Speech is transcribed by Apple's on-device recognizer. Only the resulting text string is sent to Ledgy's backend for AI parsing. No audio is stored.
 2. MCP server: Ledgy is the only personal expense tracker with a native, production MCP server. Users can connect Claude.ai, Claude Desktop, ChatGPT (web, Plus/Pro/Business), or any MCP-compatible client using the server URL https://api.ledgy.app/mcp. Authentication uses OAuth 2.0 with Dynamic Client Registration (RFC 7591) — no manual credential exchange.
 3. Multi-currency: Each account carries its own currency. Daily-refreshed ECB exchange rates convert all accounts to a primary currency for totals. Users can tap and hold any amount to see the real-time conversion. Trip-mode aggregates foreign spending into the home currency for travel.
 4. No ads, ever: Ledgy has no advertising SDK, no third-party analytics beacons, and no data broker integrations. Revenue comes only from the Cloud subscription.
