@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /.playwright-mcp/
+
+Sitemap: https://ledgy.app/sitemap.xml
