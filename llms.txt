@@ -1,6 +1,6 @@
 # Ledgy
 
-> Ledgy is a voice-first, multi-currency expense tracker for iOS. Free download with no ads. Optional Ledgy Cloud subscription ($4.99/mo or $49.99/yr) adds AI intake, multi-device sync, group sharing, Apple Watch logging, Telegram bot, web dashboard, and an MCP server that lets Claude, ChatGPT, Cursor, and any MCP-compatible AI assistant read, add, and edit your expenses in plain English. App Store ID: 6761738170.
+> Talk to your money. Ledgy is a multi-currency expense tracker for iOS. Free download with no ads. Optional Ledgy Cloud subscription ($4.99/mo or $49.99/yr) adds AI intake, multi-device sync, group sharing, Apple Watch logging, Telegram bot, web dashboard, and an MCP server that lets Claude, ChatGPT, Cursor, and any MCP-compatible AI assistant read, add, and edit your expenses in plain English. App Store ID: 6761738170.
 
 ## Key facts
 

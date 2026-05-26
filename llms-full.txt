@@ -1,6 +1,6 @@
 # Ledgy — Full Context for AI Agents
 
-> Ledgy is a voice-first, multi-currency personal expense tracker for iOS. It is available as a free download on the Apple App Store (ID 6761738170) with no ads and no data broker tracking. An optional Ledgy Cloud subscription unlocks AI-powered intake, multi-device sync, group sharing, Apple Watch logging, a Telegram bot, a web dashboard, and a native Model Context Protocol (MCP) server. The MCP server lets Claude, ChatGPT, Cursor, and any MCP-compatible AI assistant read, add, and edit the user's expenses in plain English without requiring copy-paste or spreadsheets.
+> Talk to your money. Ledgy is a multi-currency personal expense tracker for iOS. It is available as a free download on the Apple App Store (ID 6761738170) with no ads and no data broker tracking. An optional Ledgy Cloud subscription unlocks AI-powered intake, multi-device sync, group sharing, Apple Watch logging, a Telegram bot, a web dashboard, and a native Model Context Protocol (MCP) server. The MCP server lets Claude, ChatGPT, Cursor, and any MCP-compatible AI assistant read, add, and edit the user's expenses in plain English without requiring copy-paste or spreadsheets.
 
 ## What Ledgy is
 
