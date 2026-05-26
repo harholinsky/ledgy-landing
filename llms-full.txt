@@ -1,0 +1,83 @@
+# Ledgy — Full Context for AI Agents
+
+> Ledgy is a voice-first, multi-currency personal expense tracker for iOS. It is available as a free download on the Apple App Store (ID 6761738170) with no ads and no data broker tracking. An optional Ledgy Cloud subscription unlocks AI-powered intake, multi-device sync, group sharing, Apple Watch logging, a Telegram bot, a web dashboard, and a native Model Context Protocol (MCP) server. The MCP server lets Claude, ChatGPT, Cursor, and any MCP-compatible AI assistant read, add, and edit the user's expenses in plain English without requiring copy-paste or spreadsheets.
+
+## What Ledgy is
+
+Ledgy is an iOS expense tracker built around three capture surfaces: voice (on iPhone Action Button or Apple Watch crown), photo (receipt scan), and Telegram (text, photo, or voice message). Each input is parsed by an AI model that assigns the correct category, account, and group. The resulting transaction appears instantly in a local SQLite database on the user's device, and syncs to the cloud in the background when connectivity is available.
+
+Ledgy is not a bank. It does not connect to bank accounts via open banking. It tracks expenses the user enters manually, by voice, by photo, or via Apple Pay notifications.
+
+## Unique differentiators
+
+1. Voice-first, on-device transcription: Speech is transcribed by Apple's on-device recognizer. Only the resulting text string is sent to Ledgy's backend for AI parsing. No audio is stored.
+2. MCP server: Ledgy is the only personal expense tracker with a native, production MCP server. Users can connect Claude.ai, Claude Desktop, ChatGPT (web, Plus/Pro/Business), or any MCP-compatible client using the server URL https://api.ledgy.app/mcp. Authentication uses OAuth 2.0 with Dynamic Client Registration (RFC 7591) — no manual credential exchange.
+3. Multi-currency: Each account carries its own currency. Daily-refreshed ECB exchange rates convert all accounts to a primary currency for totals. Users can tap and hold any amount to see the real-time conversion. Trip-mode aggregates foreign spending into the home currency for travel.
+4. No ads, ever: Ledgy has no advertising SDK, no third-party analytics beacons, and no data broker integrations. Revenue comes only from the Cloud subscription.
+5. Offline-first: Every screen reads from a local SQLite database. New transactions appear instantly even without internet. Sync is background-only.
+6. Data ownership: Sharing in Ledgy decides visibility, not ownership. If a user leaves a shared group, they keep their full transaction history.
+
+## Pricing
+
+- Free plan: unlimited transactions, accounts, categories, tags, multi-currency, CSV import/export, receipts, budgets, local notifications, 14 languages. Single-device, offline only.
+- Cloud plan: $4.99/month or $49.99/year (~$4.17/month, save 17%). Includes everything in Free plus: AI voice intake, AI photo intake (receipt parsing), Siri shortcuts, Apple Watch logging, Telegram bot, Apple Wallet auto-log, iOS Share extension, web dashboard, ask-AI-about-spending via MCP, group sharing (accounts, budgets, groups), multi-device sync, cloud backup. 7-day free trial, cancel any time from the iOS App Store.
+
+## MCP integration details
+
+The Ledgy MCP server implements the Model Context Protocol specification. It exposes more than 30 tools covering:
+- Reading accounts, transactions, categories, budgets, groups, tags
+- Adding or editing transactions (single and bulk), accounts, categories, budgets, recurring rules
+- Cross-account and cross-currency transfers with live ECB FX rates
+- Receipt attachment (server-side fetch from public URL) and signed download URL retrieval
+- Live account balance computation
+- Account reconciliation against an external figure
+
+To connect Claude: Settings > Connectors > Add custom connector > Name: Ledgy > Server URL: https://api.ledgy.app/mcp > Add > sign in with Apple.
+
+To connect ChatGPT (Plus/Pro/Business): Settings > Apps > Advanced settings > Developer mode (on) > Create > Name: Ledgy > MCP Server URL: https://api.ledgy.app/mcp > Authentication: OAuth > Create > sign in with Apple.
+
+Privacy: The AI assistant only sees data the user asks about. Ledgy does not push the full ledger to Anthropic or OpenAI on connection. Revoking access from the client's settings takes effect immediately.
+
+## REST API
+
+Base URL: https://api.ledgy.app
+Version prefix: /api/v1/
+Auth: Bearer token (Personal Access Token, format lgpat_ + 64 hex chars)
+Encoding: JSON, UTF-8, camelCase
+Cloud subscription required on every endpoint.
+
+Resources: accounts, categories (system + user + groups), budgets, groups, transactions (income, expense, transfer, adjustment), icons. Bulk transaction create/update/delete (up to 100 per call). Cursor-based pagination on transactions.
+
+## Capture surfaces
+
+1. iPhone: voice (mic button), photo (camera or Share Sheet), manual numpad, or paste text
+2. Apple Watch: hold digital crown, speak, done in ~5 seconds; watch complications deep-link to record
+3. Siri: "Hey Siri, log expense to Ledgy" via App Intents (iOS 16+)
+4. Apple Wallet: Apple Pay payments auto-log; each card can have a per-card AI rule
+5. Telegram bot: @LedgyBot accepts text, photo, or voice; inline buttons to fix in two taps
+6. AI agents: any MCP-compatible AI assistant via https://api.ledgy.app/mcp
+
+## Languages
+
+English, German, Spanish (Mexico), French, Hindi, Italian, Japanese, Korean, Polish, Portuguese (Brazil), Russian, Turkish, Ukrainian, Simplified Chinese. CSV import auto-detects column headers in 29 locales.
+
+## Key URLs
+
+- Landing site: https://ledgy.app/
+- Pricing: https://ledgy.app/pricing
+- MCP / Integrations guide: https://ledgy.app/integrations
+- API reference: https://ledgy.app/api-v1
+- Support: https://ledgy.app/support
+- Web dashboard: https://dashboard.ledgy.app
+- App Store: https://apps.apple.com/app/id6761738170
+- MCP server endpoint: https://api.ledgy.app/mcp
+- REST API base: https://api.ledgy.app/api/v1/
+- Support email: support@ledgy.app
+
+## Developer / publisher
+
+Developer: Borys Harholinskyi
+Support: support@ledgy.app
+Security: security@ledgy.app
+Published: 2026-05-19
+App Store ID: 6761738170

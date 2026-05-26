@@ -6,6 +6,8 @@
 <title>API v1 Reference — Ledgy for Developers</title>
 <meta name="description" content="Ledgy REST API v1 reference. Authenticate with a Personal Access Token and manage accounts, categories, budgets, groups, and transactions over HTTPS. Built for developers and AI agents via MCP.">
 <link rel="canonical" href="https://ledgy.app/api-v1">
+<link rel="alternate" hreflang="en" href="https://ledgy.app/api-v1">
+<link rel="alternate" hreflang="x-default" href="https://ledgy.app/api-v1">
 <meta name="apple-itunes-app" content="app-id=6761738170">
 <meta name="theme-color" content="#0a0a14">
 <meta property="og:site_name" content="Ledgy">
@@ -22,6 +24,42 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/doc.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ledgy.app/" },
+    { "@type": "ListItem", "position": 2, "name": "API v1 Reference", "item": "https://ledgy.app/api-v1" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Ledgy REST API v1 — Reference",
+  "description": "Complete REST API reference for Ledgy: accounts, categories, budgets, groups, transactions, transfers, receipts. Bearer-token authentication (Personal Access Token, lgpat_ prefix). Bulk create/update/delete up to 100 transactions per request. Cursor pagination. Cloud subscription required.",
+  "url": "https://ledgy.app/api-v1",
+  "inLanguage": "en",
+  "datePublished": "2026-05-19",
+  "dateModified": "2026-05-26",
+  "image": "https://ledgy.app/assets/og-image.png",
+  "author": { "@type": "Person", "name": "Borys Harholinskyi" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ledgy",
+    "logo": { "@type": "ImageObject", "url": "https://ledgy.app/assets/ledgy-icon.svg" }
+  },
+  "about": {
+    "@type": "MobileApplication",
+    "name": "Ledgy",
+    "operatingSystem": "iOS 15.0",
+    "applicationCategory": "FinanceApplication"
+  },
+  "proficiencyLevel": "Expert"
+}
+</script>
 <script src="assets/analytics.js" defer></script>
 </head>
 <body data-screen-label="07 API v1 Reference">
@@ -627,7 +665,7 @@ Content-Type: application/json
          ============================================================ -->
     <section id="groups">
       <h2 data-num="12">Groups</h2>
-      <p class="resource-intro">Groups are shared ledgers — a household, a project, a roommate split. A transaction or budget can belong to a group, in which case every member can see it. Membership and invites are managed in the iOS app; the API surface here is the resource itself.</p>
+      <p class="resource-intro">Groups are shared ledgers — a household, a trip, a shared apartment. Every member sees the same transactions; ownership stays personal. Membership and invites are managed in the iOS app; the API surface here is the resource itself.</p>
 
       <div class="endpoint" id="grp-list">
         <div class="endpoint__head">

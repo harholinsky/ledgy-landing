@@ -7,6 +7,8 @@
 <meta name="description" content="Voice-first expense tracker for iOS. Multi-currency, on-device speech, no ads. Talk to Ledgy from Claude, ChatGPT, and any AI assistant via MCP. Free on the App Store.">
 <meta name="keywords" content="voice expense tracker, multi currency expense, expense tracker no ads, mcp expense tracker, claude expense tracker, apple watch expense tracker, siri expense logger">
 <link rel="canonical" href="https://ledgy.app/">
+<link rel="alternate" hreflang="en" href="https://ledgy.app/">
+<link rel="alternate" hreflang="x-default" href="https://ledgy.app/">
 <meta name="apple-itunes-app" content="app-id=6761738170">
 <meta name="theme-color" content="#0a0a14">
 <meta property="og:site_name" content="Ledgy">
@@ -33,16 +35,16 @@
   "@type": "MobileApplication",
   "name": "Ledgy",
   "alternateName": "Ledgy: Expense Tracker & Budget",
-  "operatingSystem": "iOS 15+",
+  "operatingSystem": "iOS 15.0",
   "applicationCategory": "FinanceApplication",
-  "applicationSubCategory": "Personal Finance",
-  "description": "Voice-first expense tracker with multi-currency support. Speak any expense in any currency. Free, no ads. Optional Cloud sync unlocks AI categorization and MCP integration with Claude, ChatGPT, and other AI assistants.",
+  "applicationSubCategory": "BudgetingApplication",
+  "description": "Voice-first expense tracker with multi-currency support. Speak any expense in any currency — via Siri, Apple Watch, or Action Button. Free, no ads. Optional Cloud sync unlocks AI receipt scanning, MCP integration with Claude, ChatGPT and other AI assistants, family sharing, web dashboard, and Telegram bot.",
   "downloadUrl": "https://apps.apple.com/app/id6761738170",
   "installUrl": "https://apps.apple.com/app/id6761738170",
   "url": "https://ledgy.app/",
   "softwareVersion": "1.0.1",
   "datePublished": "2026-05-19",
-  "inLanguage": ["en", "de", "fr", "it", "pl", "uk"],
+  "inLanguage": ["en", "de", "fr", "it", "pl", "uk", "es", "hi", "ja", "ko", "pt", "ru", "tr", "zh"],
   "screenshot": [
     "https://ledgy.app/assets/screens/ledgy-home.webp",
     "https://ledgy.app/assets/screens/ledgy-add.webp",
@@ -51,21 +53,45 @@
   ],
   "featureList": [
     "Voice expense logging via Siri and Action Button",
-    "Multi-currency accounts with live FX conversion",
-    "Receipt scanning with AI categorization",
-    "Apple Watch app",
-    "MCP integration for Claude, ChatGPT, and other AI assistants",
-    "Shared accounts and groups for households",
-    "Offline-first with optional cloud sync",
+    "Apple Watch expense logging",
+    "Multi-currency accounts with live ECB FX rates",
+    "AI receipt scanning and auto-categorization",
+    "MCP server — connect Claude, ChatGPT, and any AI assistant",
+    "On-device speech transcription — voice audio never leaves your phone",
+    "Family and household shared accounts",
+    "Offline-first with local SQLite database",
     "CSV and PDF export",
-    "No ads, no data brokers, no tracking SDKs"
+    "14 languages supported",
+    "No ads, no data brokers, no tracking SDKs",
+    "Telegram bot expense logging",
+    "Apple Wallet auto-log for Apple Pay",
+    "Web dashboard with trends and reports"
   ],
   "offers": {
     "@type": "Offer",
     "price": "0",
-    "priceCurrency": "USD"
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "eligibleRegion": [
+      { "@type": "Country", "name": "US" },
+      { "@type": "Country", "name": "DE" },
+      { "@type": "Country", "name": "GB" },
+      { "@type": "Country", "name": "PL" },
+      { "@type": "Country", "name": "UA" },
+      { "@type": "Country", "name": "FR" },
+      { "@type": "Country", "name": "IT" }
+    ]
   },
   "publisher": {
+    "@type": "Organization",
+    "name": "Ledgy",
+    "url": "https://ledgy.app/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ledgy.app/assets/ledgy-icon.svg"
+    }
+  },
+  "author": {
     "@type": "Person",
     "name": "Borys Harholinskyi"
   }
@@ -77,9 +103,112 @@
   "@type": "Organization",
   "name": "Ledgy",
   "url": "https://ledgy.app/",
-  "logo": "https://ledgy.app/assets/ledgy-icon.svg",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://ledgy.app/assets/ledgy-icon.svg",
+    "width": 512,
+    "height": 512
+  },
+  "foundingDate": "2026-05-19",
+  "founder": {
+    "@type": "Person",
+    "name": "Borys Harholinskyi"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "email": "support@ledgy.app",
+    "availableLanguage": ["English"]
+  },
   "sameAs": [
     "https://apps.apple.com/app/id6761738170"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Ledgy",
+  "url": "https://ledgy.app/",
+  "description": "Voice-first multi-currency expense tracker for iOS. Free, no ads.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ledgy",
+    "url": "https://ledgy.app/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "url": "https://ledgy.app/",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Ledgy free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — every solo-tracking feature is free forever. Cloud unlocks multi-device sync, sharing, AI voice and photo intake, Siri, Apple Watch logging, Telegram bot, Apple Wallet automation, and the web dashboard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is Cloud?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "$4.99/month or $49.99/year (about $4.17/month). 7-day free trial. Cancel anytime."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there an Android version?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not yet. Ledgy is iOS-only today. Android is on the roadmap — contact support@ledgy.app if you want to be notified."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Ledgy work offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every screen reads from a local SQLite database on your phone. New transactions appear instantly; sync happens in the background when you are back online."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to my data if I leave a shared group?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nothing. Your transactions are personally owned — sharing only decides who sees them. Leave the group, keep your history."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my voice sent to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Voice is transcribed on your device using Apple's on-device speech recognizer. Only the resulting text is sent to our AI for parsing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I import from Mint, YNAB, or another app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The CSV import wizard auto-detects column headers in 29 languages, currency symbols, and category aliases. Bring your full history."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What languages do you support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "14 fully translated locales: English, German, Spanish (Mexico), French, Hindi, Italian, Japanese, Korean, Polish, Portuguese (Brazil), Russian, Turkish, Ukrainian, and Simplified Chinese."
+      }
+    }
   ]
 }
 </script>
@@ -121,8 +250,8 @@
         <i class="fa-brands fa-apple" aria-hidden="true"></i>
         Now on the App Store · iOS
       </span>
-      <h1 class="gradient-text">Expenses that track themselves.</h1>
-      <p class="hero__sub">Snap a receipt, hold the mic on your watch, or shout at Siri. Ledgy parses, categorizes, and files every spend — across iPhone, Apple Watch, web, and Telegram.</p>
+      <h1 class="gradient-text">Speak any expense in any currency.</h1>
+      <p class="hero__sub">Ledgy is a voice-first, multi-currency expense tracker for iOS. Log by voice on your iPhone or Apple Watch, snap a receipt, or ask Claude and ChatGPT directly. Free to download. No ads. Your data stays on your device.</p>
       <div class="hero__cta-row">
         <div class="hero__cta">
           <a class="btn btn--primary btn--lg" href="https://apps.apple.com/app/id6761738170" target="_blank" rel="noopener noreferrer" data-cta="Download on App Store" data-cta-position="hero">
@@ -576,7 +705,7 @@
       </details>
       <details class="faq__item">
         <summary><span>How much is Cloud?</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
-        <div class="faq__body"><p>$6.99/month or $59.99/year (~$5/mo). 7-day free trial. Cancel anytime.</p></div>
+        <div class="faq__body"><p>$4.99/month or $49.99/year (~$4.17/mo). 7-day free trial. Cancel anytime.</p></div>
       </details>
       <details class="faq__item">
         <summary><span>Is there an Android version?</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>

@@ -1,0 +1,37 @@
+# Ledgy
+
+> Ledgy is a voice-first, multi-currency expense tracker for iOS. Free download with no ads. Optional Ledgy Cloud subscription ($4.99/mo or $49.99/yr) adds AI intake, multi-device sync, group sharing, Apple Watch logging, Telegram bot, web dashboard, and an MCP server that lets Claude, ChatGPT, Cursor, and any MCP-compatible AI assistant read, add, and edit your expenses in plain English. App Store ID: 6761738170.
+
+## Key facts
+
+- Platform: iOS 15+ (iPhone, iPad, Apple Watch)
+- Price: Free download, no ads; Cloud subscription optional
+- Cloud pricing: $4.99/month or $49.99/year (~$4.17/mo, save 17%), 7-day free trial
+- Voice logging: on-device speech (Apple Speech framework); only resulting text sent to server
+- Multi-currency: daily-refreshed ECB FX rates, per-account currency, primary currency conversion
+- MCP server URL: https://api.ledgy.app/mcp (OAuth 2.0 / RFC 7591 Dynamic Client Registration)
+- REST API base: https://api.ledgy.app/api/v1/
+- Languages: 14 fully translated locales (EN, DE, ES, FR, HI, IT, JA, KO, PL, PT-BR, RU, TR, UK, ZH-Hans)
+- CSV import: 29 locale auto-detection
+- No ads, no tracking SDKs, no data brokers
+- Data ownership: offline-first SQLite on device; cloud sync is encrypted
+
+## Marketing
+
+- [Home](https://ledgy.app/): overview, features, capture surfaces, MCP, FAQ
+- [Pricing](https://ledgy.app/pricing): Free vs Cloud plan comparison table, sharing explainer
+- [Integrations / MCP](https://ledgy.app/integrations): step-by-step Claude and ChatGPT setup, full prompt examples, privacy controls
+
+## Documentation
+
+- [API v1 Reference](https://ledgy.app/api-v1): REST endpoints for accounts, categories, budgets, groups, transactions; PAT auth; bulk ops
+- [Support / Help Center](https://ledgy.app/support): install, voice, Siri, Watch, Telegram, Apple Wallet, billing, troubleshooting
+
+## Legal
+
+- [Privacy Policy](https://ledgy.app/privacy)
+- [Terms of Service](https://ledgy.app/terms)
+
+## App Store
+
+- [Download on the App Store](https://apps.apple.com/app/id6761738170) — App ID 6761738170

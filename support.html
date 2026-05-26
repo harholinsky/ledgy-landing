@@ -6,6 +6,8 @@
 <title>Support — Ledgy</title>
 <meta name="description" content="Get help with Ledgy. FAQs, troubleshooting, voice expense logging tips, MCP integration support, and direct contact.">
 <link rel="canonical" href="https://ledgy.app/support">
+<link rel="alternate" hreflang="en" href="https://ledgy.app/support">
+<link rel="alternate" hreflang="x-default" href="https://ledgy.app/support">
 <meta name="apple-itunes-app" content="app-id=6761738170">
 <meta name="theme-color" content="#0a0a14">
 <meta property="og:site_name" content="Ledgy">
@@ -20,6 +22,130 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/doc.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ledgy.app/" },
+    { "@type": "ListItem", "position": 2, "name": "Support", "item": "https://ledgy.app/support" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Ledgy Help Center",
+  "url": "https://ledgy.app/support",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Ledgy free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every solo-tracking feature is free forever — unlimited transactions, accounts, categories, budgets, multi-currency, CSV import and export, and receipts. Ledgy Cloud ($4.99/month or $49.99/year) adds AI voice and photo intake, multi-device sync, Siri shortcuts, Apple Watch logging, Telegram bot, Apple Wallet automation, web dashboard, family and group sharing, and MCP integration with Claude and ChatGPT."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Ledgy track multiple currencies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Ledgy supports multi-currency accounts out of the box. Each account has its own currency. Exchange rates are refreshed daily from reliable sources (aligned with ECB data). Tap and hold any amount to see its equivalent in your primary currency. Trip mode makes it easy to switch when traveling abroad."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I log expenses by voice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — voice logging is a core Ledgy Cloud feature. Tap the mic on iPhone or hold the digital crown on Apple Watch and speak naturally: 'twelve fifty for lunch at Pret.' Ledgy parses amount, merchant, and category automatically. Speech transcription runs on-device using Apple's on-device speech recognizer; only the resulting text is sent to the AI for parsing. You can also trigger voice logging via Siri: 'Hey Siri, log expense to Ledgy.'"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Ledgy work offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Ledgy is offline-first. Every screen reads from a local SQLite database on your iPhone. New transactions appear instantly even with no internet connection. Cloud sync happens in the background when connectivity is restored."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Ledgy available on Android?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Ledgy is iOS-only at launch. An Android version is on the roadmap. Contact support@ledgy.app if you want to be notified when Android becomes available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Ledgy show ads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Ledgy has no ads, no data brokers, and no advertising tracking SDKs. The free plan is supported by the optional Cloud subscription, not by advertising revenue. Ledgy does not collect your Identifier for Advertisers (IDFA)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Ledgy private? Does it sell my data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ledgy is local-first. Your transactions live on your iPhone in a local SQLite database. If you enable Cloud, an encrypted copy is synced to Ledgy servers hosted in Germany (Hetzner). Ledgy never sells your data, never uses it for advertising, and never uses it to train AI models. Voice audio is transcribed on-device and never stored. For full details, see the Privacy Policy at https://ledgy.app/privacy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Ledgy split bills like Splitwise?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Ledgy does not calculate debt settlement or split amounts between people. What it does offer is shared spending visibility: when you join a shared group or account, all members can see each other's transactions as they happen. This is useful for household budgets and trips where everyone logs their own spending. If you need settlement math (who owes whom), Splitwise remains the right tool."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Ledgy MCP server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MCP stands for Model Context Protocol — an open standard that lets AI assistants like Claude, ChatGPT, and Cursor connect to external data sources. Ledgy runs an MCP server at https://api.ledgy.app/mcp. Once connected, you can ask your AI assistant questions like 'What did I spend on coffee last month?' or 'Am I on track for my groceries budget?' — and it answers from your real Ledgy data. The assistant only sees data it explicitly requests on your behalf. You can disconnect any time from the assistant's settings. MCP integration requires an active Ledgy Cloud subscription."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Ledgy work on Apple Watch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Ledgy has a native Apple Watch app. Hold the digital crown, speak your expense — 'coffee four fifty' — and the transaction appears on your iPhone before you put your wrist down. Watch complications deep-link directly to the record screen. Apple Watch logging requires a Ledgy Cloud subscription."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does multi-currency conversion work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each account in Ledgy has its own currency. You set a primary currency (e.g. USD) and Ledgy converts all foreign-currency balances and totals to your primary currency using daily-refreshed exchange rates. The rates are sourced from reliable financial data providers aligned with ECB reference rates. Tap and hold any amount to see a live conversion. In trip mode, your active travel account is highlighted at the top."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I import from CSV?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Ledgy's CSV import wizard auto-detects column headers in 29 locales, recognizes currency symbols, and maps category aliases automatically. If it gets a column wrong, you can drag and drop to remap before confirming. It works with exports from Mint, YNAB, Apple Numbers, and most other personal finance apps. Go to Settings → Import → CSV inside the Ledgy app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does Ledgy Cloud cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ledgy Cloud costs $4.99 per month or $49.99 per year (equivalent to about $4.17 per month, saving 17% vs monthly). A 7-day free trial is included — you are not charged until the trial ends. Cancel any time from Settings → [Your Name] → Subscriptions on iPhone. Subscriptions are managed by Apple."
+      }
+    }
+  ]
+}
+</script>
 <script src="assets/analytics.js" defer></script>
 </head>
 <body data-screen-label="05 Support">

@@ -1,5 +1,75 @@
+# =========================================================
+# Ledgy — robots.txt
+# Updated: 2026-05-26
+# =========================================================
+
+# --- Default: allow all ---
 User-agent: *
 Allow: /
 Disallow: /.playwright-mcp/
 
+# --- AI Search (explicit Allow for citation visibility) ---
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: claude-web
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google AI Overviews & Gemini training
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Amazon Alexa / Rufus
+User-agent: Amazonbot
+Allow: /
+
+# Meta AI
+User-agent: meta-externalagent
+Allow: /
+
+# DuckAssistBot
+User-agent: DuckAssistBot
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+User-agent: cohere-training-data-crawler
+Allow: /
+
+# Common Crawl (feeds LLM training datasets)
+User-agent: CCBot
+Allow: /
+
+# ByteDance — block if you don't want TikTok/Douyin indexing
+# User-agent: Bytespider
+# Disallow: /
+
+# =========================================================
 Sitemap: https://ledgy.app/sitemap.xml

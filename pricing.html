@@ -4,8 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pricing — Ledgy Voice Expense Tracker</title>
-<meta name="description" content="Ledgy is free forever for solo use, no ads. Ledgy Cloud ($6.99/mo or $59.99/yr) adds AI categorization, multi-device sync, shared accounts, and MCP integration with Claude and ChatGPT. 7-day free trial.">
+<meta name="description" content="Ledgy is free forever for solo use, no ads. Ledgy Cloud ($4.99/mo or $49.99/yr) adds AI categorization, multi-device sync, shared accounts, and MCP integration with Claude and ChatGPT. 7-day free trial.">
 <link rel="canonical" href="https://ledgy.app/pricing">
+<link rel="alternate" hreflang="en" href="https://ledgy.app/pricing">
+<link rel="alternate" hreflang="x-default" href="https://ledgy.app/pricing">
 <meta name="apple-itunes-app" content="app-id=6761738170">
 <meta name="theme-color" content="#0a0a14">
 <meta property="og:site_name" content="Ledgy">
@@ -20,6 +22,58 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/pricing.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ledgy.app/" },
+    { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://ledgy.app/pricing" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Ledgy Cloud",
+  "description": "Optional cloud subscription for Ledgy expense tracker. Unlocks AI voice and photo intake, multi-device sync, Siri shortcuts, Apple Watch logging, Telegram bot, Apple Wallet automation, family sharing, web dashboard, and MCP integration with Claude and ChatGPT.",
+  "brand": { "@type": "Brand", "name": "Ledgy" },
+  "category": "Software Subscription",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Monthly",
+      "price": "4.99",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "4.99",
+        "priceCurrency": "USD",
+        "billingDuration": "P1M",
+        "unitText": "MONTH"
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://apps.apple.com/app/id6761738170"
+    },
+    {
+      "@type": "Offer",
+      "name": "Yearly",
+      "price": "49.99",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "49.99",
+        "priceCurrency": "USD",
+        "billingDuration": "P1Y",
+        "unitText": "YEAR"
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://apps.apple.com/app/id6761738170"
+    }
+  ]
+}
+</script>
 <script src="assets/analytics.js" defer></script>
 </head>
 <body data-screen-label="02 Pricing">
@@ -91,10 +145,10 @@
         <div class="plan__head">
           <h2>Cloud</h2>
           <div class="plan__price">
-            <span class="plan__amount" id="price-amount">$59.99</span>
+            <span class="plan__amount" id="price-amount">$49.99</span>
             <span class="plan__period" id="price-period">/year</span>
           </div>
-          <p class="plan__sub" id="price-sub">= $5.00/month, billed yearly</p>
+          <p class="plan__sub" id="price-sub">= $4.17/month, billed yearly</p>
           <p class="plan__trial">7-day free trial · no charge until trial ends</p>
         </div>
         <ul class="plan__features">
@@ -236,9 +290,9 @@ const FALLBACK_PRICING = {
   entitlement: "cloud",
   trialDays: 7,
   packages: [
-    { id: "monthly", period: "month", price: 6.99, priceFormatted: "$6.99", priceSuffix: "/mo", billingDescription: "Billed monthly" },
-    { id: "yearly", period: "year", price: 59.99, priceFormatted: "$59.99", priceSuffix: "/yr",
-      monthlyEquivalentFormatted: "$5.00", savingsPercent: 28, isPopular: true, billingDescription: "Billed annually" },
+    { id: "monthly", period: "month", price: 4.99, priceFormatted: "$4.99", priceSuffix: "/mo", billingDescription: "Billed monthly" },
+    { id: "yearly", period: "year", price: 49.99, priceFormatted: "$49.99", priceSuffix: "/yr",
+      monthlyEquivalentFormatted: "$4.17", savingsPercent: 17, isPopular: true, billingDescription: "Billed annually" },
   ],
   ctaUrl: "https://dashboard.ledgy.app/shop",
   disclaimer: "Subscription auto-renews unless cancelled at least 24 hours before the end of the current period.",
