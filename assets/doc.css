@@ -20,10 +20,11 @@
 
 .doc {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 240px minmax(0, 1fr);
   gap: 60px;
   padding-bottom: 80px;
 }
+.doc__toc, .doc__body { min-width: 0; }
 .doc__toc {
   position: sticky;
   top: 100px;
@@ -442,6 +443,8 @@
 @media (max-width: 900px) {
   .doc__body { max-width: 100%; }
   .endpoint { padding: 14px; }
-  .params-table { font-size: 12px; }
+  .params-table { font-size: 12px; display: block; overflow-x: auto; }
   .params-table th, .params-table td { padding: 7px 9px; }
+  .endpoint__path { font-size: 13px; }
+  .doc__body h2 { font-size: 22px; }
 }
