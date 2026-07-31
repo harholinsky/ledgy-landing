@@ -128,7 +128,7 @@
     <a href="index.html" class="brand-lockup"><img src="assets/ledgy-icon.svg" alt="" class="brand-icon"><img src="assets/ledgy-logo.svg" alt="Ledgy" class="brand-word"></a>
     <nav class="site-nav" aria-label="Primary">
       <a href="index.html">Home</a>
-      <a href="pricing.html">Pricing</a>
+      <a href="https://dashboard.ledgy.app/upgrade" target="_blank" rel="noopener noreferrer">Pricing</a>
       <a href="support.html">Support</a>
     </nav>
     <div class="site-header__cta">
@@ -148,7 +148,6 @@
     <p class="doc-meta">
       <span><i class="fa-solid fa-plug"></i> Works with ChatGPT, Claude, and other MCP clients.</span>
       <span><i class="fa-brands fa-apple"></i> The iOS app is free with no ads.</span>
-      <span><i class="fa-solid fa-clock"></i> The AI connection runs on a 7-day free trial of Ledgy Cloud.</span>
     </p>
     <div class="cg-hero-ctas">
       <a class="btn btn--primary" href="#connect-chatgpt" data-cta="Connect ChatGPT" data-cta-position="hero">Connect ChatGPT</a>
@@ -166,7 +165,6 @@
       <li><a href="#connect-chatgpt">Connect ChatGPT</a></li>
       <li><a href="#claude">Connect Claude</a></li>
       <li><a href="#capabilities">What you can do</a></li>
-      <li><a href="#pricing">Honest pricing</a></li>
       <li><a href="#faq">Questions</a></li>
       <li><a href="#closing">Try it</a></li>
     </ol>
@@ -211,7 +209,7 @@
         <li>Click <strong>Add</strong>, then sign in with Apple, Google, or email.</li>
       </ol>
       <p>Using Cursor, Windsurf, or another MCP client? Point it at <code>https://api.ledgy.app/mcp</code> with OAuth 2.1 + PKCE. Dynamic Client Registration is supported, so no manual client_id is needed.</p>
-      <p class="cg-section-cta"><a class="btn btn--secondary" href="integrations.html" data-cta="Setup for Cursor and other MCP clients" data-cta-position="claude">Setup for Cursor and other MCP clients</a></p>
+      <p class="cg-section-cta"><a class="btn btn--secondary" href="integrations.html#other-clients" data-cta="Setup for Cursor and other MCP clients" data-cta-position="claude">Setup for Cursor and other MCP clients</a></p>
     </section>
 
     <section id="capabilities">
@@ -224,29 +222,14 @@
         <li><strong>Convert currencies with live ECB rates.</strong> Ledgy is multi-currency; your dashboard totals show in your primary currency.</li>
         <li><strong>See everything on a live dashboard.</strong> Every change syncs instantly to dashboard.ledgy.app, and to the iOS app if you use it.</li>
       </ul>
-      <img class="cg-shot" src="assets/screens/web-dash.webp" alt="The Ledgy web dashboard showing monthly summary, spend by category, and budgets" loading="lazy" width="2991" height="1644">
-    </section>
-
-    <section id="pricing">
-      <h2 data-num="05">Honest pricing</h2>
-      <p>The iOS app is free forever for solo, on-device use. No ads, ever. Your data stays on your device.</p>
-      <p>The AI connection (ChatGPT, Claude, MCP) is part of Ledgy Cloud, together with multi-device sync, cloud backup, the web dashboard, AI voice and photo intake, and shared accounts and groups. Ledgy Cloud is $2.99/month or $22.99/year (USD). Cancel anytime.</p>
-      <p>How the trial works, precisely:</p>
-      <ul>
-        <li>Connecting costs nothing.</li>
-        <li>The 7-day free trial starts at your first real action in the chat: your first import or question.</li>
-        <li>During the trial you get the full product, web dashboard included.</li>
-        <li>When it ends, nothing is deleted. Your data is saved, and the assistant points you to dashboard.ledgy.app/upgrade if you want to continue.</li>
-      </ul>
-      <p class="cg-section-cta"><a class="btn btn--secondary" href="pricing.html" data-cta="Full pricing details" data-cta-position="pricing">Full pricing details</a></p>
     </section>
 
     <section id="faq">
-      <h2 data-num="06">Questions people actually ask</h2>
+      <h2 data-num="05">Questions people actually ask</h2>
       <h3>Is it secure? What can ChatGPT or Claude actually access?</h3>
       <p>Sign-in uses OAuth 2.1 with PKCE and happens on Ledgy's own consent page, with Apple, Google, or email. The assistant never sees your password. Once connected, it can read your data and, when you ask, create, edit, or delete entries; ChatGPT shows a confirmation prompt before any write. Data is stored in Germany (Hetzner) plus Google Cloud Firestore. Transaction amounts are never sent to analytics. To disconnect, remove the connector in your ChatGPT or Claude settings. Security contact: <a href="mailto:security@ledgy.app">security@ledgy.app</a>.</p>
       <h3>What is the free trial and when does it start?</h3>
-      <p>Connecting is free. The 7-day trial starts the first time you actually use Ledgy through the chat, meaning your first import or question, not at connection time. During those 7 days you get the full product, including the web dashboard. After that, Ledgy Cloud is $2.99/month or $22.99/year (USD). <a href="pricing.html" data-cta="See pricing" data-cta-position="faq">See pricing</a>.</p>
+      <p>Connecting is free. The 7-day trial starts the first time you actually use Ledgy through the chat, meaning your first import or question, not at connection time. During those 7 days you get the full product, including the web dashboard. After that, Ledgy Cloud is $2.99/month or $22.99/year (USD). <a href="https://dashboard.ledgy.app/upgrade" target="_blank" rel="noopener noreferrer" data-cta="See pricing" data-cta-position="faq">See pricing</a>.</p>
       <h3>What happens to my data when the trial ends?</h3>
       <p>Nothing is deleted. Your data stays saved. The chat tools stop working and point you to dashboard.ledgy.app/upgrade, where you can continue by subscribing through the App Store (an Apple device is needed for that today).</p>
       <h3>Which statement formats work?</h3>
@@ -262,7 +245,7 @@
     </section>
 
     <section id="closing">
-      <h2 data-num="07">Try it with last month's statement</h2>
+      <h2 data-num="06">Try it with last month's statement</h2>
       <p>Grab any statement export you already have, connect, and drop it into the chat. Three steps, then never again.</p>
       <p>Ledgy is built by one indie developer. If your statement format trips it up, or anything else feels off, email <a href="mailto:support@ledgy.app">support@ledgy.app</a>. Feedback genuinely shapes what gets built next.</p>
       <div class="cg-hero-ctas">
@@ -282,7 +265,7 @@
         <a href="index.html" class="brand-lockup" style="margin-bottom: 14px;"><img src="assets/ledgy-icon.svg" alt="" class="brand-icon"><img src="assets/ledgy-logo.svg" alt="Ledgy" class="brand-word"></a>
         <p class="site-footer__about">Expenses that track themselves.</p>
       </div>
-      <div><h4>Product</h4><ul><li><a href="index.html">Home</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="integrations.html">Integrations</a></li><li><a href="chatgpt.html">Ledgy in ChatGPT</a></li><li><a href="https://dashboard.ledgy.app" target="_blank" rel="noopener noreferrer">Dashboard</a></li></ul></div>
+      <div><h4>Product</h4><ul><li><a href="index.html">Home</a></li><li><a href="https://dashboard.ledgy.app/upgrade" target="_blank" rel="noopener noreferrer">Pricing</a></li><li><a href="integrations.html">Integrations</a></li><li><a href="chatgpt.html">Ledgy in ChatGPT</a></li><li><a href="https://dashboard.ledgy.app" target="_blank" rel="noopener noreferrer">Dashboard</a></li></ul></div>
       <div><h4>Developers</h4><ul><li><a href="api-v1.html">API v1 reference</a></li><li><a href="integrations.html">MCP integration</a></li></ul></div>
       <div><h4>Support</h4><ul><li><a href="support.html">Help center</a></li><li><a href="mailto:support@ledgy.app">support@ledgy.app</a></li></ul></div>
       <div><h4>Legal</h4><ul><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
