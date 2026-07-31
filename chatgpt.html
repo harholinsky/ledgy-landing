@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChatGPT Expense Tracker: Import Bank Statements | Ledgy</title>
+<meta name="description" content="Drop a bank statement into ChatGPT or Claude and get categorized expenses plus a live dashboard. Connect Ledgy in three steps. 7-day free trial, no ads.">
+<meta name="keywords" content="chatgpt expense tracker, import bank statement chatgpt, claude expense tracker, ai bank statement import, categorize bank statement ai, chatgpt personal finance, mcp expense tracker">
+<link rel="canonical" href="https://ledgy.app/chatgpt">
+<link rel="alternate" hreflang="en" href="https://ledgy.app/chatgpt">
+<link rel="alternate" hreflang="x-default" href="https://ledgy.app/chatgpt">
+<meta name="apple-itunes-app" content="app-id=6761738170">
+<meta name="theme-color" content="#0a0a14">
+<meta property="og:site_name" content="Ledgy">
+<meta property="og:title" content="Ledgy + ChatGPT: import bank statements by chat">
+<meta property="og:description" content="Upload a statement into ChatGPT or Claude. Ledgy turns it into categorized expenses and a live dashboard. Free iOS app, no ads. 7-day free trial for the AI connection.">
+<meta property="og:image" content="https://ledgy.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ledgy.app/chatgpt">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ledgy + ChatGPT: import bank statements by chat">
+<meta name="twitter:description" content="Upload a statement into ChatGPT or Claude. Ledgy turns it into categorized expenses and a live dashboard. Free iOS app, no ads. 7-day free trial for the AI connection.">
+<meta name="twitter:image" content="https://ledgy.app/assets/og-image.png">
+<link rel="icon" type="image/svg+xml" href="assets/ledgy-icon.svg">
+<link rel="apple-touch-icon" href="assets/ledgy-icon.svg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/doc.css">
+<link rel="stylesheet" href="assets/chatgpt.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "ChatGPT Expense Tracker: Import Bank Statements with Ledgy",
+  "description": "How to connect Ledgy to ChatGPT or Claude, import a bank statement by chat, and get categorized expenses plus a live dashboard.",
+  "url": "https://ledgy.app/chatgpt",
+  "inLanguage": "en",
+  "datePublished": "2026-07-31",
+  "author": {
+    "@type": "Person",
+    "name": "Borys Harholinskyi"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ledgy",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ledgy.app/assets/ledgy-icon.svg"
+    }
+  },
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "Ledgy",
+    "operatingSystem": "iOS 15+",
+    "applicationCategory": "FinanceApplication",
+    "url": "https://apps.apple.com/app/id6761738170"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ledgy.app/" },
+    { "@type": "ListItem", "position": 2, "name": "Ledgy in ChatGPT", "item": "https://ledgy.app/chatgpt" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is it secure? What can ChatGPT or Claude actually access?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sign-in uses OAuth 2.1 with PKCE and happens on Ledgy's own consent page, with Apple, Google, or email. The assistant never sees your password. Once connected, it can read your data and, when you ask, create, edit, or delete entries; ChatGPT shows a confirmation prompt before any write. Data is stored in Germany (Hetzner) plus Google Cloud Firestore. Transaction amounts are never sent to analytics. To disconnect, remove the connector in your ChatGPT or Claude settings. Security contact: security@ledgy.app." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the free trial and when does it start?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Connecting is free. The 7-day trial starts the first time you actually use Ledgy through the chat, meaning your first import or question, not at connection time. During those 7 days you get the full product, including the web dashboard. After that, Ledgy Cloud is $2.99/month or $22.99/year (USD)." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to my data when the trial ends?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Nothing is deleted. Your data stays saved. The chat tools stop working and point you to dashboard.ledgy.app/upgrade, where you can continue by subscribing through the App Store (an Apple device is needed for that today)." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which statement formats work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Whatever the assistant can read. In July 2026, real users imported bank PDF statements, a bank export file, an Amex statement, and a family budget PDF. You upload or paste the statement into the chat; the AI maps the rows to your categories and creates them in one batch. There is no bank connection involved; the AI reads the file you give it." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it connect to my bank automatically?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. There is no bank account linking, and nothing pulls from your bank. You send the statement yourself. Next month, you just send the new one." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need the iOS app?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. You sign up during the connection flow with Apple, Google, or email, and the trial includes the full web dashboard. When the trial ends, you can subscribe through the App Store — an Apple device is needed for that today; dashboard.ledgy.app/upgrade has the details. The iOS app is optional; it adds voice logging, Apple Watch capture, and more." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which ChatGPT plan do I need? Does the free plan work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The Ledgy app in ChatGPT connects straight from the app link with no special setup; where ChatGPT apps are available, the free plan works. The manual Developer-mode route needs ChatGPT Plus, Pro, or Business. Claude custom connectors work on claude.ai and Claude Desktop. Cursor, Windsurf, and other MCP clients that support remote servers with OAuth work too." }
+    },
+    {
+      "@type": "Question",
+      "name": "What else can it do besides importing statements?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ask questions like “how much did I spend on groceries in July?” and get answers computed from your own data. Manage accounts, budgets, recurring transactions, tags, categories, and shared groups. Convert currencies with live ECB rates. Everything syncs instantly to the web dashboard, and to the iOS app if you use it." }
+    }
+  ]
+}
+</script>
+<script src="assets/analytics.js" defer></script>
+</head>
+<body data-screen-label="08 ChatGPT">
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="starfield" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="index.html" class="brand-lockup"><img src="assets/ledgy-icon.svg" alt="" class="brand-icon"><img src="assets/ledgy-logo.svg" alt="Ledgy" class="brand-word"></a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <div class="site-header__cta">
+      <a class="btn btn--ghost" href="https://dashboard.ledgy.app" target="_blank" rel="noopener noreferrer">Open dashboard</a>
+      <a class="btn btn--primary" href="https://apps.apple.com/app/id6761738170" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-apple"></i> Download on the App Store</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="doc-hero" id="hero">
+  <div class="container">
+    <span class="t-eyebrow">Talk to your money</span>
+    <h1>Drop your bank statement into ChatGPT. Get your finances categorized, plus a dashboard.</h1>
+    <p class="cg-lead">No exports to massage, no column mapping, no manual entry. Upload the statement file into a chat, and Ledgy turns it into categorized transactions you can see on a live dashboard.</p>
+    <p class="cg-lead">We didn't invent this workflow. In July 2026, four people from four countries did it on their own, unprompted, with four different formats: bank PDF statements, a bank export file, an Amex statement, and a family budget PDF. It worked for all of them. So we built it a proper front door.</p>
+    <p class="doc-meta">
+      <span><i class="fa-solid fa-plug"></i> Works with ChatGPT, Claude, and other MCP clients.</span>
+      <span><i class="fa-brands fa-apple"></i> The iOS app is free with no ads.</span>
+      <span><i class="fa-solid fa-clock"></i> The AI connection runs on a 7-day free trial of Ledgy Cloud.</span>
+    </p>
+    <div class="cg-hero-ctas">
+      <a class="btn btn--primary" href="#connect-chatgpt" data-cta="Connect ChatGPT" data-cta-position="hero">Connect ChatGPT</a>
+      <a class="btn btn--secondary" href="#claude" data-cta="Connect Claude" data-cta-position="hero">Connect Claude</a>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+<div class="doc">
+  <aside class="doc__toc" aria-label="Table of contents">
+    <h4>Contents</h4>
+    <ol>
+      <li><a href="#demo">What it looks like</a></li>
+      <li><a href="#connect-chatgpt">Connect ChatGPT</a></li>
+      <li><a href="#claude">Connect Claude</a></li>
+      <li><a href="#capabilities">What you can do</a></li>
+      <li><a href="#pricing">Honest pricing</a></li>
+      <li><a href="#faq">Questions</a></li>
+      <li><a href="#closing">Try it</a></li>
+    </ol>
+  </aside>
+
+  <article class="doc__body">
+    <section id="demo">
+      <h2 data-num="01">What it looks like</h2>
+      <p>You upload a statement and say “import this”. The assistant reads the file, maps every row to your categories, and creates everything in one batch. A typical reply looks like this:</p>
+      <div class="glass-flat cg-demo" id="demo-media">
+        <p class="cg-demo__you"><strong>You:</strong> “Import this.” <span class="cg-demo__file"><i class="fa-solid fa-paperclip" aria-hidden="true"></i> statement-march.pdf</span></p>
+        <blockquote>
+          <p>Imported 87 transactions from your March statement.</p>
+          <p>Top categories: Groceries, Rent, Transport.</p>
+          <p>Two rows didn't match your categories cleanly. Want me to adjust them?</p>
+          <p>Full breakdown: <em>your dashboard link for March</em></p>
+        </blockquote>
+      </div>
+      <p>Next month, you just send the new statement. That's the whole workflow.</p>
+      <p>To be clear: the assistant reads the file you give it. Ledgy does not connect to your bank.</p>
+    </section>
+
+    <section id="connect-chatgpt">
+      <h2 data-num="02">Connect ChatGPT</h2>
+      <ol>
+        <li>Open the <a href="https://chatgpt.com/plugins/plugin_asdk_app_6a037e4f480081919938b01d5943dec4" target="_blank" rel="noopener">Ledgy app in ChatGPT</a> and click <strong>Connect</strong>.</li>
+        <li>Sign in with Apple, Google, or email.</li>
+        <li>In any chat, mention Ledgy or drop in a statement.</li>
+      </ol>
+      <p>No Developer mode or manual MCP setup needed.</p>
+      <div class="callout"><i class="fa-solid fa-circle-info"></i><span>ChatGPT shows a confirmation prompt (<strong>Allow once</strong> / <strong>Always</strong>) before any write, so nothing lands in your ledger without your OK.</span></div>
+      <p>Prefer a manual connection, or the app isn't available on your plan or region? Turn on <strong>Settings → Apps → Advanced settings → Developer mode</strong> (needs ChatGPT Plus, Pro, or Business), click <strong>Create</strong>, and fill in: Name: <code>Ledgy</code>. MCP Server URL: <code>https://api.ledgy.app/mcp</code>. Authentication: <strong>OAuth</strong>.</p>
+      <p class="cg-section-cta"><a class="btn btn--secondary" href="https://dashboard.ledgy.app/" target="_blank" rel="noopener noreferrer" data-cta="Open your dashboard" data-cta-position="connect-chatgpt">Open your dashboard</a></p>
+    </section>
+
+    <section id="claude">
+      <h2 data-num="03">Connect Claude</h2>
+      <p>Works on claude.ai and Claude Desktop.</p>
+      <ol>
+        <li>Open <strong>Settings → Connectors</strong> → <em>Add custom connector</em>.</li>
+        <li>Fill in: Name: <code>Ledgy</code>. Server URL: <code>https://api.ledgy.app/mcp</code>.</li>
+        <li>Click <strong>Add</strong>, then sign in with Apple, Google, or email.</li>
+      </ol>
+      <p>Using Cursor, Windsurf, or another MCP client? Point it at <code>https://api.ledgy.app/mcp</code> with OAuth 2.1 + PKCE. Dynamic Client Registration is supported, so no manual client_id is needed.</p>
+      <p class="cg-section-cta"><a class="btn btn--secondary" href="integrations.html" data-cta="Setup for Cursor and other MCP clients" data-cta-position="claude">Setup for Cursor and other MCP clients</a></p>
+    </section>
+
+    <section id="capabilities">
+      <h2 data-num="04">What you can do once connected</h2>
+      <p>Ledgy is a full expense tracker and budget app that works inside ChatGPT and Claude (via MCP). It exposes 30+ tools to your assistant, across transactions, accounts, categories, budgets, groups, tags, recurring payments, receipts, currency, and settings. In practice:</p>
+      <ul>
+        <li><strong>Import statements and receipts.</strong> Upload a PDF, CSV, or export; the assistant maps rows to your existing categories and creates them in one batch.</li>
+        <li><strong>Ask about your spending.</strong> “How much did I spend on groceries in July?” The answer comes from your own data, not an estimate.</li>
+        <li><strong>Manage the boring parts.</strong> Accounts, budgets, recurring transactions, tags, categories, and shared groups, all in plain English.</li>
+        <li><strong>Convert currencies with live ECB rates.</strong> Ledgy is multi-currency; your dashboard totals show in your primary currency.</li>
+        <li><strong>See everything on a live dashboard.</strong> Every change syncs instantly to dashboard.ledgy.app, and to the iOS app if you use it.</li>
+      </ul>
+      <img class="cg-shot" src="assets/screens/web-dash.webp" alt="The Ledgy web dashboard showing monthly summary, spend by category, and budgets" loading="lazy" width="2991" height="1644">
+    </section>
+
+    <section id="pricing">
+      <h2 data-num="05">Honest pricing</h2>
+      <p>The iOS app is free forever for solo, on-device use. No ads, ever. Your data stays on your device.</p>
+      <p>The AI connection (ChatGPT, Claude, MCP) is part of Ledgy Cloud, together with multi-device sync, cloud backup, the web dashboard, AI voice and photo intake, and shared accounts and groups. Ledgy Cloud is $2.99/month or $22.99/year (USD). Cancel anytime.</p>
+      <p>How the trial works, precisely:</p>
+      <ul>
+        <li>Connecting costs nothing.</li>
+        <li>The 7-day free trial starts at your first real action in the chat: your first import or question.</li>
+        <li>During the trial you get the full product, web dashboard included.</li>
+        <li>When it ends, nothing is deleted. Your data is saved, and the assistant points you to dashboard.ledgy.app/upgrade if you want to continue.</li>
+      </ul>
+      <p class="cg-section-cta"><a class="btn btn--secondary" href="pricing.html" data-cta="Full pricing details" data-cta-position="pricing">Full pricing details</a></p>
+    </section>
+
+    <section id="faq">
+      <h2 data-num="06">Questions people actually ask</h2>
+      <h3>Is it secure? What can ChatGPT or Claude actually access?</h3>
+      <p>Sign-in uses OAuth 2.1 with PKCE and happens on Ledgy's own consent page, with Apple, Google, or email. The assistant never sees your password. Once connected, it can read your data and, when you ask, create, edit, or delete entries; ChatGPT shows a confirmation prompt before any write. Data is stored in Germany (Hetzner) plus Google Cloud Firestore. Transaction amounts are never sent to analytics. To disconnect, remove the connector in your ChatGPT or Claude settings. Security contact: <a href="mailto:security@ledgy.app">security@ledgy.app</a>.</p>
+      <h3>What is the free trial and when does it start?</h3>
+      <p>Connecting is free. The 7-day trial starts the first time you actually use Ledgy through the chat, meaning your first import or question, not at connection time. During those 7 days you get the full product, including the web dashboard. After that, Ledgy Cloud is $2.99/month or $22.99/year (USD). <a href="pricing.html" data-cta="See pricing" data-cta-position="faq">See pricing</a>.</p>
+      <h3>What happens to my data when the trial ends?</h3>
+      <p>Nothing is deleted. Your data stays saved. The chat tools stop working and point you to dashboard.ledgy.app/upgrade, where you can continue by subscribing through the App Store (an Apple device is needed for that today).</p>
+      <h3>Which statement formats work?</h3>
+      <p>Whatever the assistant can read. In July 2026, real users imported bank PDF statements, a bank export file, an Amex statement, and a family budget PDF. You upload or paste the statement into the chat; the AI maps the rows to your categories and creates them in one batch. There is no bank connection involved; the AI reads the file you give it.</p>
+      <h3>Does it connect to my bank automatically?</h3>
+      <p>No. There is no bank account linking, and nothing pulls from your bank. You send the statement yourself. Next month, you just send the new one.</p>
+      <h3>Do I need the iOS app?</h3>
+      <p>No. You sign up during the connection flow with Apple, Google, or email, and the trial includes the full web dashboard. When the trial ends, you can subscribe through the App Store — an Apple device is needed for that today; dashboard.ledgy.app/upgrade has the details. The iOS app is optional; it adds voice logging, Apple Watch capture, and more.</p>
+      <h3>Which ChatGPT plan do I need? Does the free plan work?</h3>
+      <p>The Ledgy app in ChatGPT connects straight from the app link with no special setup; where ChatGPT apps are available, the free plan works. The manual Developer-mode route needs ChatGPT Plus, Pro, or Business. Claude custom connectors work on claude.ai and Claude Desktop. Cursor, Windsurf, and other MCP clients that support remote servers with OAuth work too.</p>
+      <h3>What else can it do besides importing statements?</h3>
+      <p>Ask questions like “how much did I spend on groceries in July?” and get answers computed from your own data. Manage accounts, budgets, recurring transactions, tags, categories, and shared groups. Convert currencies with live ECB rates. Everything syncs instantly to the web dashboard, and to the iOS app if you use it.</p>
+    </section>
+
+    <section id="closing">
+      <h2 data-num="07">Try it with last month's statement</h2>
+      <p>Grab any statement export you already have, connect, and drop it into the chat. Three steps, then never again.</p>
+      <p>Ledgy is built by one indie developer. If your statement format trips it up, or anything else feels off, email <a href="mailto:support@ledgy.app">support@ledgy.app</a>. Feedback genuinely shapes what gets built next.</p>
+      <div class="cg-hero-ctas">
+        <a class="btn btn--primary" href="#connect-chatgpt" data-cta="Connect ChatGPT" data-cta-position="closing">Connect ChatGPT</a>
+        <a class="btn btn--secondary" href="https://apps.apple.com/app/id6761738170" target="_blank" rel="noopener noreferrer" data-cta="Get the iOS app" data-cta-position="closing"><i class="fa-brands fa-apple" aria-hidden="true"></i> Get the iOS app</a>
+      </div>
+    </section>
+  </article>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <a href="index.html" class="brand-lockup" style="margin-bottom: 14px;"><img src="assets/ledgy-icon.svg" alt="" class="brand-icon"><img src="assets/ledgy-logo.svg" alt="Ledgy" class="brand-word"></a>
+        <p class="site-footer__about">Expenses that track themselves.</p>
+      </div>
+      <div><h4>Product</h4><ul><li><a href="index.html">Home</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="integrations.html">Integrations</a></li><li><a href="chatgpt.html">Ledgy in ChatGPT</a></li><li><a href="https://dashboard.ledgy.app" target="_blank" rel="noopener noreferrer">Dashboard</a></li></ul></div>
+      <div><h4>Developers</h4><ul><li><a href="api-v1.html">API v1 reference</a></li><li><a href="integrations.html">MCP integration</a></li></ul></div>
+      <div><h4>Support</h4><ul><li><a href="support.html">Help center</a></li><li><a href="mailto:support@ledgy.app">support@ledgy.app</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    </div>
+    <div class="site-footer__legal"><span>© 2026 Ledgy</span></div>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+<script src="assets/doc.js" defer></script>
+</body>
+</html>

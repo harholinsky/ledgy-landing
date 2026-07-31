@@ -1,12 +1,12 @@
 # Ledgy
 
-> Talk to your money. Ledgy is a multi-currency expense tracker for iOS. Free download with no ads. Optional Ledgy Cloud subscription ($4.99/mo or $49.99/yr) adds AI intake, multi-device sync, group sharing, Apple Watch logging, Telegram bot, web dashboard, and an MCP server that lets Claude, ChatGPT, Cursor, and any MCP-compatible AI assistant read, add, and edit your expenses in plain English. App Store ID: 6761738170.
+> Talk to your money. Ledgy is a multi-currency expense tracker for iOS. Free download with no ads. Optional Ledgy Cloud subscription ($2.99/mo or $22.99/yr) adds AI intake, multi-device sync, group sharing, Apple Watch logging, Telegram bot, web dashboard, and an MCP server that lets Claude, ChatGPT, Cursor, and any MCP-compatible AI assistant read, add, and edit your expenses in plain English. App Store ID: 6761738170.
 
 ## Key facts
 
 - Platform: iOS 15+ (iPhone, iPad, Apple Watch)
 - Price: Free download, no ads; Cloud subscription optional
-- Cloud pricing: $4.99/month or $49.99/year (~$4.17/mo, save 17%), 7-day free trial
+- Cloud pricing: $2.99/month or $22.99/year (~$1.92/mo, save 36%), 7-day free trial
 - Voice logging: on-device speech (Apple Speech framework); only resulting text sent to server
 - Multi-currency: daily-refreshed ECB FX rates, per-account currency, primary currency conversion
 - MCP server URL: https://api.ledgy.app/mcp (OAuth 2.0 / RFC 7591 Dynamic Client Registration)
@@ -21,6 +21,7 @@
 - [Home](https://ledgy.app/): overview, features, capture surfaces, MCP, FAQ
 - [Pricing](https://ledgy.app/pricing): Free vs Cloud plan comparison table, sharing explainer
 - [Integrations / MCP](https://ledgy.app/integrations): step-by-step Claude and ChatGPT setup, full prompt examples, privacy controls
+- [Ledgy in ChatGPT](https://ledgy.app/chatgpt): import bank statements by chat (ChatGPT or Claude), connection steps, statement formats, trial and pricing FAQ
 
 ## Documentation
 

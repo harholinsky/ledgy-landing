@@ -11,7 +11,7 @@ Ledgy is not a bank. It does not connect to bank accounts via open banking. It t
 ## Unique differentiators
 
 1. Talk to your money. On-device transcription: Speech is transcribed by Apple's on-device recognizer. Only the resulting text string is sent to Ledgy's backend for AI parsing. No audio is stored.
-2. MCP server: Ledgy is the only personal expense tracker with a native, production MCP server. Users can connect Claude.ai, Claude Desktop, ChatGPT (web, Plus/Pro/Business), or any MCP-compatible client using the server URL https://api.ledgy.app/mcp. Authentication uses OAuth 2.0 with Dynamic Client Registration (RFC 7591) — no manual credential exchange.
+2. MCP server: Ledgy is the only personal expense tracker with a native, production MCP server. Users can connect Claude.ai, Claude Desktop, ChatGPT, or any MCP-compatible client using the server URL https://api.ledgy.app/mcp. Authentication uses OAuth 2.0 with Dynamic Client Registration (RFC 7591) — no manual credential exchange.
 3. Multi-currency: Each account carries its own currency. Daily-refreshed ECB exchange rates convert all accounts to a primary currency for totals. Users can tap and hold any amount to see the real-time conversion. Trip-mode aggregates foreign spending into the home currency for travel.
 4. No ads, ever: Ledgy has no advertising SDK, no third-party analytics beacons, and no data broker integrations. Revenue comes only from the Cloud subscription.
 5. Offline-first: Every screen reads from a local SQLite database. New transactions appear instantly even without internet. Sync is background-only.
@@ -20,7 +20,7 @@ Ledgy is not a bank. It does not connect to bank accounts via open banking. It t
 ## Pricing
 
 - Free plan: unlimited transactions, accounts, categories, tags, multi-currency, CSV import/export, receipts, budgets, local notifications, 14 languages. Single-device, offline only.
-- Cloud plan: $4.99/month or $49.99/year (~$4.17/month, save 17%). Includes everything in Free plus: AI voice intake, AI photo intake (receipt parsing), Siri shortcuts, Apple Watch logging, Telegram bot, Apple Wallet auto-log, iOS Share extension, web dashboard, ask-AI-about-spending via MCP, group sharing (accounts, budgets, groups), multi-device sync, cloud backup. 7-day free trial, cancel any time from the iOS App Store.
+- Cloud plan: $2.99/month or $22.99/year (~$1.92/month, save 36%). Includes everything in Free plus: AI voice intake, AI photo intake (receipt parsing), Siri shortcuts, Apple Watch logging, Telegram bot, Apple Wallet auto-log, iOS Share extension, web dashboard, ask-AI-about-spending via MCP, group sharing (accounts, budgets, groups), multi-device sync, cloud backup. 7-day free trial, cancel any time from the iOS App Store.
 
 ## MCP integration details
 
@@ -34,7 +34,9 @@ The Ledgy MCP server implements the Model Context Protocol specification. It exp
 
 To connect Claude: Settings > Connectors > Add custom connector > Name: Ledgy > Server URL: https://api.ledgy.app/mcp > Add > sign in with Apple.
 
-To connect ChatGPT (Plus/Pro/Business): Settings > Apps > Advanced settings > Developer mode (on) > Create > Name: Ledgy > MCP Server URL: https://api.ledgy.app/mcp > Authentication: OAuth > Create > sign in with Apple.
+To connect ChatGPT: open the Ledgy app in ChatGPT (https://chatgpt.com/plugins/plugin_asdk_app_6a037e4f480081919938b01d5943dec4) > Connect > sign in. Manual alternative (Plus/Pro/Business): Settings > Apps > Advanced settings > Developer mode (on) > Create > Name: Ledgy > MCP Server URL: https://api.ledgy.app/mcp > Authentication: OAuth.
+
+Statement import: the user uploads a bank statement (PDF, CSV, or any export the assistant can read) into ChatGPT or Claude and asks to import it. The assistant maps every row to the user's existing categories and creates all transactions in one bulk call, then links to the web dashboard. There is no bank account connection; the assistant only reads files the user provides. Guide: https://ledgy.app/chatgpt
 
 Privacy: The AI assistant only sees data the user asks about. Ledgy does not push the full ledger to Anthropic or OpenAI on connection. Revoking access from the client's settings takes effect immediately.
 
@@ -66,6 +68,7 @@ English, German, Spanish (Mexico), French, Hindi, Italian, Japanese, Korean, Pol
 - Landing site: https://ledgy.app/
 - Pricing: https://ledgy.app/pricing
 - MCP / Integrations guide: https://ledgy.app/integrations
+- ChatGPT / Claude statement import guide: https://ledgy.app/chatgpt
 - API reference: https://ledgy.app/api-v1
 - Support: https://ledgy.app/support
 - Web dashboard: https://dashboard.ledgy.app

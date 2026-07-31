@@ -1,0 +1,55 @@
+.cg-lead {
+  max-width: 70ch;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--foreground-dim);
+  margin-top: 14px;
+}
+.cg-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+.cg-demo {
+  min-height: 340px;
+  margin: 16px 0;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+.cg-demo__you {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.cg-demo__file {
+  font-family: "SF Mono", monospace;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background: rgba(96,65,255,0.10);
+  border: 1px solid rgba(96,65,255,0.20);
+  color: var(--primary-light);
+  white-space: nowrap;
+}
+.cg-demo blockquote {
+  margin: 0;
+  padding-left: 18px;
+  border-left: 3px solid var(--primary);
+}
+.cg-demo blockquote p { margin-bottom: 6px; }
+.cg-demo blockquote p:last-child { margin-bottom: 0; }
+.cg-shot {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+  margin: 12px 0 4px;
+}
+.cg-section-cta { margin-top: 16px; }
+@media (max-width: 760px) {
+  .cg-demo { padding: 20px; }
+}

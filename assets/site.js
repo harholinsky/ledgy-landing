@@ -10,6 +10,7 @@
       page: location.pathname,
     };
     if (window.plausible) window.plausible("cta_click", { props: evt });
+    if (window.gtag) window.gtag("event", "cta_click", evt);
     // Console fallback for dev visibility.
     console.debug("[ledgy] cta_click", evt);
   });
@@ -22,11 +23,9 @@
       list.querySelectorAll("details[open]").forEach((d) => {
         if (d !== opened) d.open = false;
       });
-      if (window.plausible) {
-        window.plausible("faq_open", {
-          props: { question: opened.querySelector("summary span")?.textContent },
-        });
-      }
+      const faqEvt = { question: opened.querySelector("summary span")?.textContent };
+      if (window.plausible) window.plausible("faq_open", { props: faqEvt });
+      if (window.gtag) window.gtag("event", "faq_open", faqEvt);
     }, true);
   });
   // Open + scroll to a <details> when its id is in the URL hash.
