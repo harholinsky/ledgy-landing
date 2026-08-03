@@ -67,9 +67,12 @@
 
 <div class="container">
 <div class="doc">
-  <aside class="doc__toc" aria-label="Table of contents">
+  <aside class="doc__toc doc__toc--collapsible" aria-label="Table of contents">
     <h4>Contents</h4>
-    <ol>
+    <button class="doc__toc-toggle" type="button" aria-expanded="false" aria-controls="toc-list">
+      <i class="fa-solid fa-bars"></i> Contents <i class="fa-solid fa-chevron-down doc__toc-chev"></i>
+    </button>
+    <ol id="toc-list">
       <li><a href="#agreement">Agreement</a></li>
       <li><a href="#account">Your account</a></li>
       <li><a href="#subscription">Subscription &amp; payment</a></li>

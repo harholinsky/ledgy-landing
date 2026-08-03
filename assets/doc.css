@@ -448,3 +448,30 @@
   .endpoint__path { font-size: 13px; }
   .doc__body h2 { font-size: 22px; }
 }
+
+/* Collapsible TOC (mobile accordion) */
+.doc__toc-toggle { display: none; }
+@media (max-width: 900px) {
+  .doc__toc--collapsible h4 { display: none; }
+  .doc__toc-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--foreground);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .doc__toc-toggle > i:first-child { color: var(--primary-light); }
+  .doc__toc-chev { margin-left: auto; color: var(--muted-foreground); transition: transform 0.2s ease; }
+  .doc__toc--collapsible ol { display: none; grid-template-columns: 1fr; margin-top: 8px; }
+  .doc__toc--collapsible.is-open ol { display: grid; }
+  .doc__toc--collapsible.is-open .doc__toc-chev { transform: rotate(180deg); }
+}

@@ -158,9 +158,12 @@
 
 <div class="container">
 <div class="doc">
-  <aside class="doc__toc" aria-label="Table of contents">
+  <aside class="doc__toc doc__toc--collapsible" aria-label="Table of contents">
     <h4>Contents</h4>
-    <ol>
+    <button class="doc__toc-toggle" type="button" aria-expanded="false" aria-controls="toc-list">
+      <i class="fa-solid fa-bars"></i> Contents <i class="fa-solid fa-chevron-down doc__toc-chev"></i>
+    </button>
+    <ol id="toc-list">
       <li><a href="#demo">What it looks like</a></li>
       <li><a href="#connect-chatgpt">Connect ChatGPT</a></li>
       <li><a href="#claude">Connect Claude</a></li>
@@ -194,7 +197,6 @@
         <li>Sign in with Apple, Google, or email.</li>
         <li>In any chat, mention Ledgy or drop in a statement.</li>
       </ol>
-      <p>No Developer mode or manual MCP setup needed.</p>
       <div class="callout"><i class="fa-solid fa-circle-info"></i><span>ChatGPT shows a confirmation prompt (<strong>Allow once</strong> / <strong>Always</strong>) before any write, so nothing lands in your ledger without your OK.</span></div>
       <p>Prefer a manual connection, or the app isn't available on your plan or region? Turn on <strong>Settings → Apps → Advanced settings → Developer mode</strong> (needs ChatGPT Plus, Pro, or Business), click <strong>Create</strong>, and fill in: Name: <code>Ledgy</code>. MCP Server URL: <code>https://api.ledgy.app/mcp</code>. Authentication: <strong>OAuth</strong>.</p>
       <p class="cg-section-cta"><a class="btn btn--secondary" href="https://dashboard.ledgy.app/" target="_blank" rel="noopener noreferrer" data-cta="Open your dashboard" data-cta-position="connect-chatgpt">Open your dashboard</a></p>

@@ -96,9 +96,12 @@
 
 <div class="container">
 <div class="doc">
-  <aside class="doc__toc" aria-label="Table of contents">
+  <aside class="doc__toc doc__toc--collapsible" aria-label="Table of contents">
     <h4>Contents</h4>
-    <ol>
+    <button class="doc__toc-toggle" type="button" aria-expanded="false" aria-controls="toc-list">
+      <i class="fa-solid fa-bars"></i> Contents <i class="fa-solid fa-chevron-down doc__toc-chev"></i>
+    </button>
+    <ol id="toc-list">
       <li class="toc-group">Getting started</li>
       <li><a href="#overview">Overview</a></li>
       <li><a href="#quickstart">Quickstart</a></li>

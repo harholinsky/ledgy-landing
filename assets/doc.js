@@ -39,3 +39,20 @@
   window.addEventListener("resize", onScroll);
   update();
 })();
+
+// Mobile TOC accordion (pages with .doc__toc--collapsible only)
+(function () {
+  const toc = document.querySelector(".doc__toc--collapsible");
+  const btn = toc && toc.querySelector(".doc__toc-toggle");
+  if (!btn) return;
+  btn.addEventListener("click", () => {
+    const open = toc.classList.toggle("is-open");
+    btn.setAttribute("aria-expanded", String(open));
+  });
+  toc.querySelectorAll("a").forEach(a =>
+    a.addEventListener("click", () => {
+      toc.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+    })
+  );
+})();

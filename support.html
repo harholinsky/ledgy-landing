@@ -223,9 +223,12 @@
 </section>
 
 <div class="doc">
-  <aside class="doc__toc" aria-label="Table of contents">
+  <aside class="doc__toc doc__toc--collapsible" aria-label="Table of contents">
     <h4>Articles</h4>
-    <ol>
+    <button class="doc__toc-toggle" type="button" aria-expanded="false" aria-controls="toc-list">
+      <i class="fa-solid fa-bars"></i> Articles <i class="fa-solid fa-chevron-down doc__toc-chev"></i>
+    </button>
+    <ol id="toc-list">
       <li><a href="#getting-started">Getting started</a></li>
       <li><a href="#capture">Capture surfaces</a></li>
       <li><a href="#sharing">Sharing &amp; groups</a></li>
