@@ -361,5 +361,13 @@
 
 <script src="assets/site.js" defer></script>
 <script src="assets/doc.js" defer></script>
+<div id="moved-note" style="position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#6042FE;color:#fff;font:500 15px/1.5 Inter,system-ui,sans-serif;padding:14px 20px;text-align:center;box-shadow:0 -4px 24px rgba(0,0,0,.25)">
+  Ledgy is now <strong>Manilo</strong> — we moved to <a href="https://manilo.app" style="color:#fff;text-decoration:underline">manilo.app</a>. Redirecting in <span id="moved-count">5</span>s… <a href="#" onclick="clearInterval(window.__mv);document.getElementById('moved-note').remove();return false" style="color:#cfc9ff;margin-left:8px">Stay here</a>
+</div>
+<script>
+(function(){var n=5,c=document.getElementById('moved-count');
+window.__mv=setInterval(function(){n--;if(c)c.textContent=n;
+if(n<=0){clearInterval(window.__mv);location.replace('https://manilo.app'+location.pathname+location.search+location.hash);}},1000);})();
+</script>
 </body>
 </html>
