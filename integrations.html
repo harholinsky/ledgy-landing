@@ -2,41 +2,44 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.className += " js";</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ledgy MCP — Expense Tracker for Claude, ChatGPT & Cursor</title>
-<meta name="description" content="Log, query, and edit expenses from Claude, ChatGPT, Cursor, or any AI assistant that speaks Model Context Protocol (MCP). The only expense tracker with a native MCP server.">
-<meta name="keywords" content="mcp expense tracker, mcp server setup, cursor expense tracker, model context protocol finance, ai expense logger, log expenses from claude">
+<title>Connect Ledgy to ChatGPT, Claude &amp; Cursor — MCP Expense Tracker</title>
+<meta name="description" content="Ledgy is the expense tracker with a native MCP server. Connect ChatGPT or Cursor in one click, Claude or any MCP client with a copy-paste URL. ~1 minute setup.">
+<meta name="keywords" content="mcp expense tracker, connect ledgy to chatgpt, claude expense tracker, cursor mcp server, mcp server setup, model context protocol finance, ai expense logger, log expenses from claude">
 <link rel="canonical" href="https://ledgy.app/integrations">
 <link rel="alternate" hreflang="en" href="https://ledgy.app/integrations">
 <link rel="alternate" hreflang="x-default" href="https://ledgy.app/integrations">
 <meta name="apple-itunes-app" content="app-id=6761738170">
 <meta name="theme-color" content="#0a0a14">
 <meta property="og:site_name" content="Ledgy">
-<meta property="og:title" content="Ledgy MCP — Expense Tracker for Claude, ChatGPT & Cursor">
-<meta property="og:description" content="Log, query, and edit expenses from Claude, ChatGPT, Cursor, or any MCP-compatible AI assistant. The only expense tracker with a native MCP server.">
+<meta property="og:title" content="Connect Ledgy to ChatGPT, Claude &amp; Cursor — MCP Expense Tracker">
+<meta property="og:description" content="Pick your AI assistant and connect Ledgy in about a minute — one click for ChatGPT and Cursor, a copy-paste MCP URL for Claude and every other client.">
 <meta property="og:image" content="https://ledgy.app/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://ledgy.app/integrations">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ledgy MCP — Expense Tracker for Claude, ChatGPT & Cursor">
-<meta name="twitter:description" content="The only expense tracker with a native MCP server. Connect to Claude, ChatGPT, Cursor.">
+<meta name="twitter:title" content="Connect Ledgy to ChatGPT, Claude &amp; Cursor — MCP Expense Tracker">
+<meta name="twitter:description" content="The expense tracker with a native MCP server. Pick your assistant, connect in about a minute, then just ask about your money.">
 <meta name="twitter:image" content="https://ledgy.app/assets/og-image.png">
 <link rel="icon" type="image/svg+xml" href="assets/ledgy-icon.svg">
 <link rel="apple-touch-icon" href="assets/ledgy-icon.svg">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/doc.css">
+<link rel="stylesheet" href="assets/integrations.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "Ledgy MCP — Expense Tracker for Claude, ChatGPT & Cursor",
-  "description": "How to connect Ledgy to Claude, ChatGPT, Cursor, or any AI assistant that speaks Model Context Protocol.",
+  "headline": "Connect Ledgy to ChatGPT, Claude & Cursor — MCP Expense Tracker",
+  "description": "How to connect the Ledgy expense tracker to ChatGPT, Claude, Cursor, or any AI assistant that speaks Model Context Protocol.",
   "url": "https://ledgy.app/integrations",
   "inLanguage": "en",
   "datePublished": "2026-05-19",
+  "dateModified": "2026-08-16",
   "author": {
     "@type": "Person",
     "name": "Borys Harholinskyi"
@@ -68,6 +71,46 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to connect Ledgy to ChatGPT",
+  "description": "Connect the Ledgy expense tracker to ChatGPT in two steps.",
+  "totalTime": "PT1M",
+  "step": [
+    { "@type": "HowToStep", "position": 1, "name": "Connect Ledgy to ChatGPT", "text": "Open the Ledgy app in ChatGPT and click Connect.", "url": "https://ledgy.app/integrations#chatgpt" },
+    { "@type": "HowToStep", "position": 2, "name": "Follow the instructions", "text": "Sign in with Apple, Google, or email and grant access. Then mention Ledgy in any chat." }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to connect Ledgy to Claude",
+  "description": "Add the Ledgy expense tracker to Claude as a custom MCP connector.",
+  "totalTime": "PT1M",
+  "step": [
+    { "@type": "HowToStep", "position": 1, "name": "Open connector settings", "text": "In claude.ai or Claude Desktop, go to Settings → Connectors → Add custom connector.", "url": "https://ledgy.app/integrations#claude" },
+    { "@type": "HowToStep", "position": 2, "name": "Paste the Ledgy server URL", "text": "Name: Ledgy. Server URL: https://api.ledgy.app/mcp." },
+    { "@type": "HowToStep", "position": 3, "name": "Add and sign in", "text": "Click Add, sign in with Apple, Google, or email, then enable Ledgy from the connectors menu in any chat." }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to connect Ledgy to Cursor",
+  "description": "Install the Ledgy MCP server in Cursor with one click.",
+  "totalTime": "PT1M",
+  "step": [
+    { "@type": "HowToStep", "position": 1, "name": "Add Ledgy to Cursor", "text": "Use the one-click install link, or add https://api.ledgy.app/mcp to mcp.json.", "url": "https://ledgy.app/integrations#cursor" },
+    { "@type": "HowToStep", "position": 2, "name": "Follow the instructions", "text": "Click Install when Cursor opens, then complete the sign-in in your browser." }
+  ]
+}
+</script>
 <script src="assets/analytics.js" defer></script>
 </head>
 <body data-screen-label="06 Integrations">
@@ -92,105 +135,349 @@
 <main id="main">
 <section class="doc-hero">
   <div class="container">
-    <span class="t-eyebrow">Product</span>
-    <h1>Integrations</h1>
-    <p class="doc-meta">
-      <span><i class="fa-solid fa-plug"></i> Talk to your money. Connect Ledgy to any AI assistant that speaks Model Context Protocol.</span>
-    </p>
+    <div class="ig-wrap">
+      <span class="t-eyebrow">Integrations</span>
+      <h1>Connect Ledgy to ChatGPT, Claude, or Cursor</h1>
+      <p class="ig-lead">Ledgy is the only expense tracker with a native MCP server. Log expenses, query your spending, and move money in plain English from any AI assistant that speaks Model Context Protocol.</p>
+      <p class="doc-meta">
+        <span><i class="fa-solid fa-stopwatch"></i> Set up in about a minute</span>
+        <span><i class="fa-solid fa-shield-halved"></i> OAuth sign-in — your password is never shared</span>
+        <span><i class="fa-solid fa-plug"></i> Works with any MCP client</span>
+      </p>
+    </div>
   </div>
 </section>
 
 <div class="container">
-<div class="doc">
-  <aside class="doc__toc doc__toc--collapsible" aria-label="Table of contents">
-    <h4>Contents</h4>
-    <button class="doc__toc-toggle" type="button" aria-expanded="false" aria-controls="toc-list">
-      <i class="fa-solid fa-bars"></i> Contents <i class="fa-solid fa-chevron-down doc__toc-chev"></i>
-    </button>
-    <ol id="toc-list">
-      <li><a href="#quick-start-chatgpt">Quick start for ChatGPT</a></li>
-      <li><a href="#quick-start">Quick start for Claude</a></li>
-      <li><a href="#prompts">What you can ask</a></li>
-      <li><a href="#capabilities">What Ledgy can do</a></li>
-      <li><a href="#privacy">Privacy &amp; control</a></li>
-      <li><a href="#other-clients">Other clients</a></li>
-      <li><a href="#support">Support</a></li>
-    </ol>
-  </aside>
+<div class="ig-wrap">
 
-  <article class="doc__body">
-    <section id="quick-start-chatgpt">
-      <h2 data-num="01">Quick start for ChatGPT</h2>
-      <ol>
-        <li>Open the <a href="https://chatgpt.com/plugins/plugin_asdk_app_6a037e4f480081919938b01d5943dec4" target="_blank" rel="noopener">Ledgy app in ChatGPT</a>.</li>
-        <li>Click <strong>Connect</strong> → sign in → grant access.</li>
-        <li>In any chat, just mention Ledgy or ask about your finances — ChatGPT picks up the app automatically.</li>
-      </ol>
-      <p class="doc-meta"><span><i class="fa-solid fa-circle-info"></i> ChatGPT will show a confirmation prompt before any write action (e.g. adding a transaction).</span></p>
-      <p>More detail, including bank statement import, on the <a href="chatgpt.html">Ledgy in ChatGPT</a> page.</p>
+  <section class="ig-section" id="picker" aria-labelledby="picker-title">
+    <span class="t-eyebrow">Setup</span>
+    <h2 id="picker-title">What AI assistant do you use?</h2>
+
+    <div class="ig-picker" role="tablist" aria-labelledby="picker-title">
+      <button class="ig-tab ig-tab--chatgpt" id="tab-chatgpt" type="button" role="tab" aria-selected="true" aria-controls="panel-chatgpt" data-assistant="chatgpt">
+        <span class="ig-tab__logo" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg></span>
+        <span class="ig-tab__name">ChatGPT</span>
+        <span class="ig-tab__hint">2 steps · one click</span>
+        <i class="fa-solid fa-circle-check ig-tab__check" aria-hidden="true"></i>
+      </button>
+      <button class="ig-tab ig-tab--claude" id="tab-claude" type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel-claude" data-assistant="claude">
+        <span class="ig-tab__logo" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg></span>
+        <span class="ig-tab__name">Claude</span>
+        <span class="ig-tab__hint">3 steps · copy a URL</span>
+        <i class="fa-solid fa-circle-check ig-tab__check" aria-hidden="true"></i>
+      </button>
+      <button class="ig-tab ig-tab--cursor" id="tab-cursor" type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel-cursor" data-assistant="cursor">
+        <span class="ig-tab__logo" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"/></svg></span>
+        <span class="ig-tab__name">Cursor</span>
+        <span class="ig-tab__hint">2 steps · one click</span>
+        <i class="fa-solid fa-circle-check ig-tab__check" aria-hidden="true"></i>
+      </button>
+      <button class="ig-tab ig-tab--other" id="tab-other" type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel-other" data-assistant="other">
+        <span class="ig-tab__logo" aria-hidden="true"><i class="fa-solid fa-plug"></i></span>
+        <span class="ig-tab__name">Other</span>
+        <span class="ig-tab__hint">Windsurf, VS Code &amp; more</span>
+        <i class="fa-solid fa-circle-check ig-tab__check" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <section class="ig-panel is-active" id="panel-chatgpt" role="tabpanel" tabindex="0" aria-labelledby="tab-chatgpt">
+      <div class="glass-flat ig-panel__card">
+        <header class="ig-panel__head">
+          <h3>Connect Ledgy to ChatGPT</h3>
+          <span class="ig-time"><i class="fa-regular fa-clock"></i> About a minute</span>
+        </header>
+        <ol class="ig-steps">
+          <li>
+            <span class="ig-steps__num" aria-hidden="true">1</span>
+            <div class="ig-steps__body">
+              <strong>Connect Ledgy to ChatGPT</strong>
+              <p>The button opens the Ledgy app inside ChatGPT.</p>
+              <p class="ig-steps__action"><a class="btn btn--primary" href="https://chatgpt.com/plugins/plugin_asdk_app_6a037e4f480081919938b01d5943dec4" target="_blank" rel="noopener" data-cta="Connect Ledgy to ChatGPT" data-cta-position="panel-chatgpt"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg> Connect Ledgy to ChatGPT</a></p>
+            </div>
+          </li>
+          <li>
+            <span class="ig-steps__num" aria-hidden="true">2</span>
+            <div class="ig-steps__body">
+              <strong>Follow the instructions</strong>
+              <p>Click <strong>Connect</strong>, sign in with Apple, Google, or email, and grant access.</p>
+            </div>
+          </li>
+          <li class="ig-steps__done">
+            <span class="ig-steps__num ig-steps__num--done" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+            <div class="ig-steps__body">
+              <strong>That's it — just chat</strong>
+              <p>Mention Ledgy or ask about your money in any chat — <em>“What did I spend on groceries in July?”</em> ChatGPT picks the app up automatically.</p>
+            </div>
+          </li>
+        </ol>
+        <details class="ig-manual">
+          <summary><i class="fa-solid fa-chevron-right"></i> App not available on your plan or region, or prefer manual setup?</summary>
+          <div class="ig-manual__body">
+            <p>Turn on <strong>Settings → Apps → Advanced settings → Developer mode</strong> (needs ChatGPT Plus, Pro, or Business), click <strong>Create</strong>, and fill in:</p>
+            <ul>
+              <li>Name: <code>Ledgy</code></li>
+              <li>MCP Server URL: <code>https://api.ledgy.app/mcp</code></li>
+              <li>Authentication: <strong>OAuth</strong></li>
+            </ul>
+          </div>
+        </details>
+        <p class="ig-more">Full statement-import walkthrough on the <a href="chatgpt.html">Ledgy in ChatGPT</a> page.</p>
+      </div>
     </section>
 
-    <section id="quick-start">
-      <h2 data-num="02">Quick start for Claude</h2>
-      <ol>
-        <li>Open Claude → <strong>Settings → Connectors</strong> → <em>Add custom connector</em>.</li>
-        <li>Name: <code>Ledgy</code>.</li>
-        <li>Server URL: <code>https://api.ledgy.app/mcp</code>.</li>
-        <li>Click <strong>Add</strong> → sign in → grant access.</li>
-        <li>Open any chat → enable <strong>Ledgy</strong> under the connectors menu → ask away.</li>
-      </ol>
-      <p class="doc-meta"><span><i class="fa-solid fa-circle-info"></i> Works in Claude.ai and Claude Desktop. Mobile clients that support custom MCP connectors will also work.</span></p>
-      <p>More detail, including bank statement import, on the <a href="chatgpt.html#claude">Ledgy in ChatGPT</a> page.</p>
+    <section class="ig-panel" id="panel-claude" role="tabpanel" tabindex="0" aria-labelledby="tab-claude">
+      <div class="glass-flat ig-panel__card">
+        <header class="ig-panel__head">
+          <h3>Connect Ledgy to Claude</h3>
+          <span class="ig-time"><i class="fa-regular fa-clock"></i> About a minute</span>
+        </header>
+        <ol class="ig-steps">
+          <li>
+            <span class="ig-steps__num" aria-hidden="true">1</span>
+            <div class="ig-steps__body">
+              <strong>Open connector settings</strong>
+              <p>In <strong>claude.ai</strong> or Claude Desktop, go to <strong>Settings → Connectors</strong> → <em>Add custom connector</em>.</p>
+            </div>
+          </li>
+          <li>
+            <span class="ig-steps__num" aria-hidden="true">2</span>
+            <div class="ig-steps__body">
+              <strong>Paste the Ledgy server URL</strong>
+              <p>Name: <code>Ledgy</code>. Server URL:</p>
+              <div class="ig-copy">
+                <code>https://api.ledgy.app/mcp</code>
+                <button class="ig-copy__btn" type="button" data-copy="https://api.ledgy.app/mcp" aria-label="Copy server URL"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Copy</span></button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="ig-steps__num" aria-hidden="true">3</span>
+            <div class="ig-steps__body">
+              <strong>Add and sign in</strong>
+              <p>Click <strong>Add</strong>, sign in with Apple, Google, or email, then enable <strong>Ledgy</strong> from the connectors menu in any chat.</p>
+            </div>
+          </li>
+          <li class="ig-steps__done">
+            <span class="ig-steps__num ig-steps__num--done" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+            <div class="ig-steps__body">
+              <strong>That's it — just ask</strong>
+              <p><em>“How does my April spending compare to March?”</em> Claude answers from your own data.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="ig-more">You can also drop a bank statement into Claude and have it imported — see <a href="chatgpt.html">the walkthrough</a>; the same workflow works in Claude.</p>
+      </div>
     </section>
 
-    <section id="prompts">
-      <h2 data-num="03">What you can ask</h2>
-      <ul>
-        <li><em>"What did I spend on coffee last month?"</em> — aggregation by category over a date range.</li>
-        <li><em>"Add a €12 lunch at Pret to my Wise account from yesterday."</em> — single transaction create with merchant, amount, currency, and date parsing.</li>
-        <li><em>"Transfer 200 EUR from Wise Personal to Cash."</em> — cross-account transfer with optional cross-currency FX.</li>
-        <li><em>"How does my April spending compare to March?"</em> — multi-period aggregation in your primary currency.</li>
-        <li><em>"Find every transaction over €100 in May."</em> — filtered transaction search.</li>
-        <li><em>"Show my top 5 categories this quarter."</em> — top-N aggregation.</li>
-        <li><em>"What's my Santander balance right now?"</em> — live balance using the same formula as the mobile app.</li>
-        <li><em>"Reconcile Santander to 616 EUR — my bank app shows that."</em> — one-shot adjustment to align Ledgy with an external figure.</li>
-      </ul>
+    <section class="ig-panel" id="panel-cursor" role="tabpanel" tabindex="0" aria-labelledby="tab-cursor">
+      <div class="glass-flat ig-panel__card">
+        <header class="ig-panel__head">
+          <h3>Connect Ledgy to Cursor</h3>
+          <span class="ig-time"><i class="fa-regular fa-clock"></i> About a minute</span>
+        </header>
+        <ol class="ig-steps">
+          <li>
+            <span class="ig-steps__num" aria-hidden="true">1</span>
+            <div class="ig-steps__body">
+              <strong>Add Ledgy to Cursor</strong>
+              <p>One click — the button opens Cursor with the Ledgy MCP server pre-filled.</p>
+              <p class="ig-steps__action"><a class="btn btn--primary" href="https://cursor.com/install-mcp?name=ledgy&amp;config=eyJ1cmwiOiJodHRwczovL2FwaS5sZWRneS5hcHAvbWNwIn0%3D" target="_blank" rel="noopener" data-cta="Add Ledgy to Cursor" data-cta-position="panel-cursor"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"/></svg> Add Ledgy to Cursor</a></p>
+            </div>
+          </li>
+          <li>
+            <span class="ig-steps__num" aria-hidden="true">2</span>
+            <div class="ig-steps__body">
+              <strong>Follow the instructions</strong>
+              <p>Click <strong>Install</strong> when Cursor opens, then finish the sign-in in your browser.</p>
+            </div>
+          </li>
+          <li class="ig-steps__done">
+            <span class="ig-steps__num ig-steps__num--done" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+            <div class="ig-steps__body">
+              <strong>That's it — ask the agent</strong>
+              <p><em>“Log the €14 team lunch I just paid for.”</em> Works in chat and in the composer.</p>
+            </div>
+          </li>
+        </ol>
+        <details class="ig-manual">
+          <summary><i class="fa-solid fa-chevron-right"></i> Prefer to add it by hand?</summary>
+          <div class="ig-manual__body">
+            <p>Add this to your <code>mcp.json</code> (Cursor Settings → MCP), then complete the OAuth sign-in when prompted:</p>
+            <div class="code-block"><div class="code-block__header"><span class="code-block__lang">mcp.json</span></div><pre>{
+  <span class="c-key">"mcpServers"</span>: {
+    <span class="c-key">"ledgy"</span>: { <span class="c-key">"url"</span>: <span class="c-str">"https://api.ledgy.app/mcp"</span> }
+  }
+}</pre></div>
+          </div>
+        </details>
+        <p class="ig-more">Expenses logged from Cursor sync instantly to the <a href="https://dashboard.ledgy.app" target="_blank" rel="noopener noreferrer">web dashboard</a> and the iOS app.</p>
+      </div>
     </section>
 
-    <section id="capabilities">
-      <h2 data-num="04">What Ledgy can do</h2>
-      <ul>
-        <li>Read your accounts, transactions, categories, budgets, groups, and tags.</li>
-        <li>Add or edit transactions, accounts, categories, budgets, and recurring rules.</li>
-        <li>Move money between accounts, including cross-currency transfers with FX.</li>
-        <li>Convert currencies at live ECB rates.</li>
-        <li>Attach receipts (server-side fetch from a public URL) and fetch a signed download URL.</li>
-        <li>Compute live account balances and reconcile against an external figure.</li>
-      </ul>
+    <section class="ig-panel" id="panel-other" role="tabpanel" tabindex="0" aria-labelledby="tab-other">
+      <div class="glass-flat ig-panel__card">
+        <header class="ig-panel__head">
+          <h3>Connect any MCP client</h3>
+          <span class="ig-time"><i class="fa-regular fa-clock"></i> About a minute</span>
+        </header>
+        <ol class="ig-steps">
+          <li>
+            <span class="ig-steps__num" aria-hidden="true">1</span>
+            <div class="ig-steps__body">
+              <strong>Add a remote MCP server</strong>
+              <p>In Windsurf, VS Code, Continue, Zed, or your own agent, add a remote server and point it at:</p>
+              <div class="ig-copy">
+                <code>https://api.ledgy.app/mcp</code>
+                <button class="ig-copy__btn" type="button" data-copy="https://api.ledgy.app/mcp" aria-label="Copy server URL"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Copy</span></button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="ig-steps__num" aria-hidden="true">2</span>
+            <div class="ig-steps__body">
+              <strong>Sign in when prompted</strong>
+              <p>Your client completes OAuth 2.1 with PKCE. Dynamic Client Registration (RFC 7591) is supported, so no manual <code>client_id</code> or credential exchange is needed.</p>
+            </div>
+          </li>
+          <li class="ig-steps__done">
+            <span class="ig-steps__num ig-steps__num--done" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+            <div class="ig-steps__body">
+              <strong>That's it — same tools everywhere</strong>
+              <p>Every MCP client gets the same 30+ tools across transactions, accounts, budgets, and more.</p>
+            </div>
+          </li>
+        </ol>
+        <div class="ig-clients" aria-label="Known-good MCP clients">
+          <span>Windsurf</span><span>VS Code</span><span>Continue</span><span>Zed</span><span>Custom agents</span>
+        </div>
+        <p class="ig-more">Building your own integration in code? Use the <a href="api-v1.html">REST API v1</a> instead.</p>
+      </div>
     </section>
+  </section>
 
-    <section id="privacy">
-      <h2 data-num="05">Privacy &amp; control</h2>
-      <ul>
-        <li>The assistant only sees data you ask about. We don't push your full ledger to Anthropic or OpenAI on connection.</li>
-        <li>You sign in with your Ledgy account. We never see your password.</li>
-        <li>Disconnect any time from your client's <strong>Settings → Connectors</strong> (Claude, ChatGPT, or any other MCP client). Revoking access takes effect immediately.</li>
-      </ul>
-      <p>Full details in our <a href="privacy.html">Privacy Policy</a>.</p>
-    </section>
+  <section class="ig-section" id="prompts" aria-labelledby="prompts-title">
+    <div class="ig-section__head">
+      <span class="t-eyebrow">Everyday use</span>
+      <h2 id="prompts-title">What you can ask</h2>
+      <p class="t-dim">Every answer is computed from your own data — not an estimate.</p>
+    </div>
+    <div class="ig-prompts">
+      <div class="ig-prompt">
+        <p class="ig-prompt__q"><i class="fa-solid fa-quote-left" aria-hidden="true"></i>What did I spend on coffee last month?</p>
+        <p class="ig-prompt__a">Totals by category over any date range.</p>
+      </div>
+      <div class="ig-prompt">
+        <p class="ig-prompt__q"><i class="fa-solid fa-quote-left" aria-hidden="true"></i>Add a €12 lunch at Pret to my Wise account from yesterday.</p>
+        <p class="ig-prompt__a">Parses merchant, amount, currency, and date.</p>
+      </div>
+      <div class="ig-prompt">
+        <p class="ig-prompt__q"><i class="fa-solid fa-quote-left" aria-hidden="true"></i>Transfer 200 EUR from Wise Personal to Cash.</p>
+        <p class="ig-prompt__a">Cross-account transfers, including cross-currency FX.</p>
+      </div>
+      <div class="ig-prompt">
+        <p class="ig-prompt__q"><i class="fa-solid fa-quote-left" aria-hidden="true"></i>How does my April spending compare to March?</p>
+        <p class="ig-prompt__a">Multi-period comparison in your primary currency.</p>
+      </div>
+      <div class="ig-prompt">
+        <p class="ig-prompt__q"><i class="fa-solid fa-quote-left" aria-hidden="true"></i>Find every transaction over €100 in May.</p>
+        <p class="ig-prompt__a">Filtered transaction search.</p>
+      </div>
+      <div class="ig-prompt">
+        <p class="ig-prompt__q"><i class="fa-solid fa-quote-left" aria-hidden="true"></i>Show my top 5 categories this quarter.</p>
+        <p class="ig-prompt__a">Top-N aggregation.</p>
+      </div>
+      <div class="ig-prompt">
+        <p class="ig-prompt__q"><i class="fa-solid fa-quote-left" aria-hidden="true"></i>What's my Santander balance right now?</p>
+        <p class="ig-prompt__a">Live balance — same formula as the mobile app.</p>
+      </div>
+      <div class="ig-prompt">
+        <p class="ig-prompt__q"><i class="fa-solid fa-quote-left" aria-hidden="true"></i>Reconcile Santander to 616 EUR — my bank app shows that.</p>
+        <p class="ig-prompt__a">One-shot adjustment to match an external figure.</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="other-clients">
-      <h2 data-num="06">Other clients</h2>
-      <p>Ledgy works with any MCP-compatible client — Cursor, Continue, custom desktop apps, and others. The setup is the same: add the MCP server URL <code>https://api.ledgy.app/mcp</code>, complete the OAuth sign-in, and start asking. Dynamic Client Registration (RFC 7591) means no manual credential exchange is required.</p>
-    </section>
+  <section class="ig-section" id="capabilities" aria-labelledby="capabilities-title">
+    <div class="ig-section__head">
+      <span class="t-eyebrow">Capabilities</span>
+      <h2 id="capabilities-title">What Ledgy can do once connected</h2>
+      <p class="t-dim">The MCP server exposes 30+ tools to your assistant.</p>
+    </div>
+    <div class="ig-caps">
+      <div class="ig-cap">
+        <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+        <h3>Read everything</h3>
+        <p>Accounts, transactions, categories, budgets, groups, and tags.</p>
+      </div>
+      <div class="ig-cap">
+        <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+        <h3>Add &amp; edit</h3>
+        <p>Transactions, accounts, categories, budgets, and recurring rules.</p>
+      </div>
+      <div class="ig-cap">
+        <i class="fa-solid fa-right-left" aria-hidden="true"></i>
+        <h3>Move money</h3>
+        <p>Transfers between accounts, including cross-currency with FX.</p>
+      </div>
+      <div class="ig-cap">
+        <i class="fa-solid fa-coins" aria-hidden="true"></i>
+        <h3>Convert currencies</h3>
+        <p>Live ECB rates; dashboard totals in your primary currency.</p>
+      </div>
+      <div class="ig-cap">
+        <i class="fa-solid fa-receipt" aria-hidden="true"></i>
+        <h3>Handle receipts</h3>
+        <p>Attach from a public URL and fetch signed download links.</p>
+      </div>
+      <div class="ig-cap">
+        <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+        <h3>Balance &amp; reconcile</h3>
+        <p>Live account balances and one-shot reconciliation against your bank.</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="support">
-      <h2 data-num="07">Support</h2>
-      <p>Stuck or want a feature? Open the <a href="support.html">help center</a> or email <a href="mailto:support@ledgy.app">support@ledgy.app</a>.</p>
-    </section>
-  </article>
+  <section class="ig-section" id="privacy" aria-labelledby="privacy-title">
+    <div class="ig-section__head">
+      <span class="t-eyebrow">Trust</span>
+      <h2 id="privacy-title">Privacy &amp; control</h2>
+    </div>
+    <div class="ig-priv">
+      <div class="ig-priv__item">
+        <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
+        <h3>Sees only what you ask about</h3>
+        <p>The assistant gets the data your question needs. We don't push your full ledger to Anthropic or OpenAI on connection.</p>
+      </div>
+      <div class="ig-priv__item">
+        <i class="fa-solid fa-key" aria-hidden="true"></i>
+        <h3>Your password stays yours</h3>
+        <p>You sign in on Ledgy's own consent page with Apple, Google, or email. The assistant never sees your password.</p>
+      </div>
+      <div class="ig-priv__item">
+        <i class="fa-solid fa-plug-circle-xmark" aria-hidden="true"></i>
+        <h3>Disconnect any time</h3>
+        <p>Remove the connector in your client's settings — Claude, ChatGPT, or any other. Revoking access takes effect immediately.</p>
+      </div>
+    </div>
+    <p class="ig-priv-note">Full details in our <a href="privacy.html">Privacy Policy</a>.</p>
+  </section>
+
 </div>
 </div>
+
+<section class="cta-band" id="support">
+  <div class="cta-band__inner">
+    <h2>Ready to talk to your money?</h2>
+    <p>Connect once, then just ask. Setup takes about a minute.</p>
+    <div class="cta-band__buttons">
+      <a class="btn btn--primary btn--lg" href="#picker" data-cta="Pick your assistant" data-cta-position="cta-band">Pick your assistant</a>
+      <a class="btn btn--secondary btn--lg" href="https://apps.apple.com/app/id6761738170" target="_blank" rel="noopener noreferrer" data-cta="Get the iOS app" data-cta-position="cta-band"><i class="fa-brands fa-apple" aria-hidden="true"></i> Get the iOS app</a>
+    </div>
+    <p class="ig-cta-note">Stuck or missing a client? <a href="support.html">Help center</a> · <a href="mailto:support@ledgy.app">support@ledgy.app</a></p>
+  </div>
+</section>
 </main>
 
 <footer class="site-footer">
@@ -210,6 +497,85 @@
 </footer>
 
 <script src="assets/site.js" defer></script>
-<script src="assets/doc.js" defer></script>
+<script>
+// Assistant picker — accessible tabs with hash deep-links and copy buttons.
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".ig-tab"));
+  if (!tabs.length) return;
+  var panels = {};
+  tabs.forEach(function (t) { panels[t.dataset.assistant] = document.getElementById("panel-" + t.dataset.assistant); });
+  // Old section ids from the previous version of this page.
+  var LEGACY = { "quick-start-chatgpt": "chatgpt", "quick-start": "claude", "other-clients": "other" };
+
+  function select(key, opts) {
+    opts = opts || {};
+    if (!panels[key]) return;
+    tabs.forEach(function (t) {
+      var on = t.dataset.assistant === key;
+      t.setAttribute("aria-selected", String(on));
+      t.tabIndex = on ? 0 : -1;
+      panels[t.dataset.assistant].classList.toggle("is-active", on);
+    });
+    if (opts.updateHash && history.replaceState) history.replaceState(null, "", "#" + key);
+    if (opts.track) {
+      var evt = { assistant: key, page: location.pathname };
+      if (window.plausible) window.plausible("assistant_select", { props: evt });
+      if (window.gtag) window.gtag("event", "assistant_select", evt);
+    }
+  }
+
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { select(t.dataset.assistant, { updateHash: true, track: true }); });
+    t.addEventListener("keydown", function (e) {
+      var next = null;
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") next = (i + 1) % tabs.length;
+      else if (e.key === "ArrowLeft" || e.key === "ArrowUp") next = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === "Home") next = 0;
+      else if (e.key === "End") next = tabs.length - 1;
+      if (next === null) return;
+      e.preventDefault();
+      tabs[next].focus();
+      select(tabs[next].dataset.assistant, { updateHash: true });
+    });
+  });
+
+  function fromHash(scroll) {
+    var h = decodeURIComponent(location.hash.slice(1));
+    var key = panels[h] ? h : LEGACY[h];
+    if (!key) return false;
+    select(key);
+    if (scroll) {
+      var picker = document.getElementById("picker");
+      if (picker) requestAnimationFrame(function () { picker.scrollIntoView({ block: "start" }); });
+    }
+    return true;
+  }
+  if (!fromHash(true)) select("chatgpt");
+  window.addEventListener("hashchange", function () { fromHash(false); });
+
+  // Copy-to-clipboard for the MCP server URL.
+  document.querySelectorAll("[data-copy]").forEach(function (btn) {
+    var icon = btn.querySelector("i");
+    var label = btn.querySelector("span");
+    btn.addEventListener("click", function () {
+      var done = function () {
+        btn.classList.add("is-copied");
+        if (icon) icon.className = "fa-solid fa-check";
+        if (label) label.textContent = "Copied";
+        setTimeout(function () {
+          btn.classList.remove("is-copied");
+          if (icon) icon.className = "fa-regular fa-copy";
+          if (label) label.textContent = "Copy";
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(btn.dataset.copy).then(done, done);
+      } else {
+        done();
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>

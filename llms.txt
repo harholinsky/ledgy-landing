@@ -20,7 +20,7 @@
 
 - [Home](https://ledgy.app/): overview, features, capture surfaces, MCP, FAQ
 - [Plans & upgrade](https://dashboard.ledgy.app/upgrade): plan selector and web checkout (on the dashboard)
-- [Integrations / MCP](https://ledgy.app/integrations): step-by-step Claude and ChatGPT setup, full prompt examples, privacy controls
+- [Integrations / MCP](https://ledgy.app/integrations): pick your assistant (ChatGPT, Claude, Cursor, or any MCP client) and connect in about a minute — one-click install for ChatGPT and Cursor, copy-paste server URL for Claude and the rest; prompt examples, capabilities, privacy controls
 - [Ledgy in ChatGPT](https://ledgy.app/chatgpt): import bank statements by chat (ChatGPT or Claude), connection steps, statement formats, trial and pricing FAQ
 
 ## Documentation
