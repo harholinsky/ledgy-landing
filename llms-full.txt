@@ -20,7 +20,7 @@ Ledgy is not a bank. It does not connect to bank accounts via open banking. It t
 ## Pricing
 
 - Free plan: unlimited transactions, accounts, categories, tags, multi-currency, CSV import/export, receipts, budgets, local notifications, 14 languages. Single-device, offline only.
-- Cloud plan: $2.99/month or $22.99/year (~$1.92/month, save 36%). Includes everything in Free plus: AI voice intake, AI photo intake (receipt parsing), Siri shortcuts, Apple Watch logging, Telegram bot, Apple Wallet auto-log, iOS Share extension, web dashboard, ask-AI-about-spending via MCP, group sharing (accounts, budgets, groups), multi-device sync, cloud backup. 7-day free trial, cancel any time from the iOS App Store.
+- Cloud plan: $5.99/month or $39.99/year (~$3.33/month, save 44%). Includes everything in Free plus: AI voice intake, AI photo intake (receipt parsing), Siri shortcuts, Apple Watch logging, Telegram bot, Apple Wallet auto-log, iOS Share extension, web dashboard, ask-AI-about-spending via MCP, group sharing (accounts, budgets, groups), multi-device sync, cloud backup. 7-day free trial, cancel any time from the iOS App Store.
 
 ## MCP integration details
 
